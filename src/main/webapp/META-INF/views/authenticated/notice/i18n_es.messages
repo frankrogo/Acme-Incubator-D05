@@ -1,0 +1,12 @@
+authenticated.notice.form.label.header = Cabecera:
+authenticated.notice.form.label.title = Título:
+authenticated.notice.form.label.creationMoment = Fecha de creación:
+authenticated.notice.form.label.deadline = Fecha límite:
+authenticated.notice.form.label.body = Cuerpo:
+authenticated.notice.form.label.links = Noticias relacionadas:
+authenticated.notice.form.button.return = Volver
+
+
+authenticated.notice.list.label.title = Título
+authenticated.notice.list.label.creationMoment = Fecha de creación
+authenticated.notice.list.label.deadline = Fecha límite

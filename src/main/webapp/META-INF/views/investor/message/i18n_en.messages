@@ -1,0 +1,9 @@
+investor.message.list.label.title = Title
+investor.message.list.label.creationMoment = Creation moment
+investor.message.list.button.return = Return
+
+investor.message.form.label.title = Title
+investor.message.form.label.creationMoment = Creation moment
+investor.message.form.label.tags = Tags
+investor.message.form.label.body = Body
+investor.message.form.button.return = Return

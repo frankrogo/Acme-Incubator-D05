@@ -1,0 +1,18 @@
+administrator.notice.form.label.header = Cabecera:
+administrator.notice.form.label.title = Título:
+administrator.notice.form.label.creationMoment = Fecha de creación:
+administrator.notice.form.label.deadline = Fecha límite:
+administrator.notice.form.label.body = Cuerpo:
+administrator.notice.form.label.links = Noticias relacionadas:
+administrator.notice.form.label.checked = Confirmar
+administrator.notice.form.button.create = Crear
+administrator.notice.form.button.return = Volver
+
+administrator.notice.error.must-check = Debes confirmar para guardar el aviso
+administrator.notice.error.future-deadline = La fecha límite debe ser como mínimo una semana después de este momento
+administrator.notice.error.links = Formato URL inválido
+administrator.notice.error.comma = Una "," debe aparecer despúes de un link o entre ellos
+
+administrator.notice.list.label.title = Título
+administrator.notice.list.label.creationMoment = Fecha de creación
+administrator.notice.list.label.deadline = Fecha límite

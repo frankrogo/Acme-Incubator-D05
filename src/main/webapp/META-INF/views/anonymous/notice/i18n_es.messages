@@ -1,0 +1,12 @@
+anonymous.notice.form.label.header = Cabecera:
+anonymous.notice.form.label.title = Título:
+anonymous.notice.form.label.creationMoment = Fecha de creación:
+anonymous.notice.form.label.deadline = Fecha límite:
+anonymous.notice.form.label.body = Cuerpo:
+anonymous.notice.form.label.links = Noticias relacionadas:
+anonymous.notice.form.button.return = Volver
+
+
+anonymous.notice.list.label.title = Título
+anonymous.notice.list.label.creationMoment = Fecha de creación
+anonymous.notice.list.label.deadline = Fecha límite

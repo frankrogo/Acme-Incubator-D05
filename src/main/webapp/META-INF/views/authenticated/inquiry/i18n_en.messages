@@ -1,0 +1,12 @@
+authenticated.inquiry.form.label.title = Title:
+authenticated.inquiry.form.label.creationMoment = Creation Moment:
+authenticated.inquiry.form.label.deadline = Deadline:
+authenticated.inquiry.form.label.description = Description:
+authenticated.inquiry.form.label.minMoney = Min Money:
+authenticated.inquiry.form.label.maxMoney = Max Money:
+authenticated.inquiry.form.label.email = Email:
+authenticated.inquiry.form.button.return = Return
+
+authenticated.inquiry.list.label.title = Title
+authenticated.inquiry.list.label.creationMoment = Creation Moment
+authenticated.inquiry.list.label.deadline = Deadline

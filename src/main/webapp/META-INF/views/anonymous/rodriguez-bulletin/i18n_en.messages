@@ -1,0 +1,8 @@
+anonymous.rodriguez-bulletin.form.label.author = Author:
+anonymous.rodriguez-bulletin.form.label.description = Description:
+anonymous.rodriguez-bulletin.form.button.create = Create rodriguezBulletin
+anonymous.rodriguez-bulletin.form.button.return = Return
+
+anonymous.rodriguez-bulletin.list.label.author = Author
+anonymous.rodriguez-bulletin.list.label.description = Description
+anonymous.rodriguez-bulletin.list.label.moment = Moment

@@ -1,0 +1,155 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# master.banner.welcome #######################################################
+
+master.banner.background = #FFE97F 
+
+﻿# master.welcome ##############################################################
+
+master.welcome.title = ¡Bienvenidos!
+master.welcome.text = \
+	Bienvenidos a Acme Incubator!  Nunca antes ha sido tan sencillo desarrollar un \
+	proyecto y hacerlo funcionar.
+
+# master.menu #################################################################
+
+master.menu.home = Inicio
+master.menu.sign-up = Registrarse
+master.menu.sign-in = Entrar
+master.menu.sign-out = Salir
+
+# master.menu.anonymous #######################################################
+
+master.menu.anonymous = Anónimo
+
+master.menu.anonymous.favourite-link.frankrogo = Enlace favorito de frankrogo
+master.menu.anonymous.favourite-link.serperrui1 = Enlace favorito de serperrui1
+
+master.menu.anonymous.perea-bulletin.list = Listar Perea boletines
+master.menu.anonymous.perea-bulletin.create = Nuevo Perea boletín
+master.menu.anonymous.rodriguez-bulletin.list =  Listar Rodriguez boletines
+master.menu.anonymous.rodriguez-bulletin.create = Nuevo Rodriguez boletín
+
+master.menu.anonymous.list-notice = Lista de avisos
+master.menu.anonymous.list-technology-record = Lista de registros de tecnología
+master.menu.anonymous.list-tool-record = Lista de registros de herramienta
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Autentificado
+
+master.menu.authenticated.list-notice = Lista de avisos
+master.menu.authenticated.list-technology-record = Lista de registros de tecnología
+master.menu.authenticated.list-tool-record = Lista de registros de herramienta
+master.menu.authenticated.list-inquiry = Lista de consultas
+master.menu.authenticated.list-overture = Lista de propuestas
+master.menu.authenticated.list-challenge = Lista de retos
+master.menu.authenticated.list-investment-round = Lista de rondas de inversión
+
+# master.menu.administrator ###################################################
+
+master.menu.administrator = Administrador
+
+master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.shutdown = Parar el sistema
+
+master.menu.administrator.list-notice = Lista de avisos
+master.menu.administrator.list-technology-record = Lista de registros de tecnología
+master.menu.administrator.list-tool-record = Lista de registros de herramienta
+master.menu.administrator.list-inquiry = Lista de consultas
+master.menu.administrator.list-overture = Lista de propuestas
+master.menu.administrator.list-challenge = Lista de retos
+master.menu.administrator.create-notice = Crear aviso
+master.menu.administrator.create-technology-record = Crear registro de tecnología
+master.menu.administrator.create-tool-record = Crear registro de herramienta
+master.menu.administrator.create-inquiry = Crear consulta
+master.menu.administrator.create-overture = Crear propuesta
+master.menu.administrator.create-challenge = Crear reto
+master.menu.administrator.configuration = Parametros de customización
+
+# master.menu.entrepreneur ########################################################
+
+master.menu.entrepreneur = Emprendedor
+
+master.menu.entrepreneur.investment-round.list-mine = Lista de mis rondas de inversión
+master.menu.entrepreneur.application.list-mine = Lista de applicaciones hechas a mis rondas de inversión
+master.menu.entrepreneur.forum.list-mine = Mis foros
+
+# master.menu.investor ########################################################
+
+master.menu.investor = Inversor
+
+master.menu.investor.application.list-mine = Lista de mis aplicaciones
+master.menu.investor.forum.list-mine = Mis foros
+
+# master.menu.bookeeper ########################################################
+
+master.menu.bookkeeper = Contable
+
+master.menu.bookkeeper.accounting-record.list-mine = Lista de mis registros de contabilidad
+master.menu.bookkeeper.investment-round.list-mine = Lista de rondas de inversión a los que he escrito reg. de contabilidad
+master.menu.bookkeeper.investment-round.list-not-mine = Lista de rondas de inversión a los que no he escrito reg. de contabilidad
+
+# master.menu.provider ########################################################
+
+master.menu.provider = Proveedor
+master.menu.provider.favourite-link = Enlace favorito
+
+# master.menu.consumer ##########################################################
+
+master.menu.consumer = Consumidor
+master.menu.consumer.favourite-link = Enlace favorito
+
+# master.menu.user-account ####################################################
+
+master.menu.user-account = Cuenta
+master.menu.user-account.general-data = Datos generales
+master.menu.user-account.provider = Datos de proveedor
+master.menu.user-account.become-provider = Hazte proveedor
+master.menu.user-account.consumer = Datos de consumidor
+master.menu.user-account.become-consumer = Hazte consumidor
+
+﻿# master.footer ###############################################################
+
+master.footer.title.about = Nosotros
+master.footer.label.company = La empresa
+master.footer.label.license = Licencia
+master.footer.title.social = Social
+master.footer.label.linked-in = Linked-In
+master.footer.label.twitter = Twitter
+master.footer.title.languages = Lenguages
+master.footer.label.english = Inglés
+master.footer.label.spanish = Español
+
+# master.company ##############################################################
+
+master.company.title = La compañía
+master.company.text = \
+	Acme Incubator, Inc. es una compañía fictícia que proporciona un proyecto \
+	plantilla para los estudiantes de la asignatura Diseño y Pruebas, en el Grado \
+	en Ingeniería del Software de la Universidad de Sevilla.
+master.company.name = Acme Incubator, Inc.
+master.company.address = Calle, número, Ciudad, Estado, País
+master.company.phone = +000 123 456
+master.company.email = contact@acme.com
+
+# master.license ##############################################################
+
+master.license.title = Licencia
+master.license.text = \
+	Puede usar este sistema de forma completamente gratuita respetando las leyes \
+	que sean aplicables.  No compartimos ninguna información sobre Ud. con ninguna \
+	otra empresa.  Tan sólo usamos tres cookies, a saber: "JSESSIONID" para identificar \
+	su sesión de trabajo, "remember" para mantener su información de autentificación \
+	durante un máximo de 31 días y "language" para almacenar sus preferencias de \
+	lenguage.  Además, almacenamos un ítem llamado "returnStack" en el almacenamiento \
+	local de su navegador para saber dónde tienen que ir algunos botones.
+	

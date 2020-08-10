@@ -1,0 +1,15 @@
+entrepreneur.application.form.label.investmentRoundTicker = Investment Round's ticker:
+entrepreneur.application.list.label.IRoundticker = Investment Round's ticker
+entrepreneur.application.list.label.IRoundtitle = Investment Round's title
+
+entrepreneur.application.list.label.ticker = Ticker
+entrepreneur.application.list.label.creationMoment = Creation Moment
+
+entrepreneur.application.form.label.ticker = Ticker:
+entrepreneur.application.form.label.creationMoment = Creation Moment:
+entrepreneur.application.form.label.statement = Statement:
+entrepreneur.application.form.label.moneyOffer = Money offer:
+entrepreneur.application.form.label.status = Status:
+
+entrepreneur.application.form.button.return = Return
+authenticated.activity.list.button.return = Return

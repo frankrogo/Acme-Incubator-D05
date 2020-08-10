@@ -1,0 +1,21 @@
+administrator.overture.form.label.title = Title:
+administrator.overture.form.label.creationMoment = Creation Moment:
+administrator.overture.form.label.deadline = Deadline:
+administrator.overture.form.label.description = Description:
+administrator.overture.form.label.minMoney = Min Money:
+administrator.overture.form.label.maxMoney = Max Money:
+administrator.overture.form.label.email = Email:
+administrator.overture.form.button.create = Create
+administrator.overture.form.button.update = Update
+administrator.overture.form.button.delete = Delete
+administrator.overture.form.button.return = Return
+
+administrator.overture.error.future-deadline = The deadline must be at least one weak ahead
+administrator.overture.error.minMoney = Currency must be EUR or €
+administrator.overture.error.maxMoney = Currency must be EUR or €
+administrator.overture.error.maxMoreThanMin = maxMoney must be greater than minMoney
+
+
+administrator.overture.list.label.title = Title
+administrator.overture.list.label.creationMoment = Creation Moment
+administrator.overture.list.label.deadline = Deadline

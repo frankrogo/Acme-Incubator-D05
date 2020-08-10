@@ -1,0 +1,9 @@
+entrepreneur.message.list.label.title = Título
+entrepreneur.message.list.label.creationMoment = Fecha de creación
+entrepreneur.message.list.button.return = Volver
+
+entrepreneur.message.form.label.title = Título
+entrepreneur.message.form.label.creationMoment = Fecha de creación
+entrepreneur.message.form.label.tags = Etiquetas
+entrepreneur.message.form.label.body = Cuerpo
+entrepreneur.message.form.button.return = Volver

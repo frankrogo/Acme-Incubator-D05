@@ -1,0 +1,9 @@
+entrepreneur.message.list.label.title = Title
+entrepreneur.message.list.label.creationMoment = Creation moment
+entrepreneur.message.list.button.return = Return
+
+entrepreneur.message.form.label.title = Title
+entrepreneur.message.form.label.creationMoment = Creation moment
+entrepreneur.message.form.label.tags = Tags
+entrepreneur.message.form.label.body = Body
+entrepreneur.message.form.button.return = Return

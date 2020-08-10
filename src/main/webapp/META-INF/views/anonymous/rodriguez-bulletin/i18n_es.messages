@@ -1,0 +1,8 @@
+anonymous.rodriguez-bulletin.form.label.author = Autor:
+anonymous.rodriguez-bulletin.form.label.description = Descripción:
+anonymous.rodriguez-bulletin.form.button.create = Crear rodriguezBoletín
+anonymous.rodriguez-bulletin.form.button.return = Volver
+
+anonymous.rodriguez-bulletin.list.label.author = Autor
+anonymous.rodriguez-bulletin.list.label.description = Descripción
+anonymous.rodriguez-bulletin.list.label.moment = Momento

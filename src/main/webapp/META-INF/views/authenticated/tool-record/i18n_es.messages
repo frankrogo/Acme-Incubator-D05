@@ -1,0 +1,13 @@
+authenticated.tool-record.form.label.title = Título:
+authenticated.tool-record.form.label.sector = Sector:
+authenticated.tool-record.form.label.inventorName = Nombre del inventor:
+authenticated.tool-record.form.label.description = Descripción:
+authenticated.tool-record.form.label.website = Sitio web:
+authenticated.tool-record.form.label.email = Email:
+authenticated.tool-record.form.label.stars = Estrellas:
+authenticated.tool-record.form.label.source = Tipo de código:
+authenticated.tool-record.form.button.return = Volver
+
+
+authenticated.tool-record.list.label.title = Título
+authenticated.tool-record.list.label.inventorName = Nombre del inventor

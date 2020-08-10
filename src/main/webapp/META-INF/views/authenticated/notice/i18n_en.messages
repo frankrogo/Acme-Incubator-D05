@@ -1,0 +1,12 @@
+authenticated.notice.form.label.header = Header:
+authenticated.notice.form.label.title = Title:
+authenticated.notice.form.label.creationMoment = Creation Moment:
+authenticated.notice.form.label.deadline = Deadline:
+authenticated.notice.form.label.body = Body:
+authenticated.notice.form.label.links = Related notices:
+authenticated.notice.form.button.return = Return
+
+
+authenticated.notice.list.label.title = Title
+authenticated.notice.list.label.creationMoment = Creation Moment
+authenticated.notice.list.label.deadline = Deadline

@@ -1,0 +1,15 @@
+bookkeeper.accounting-record.list.label.title = Title
+bookkeeper.accounting-record.list.label.creationMoment = Creation moment
+bookkeeper.accounting-record.list.label.IRoundticker = Investment Round's ticker
+bookkeeper.accounting-record.list.label.IRoundtitle = Investment Round's title
+
+bookkeeper.accounting-record.form.label.investmentRoundTicker = Investment Round's ticker:
+bookkeeper.accounting-record.form.label.title = Title:
+bookkeeper.accounting-record.form.label.creationMoment = Creation moment:
+bookkeeper.accounting-record.form.label.status = Status:
+bookkeeper.accounting-record.form.label.body = Body:
+
+
+bookkeeper.accounting-record.form.button.return = Return
+
+

@@ -1,0 +1,21 @@
+administrator.inquiry.form.label.title = Title:
+administrator.inquiry.form.label.creationMoment = Creation Moment:
+administrator.inquiry.form.label.deadline = Deadline:
+administrator.inquiry.form.label.description = Description:
+administrator.inquiry.form.label.minMoney = Min Money:
+administrator.inquiry.form.label.maxMoney = Max Money:
+administrator.inquiry.form.label.email = Email:
+administrator.inquiry.form.button.create = Create
+administrator.inquiry.form.button.update = Update
+administrator.inquiry.form.button.delete = Delete
+administrator.inquiry.form.button.return = Return
+
+administrator.inquiry.error.future-deadline = The deadline must be at least one weak ahead
+administrator.inquiry.error.minMoney = Currency must be EUR or €
+administrator.inquiry.error.maxMoney = Currency must be EUR or €
+administrator.inquiry.error.maxMoreThanMin = maxMoney must be greater than minMoney
+
+
+administrator.inquiry.list.label.title = Title
+administrator.inquiry.list.label.creationMoment = Creation Moment
+administrator.inquiry.list.label.deadline = Deadline

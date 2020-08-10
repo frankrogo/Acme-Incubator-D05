@@ -1,0 +1,20 @@
+administrator.overture.form.label.title = Título:
+administrator.overture.form.label.creationMoment = Fecha de creación:
+administrator.overture.form.label.deadline = Fecha límite:
+administrator.overture.form.label.description = Descripción:
+administrator.overture.form.label.minMoney = Dinero mínimo:
+administrator.overture.form.label.maxMoney = Dinero máximo:
+administrator.overture.form.label.email = Email:
+administrator.overture.form.button.create = Crear
+administrator.overture.form.button.update = Actualizar
+administrator.overture.form.button.delete = Borrar
+administrator.overture.form.button.return = Volver
+
+administrator.overture.error.future-deadline = La fecha límite debe ser como mínimo una semana después de este momento
+administrator.overture.error.minMoney = La divisa debe ser EUR or €
+administrator.overture.error.maxMoney = La divisa debe ser EUR or €
+administrator.overture.error.maxMoreThanMin = maxDinero debe ser mayor que minDinero
+
+administrator.overture.list.label.title = Título
+administrator.overture.list.label.creationMoment = Fecha de creación
+administrator.overture.list.label.deadline = Fecha límite
