@@ -18,13 +18,11 @@
 
 <acme:list>
 	<acme:list-column code="entrepreneur.application.list.label.ticker" path="ticker" width="30%"/>
-	<acme:list-column code="entrepreneur.application.list.label.creationMoment" path="creationMoment" width="30%"/>
-	<acme:list-column code="entrepreneur.application.list.label.IRoundticker" path="investmentRound.ticker" width="30%"/>/>
-	<acme:list-column code="entrepreneur.application.list.label.IRoundtitle" path="investmentRound.title" width="30%"/>/>
+	<acme:list-column code="entrepreneur.application.list.label.creationMoment" path="creationMoment" width="60%"/>
 </acme:list>
 
 <acme:form>
-	<acme:form-return code="authenticated.activity.list.button.return"/>
+	<acme:form-return code="entrepreneur.application.form.button.return"/>
 </acme:form>
 
 

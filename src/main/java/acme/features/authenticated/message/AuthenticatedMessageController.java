@@ -1,5 +1,5 @@
 
-package acme.features.investor.application;
+package acme.features.authenticated.message;
 
 import javax.annotation.PostConstruct;
 
@@ -8,31 +8,28 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.components.CustomCommand;
-import acme.entities.applications.Application;
-import acme.entities.roles.Investor;
+import acme.entities.messages.Message;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
+import acme.framework.entities.Authenticated;
 
 @Controller
-@RequestMapping("/investor/application/")
-public class InvestorApplicationController extends AbstractController<Investor, Application> {
+@RequestMapping("/entrepreneur/message/")
+public class AuthenticatedMessageController extends AbstractController<Authenticated, Message> {
 
 	@Autowired
-	private InvestorApplicationListMineService	listMineService;
+	private AuthenticatedMessageListMineService	listMineService;
 	@Autowired
-	private InvestorApplicationShowService		showService;
+	private AuthenticatedMessageShowService		showService;
 	@Autowired
-	private InvestorApplicationCreateService	createService;
+	private AuthenticatedMessageCreateService	createService;
 
-
-	// Constructors -----------------------------------------------------------
 
 	@PostConstruct
-	private void initialise() {
+	private void initialize() {
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
-
 	}
 
 }

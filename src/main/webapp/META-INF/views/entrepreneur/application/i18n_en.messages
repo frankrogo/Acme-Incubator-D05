@@ -1,15 +1,19 @@
-entrepreneur.application.form.label.investmentRoundTicker = Investment Round's ticker:
-entrepreneur.application.list.label.IRoundticker = Investment Round's ticker
-entrepreneur.application.list.label.IRoundtitle = Investment Round's title
-
 entrepreneur.application.list.label.ticker = Ticker
 entrepreneur.application.list.label.creationMoment = Creation Moment
 
+entrepreneur.application.form.label.investmentRoundTicker = Investment Round's ticker:
+entrepreneur.application.form.label.investmentRoundTitle = Investment Round's title:
 entrepreneur.application.form.label.ticker = Ticker:
 entrepreneur.application.form.label.creationMoment = Creation Moment:
 entrepreneur.application.form.label.statement = Statement:
 entrepreneur.application.form.label.moneyOffer = Money offer:
 entrepreneur.application.form.label.status = Status:
+entrepreneur.application.form.label.statusPending = Pending
+entrepreneur.application.form.label.statusAccepted = Accept
+entrepreneur.application.form.label.statusRejected = Reject
+entrepreneur.application.form.label.reasonRejected = Reason of rejection:
+entrepreneur.application.reasonRejected.empty = You must give a reason to make a rejection
+entrepreneur.application.reasonRejected.spam = The reason given can't contain spam words
 
+entrepreneur.application.form.button.update = Update
 entrepreneur.application.form.button.return = Return
-authenticated.activity.list.button.return = Return

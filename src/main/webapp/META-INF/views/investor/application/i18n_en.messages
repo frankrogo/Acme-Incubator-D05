@@ -1,13 +1,14 @@
-investor.application.form.investmentRoundTicker = Investment Round's ticker:
 investor.application.list.label.IRoundticker = Investment Round's ticker
 investor.application.list.label.IRoundtitle = Investment Round's title
 investor.application.list.label.ticker = Ticker
 investor.application.list.label.creationMoment = Creation Moment
 
+investor.application.form.investmentRoundTicker = Investment Round's ticker:
 investor.application.form.label.ticker = Ticker:
 investor.application.form.label.creationMoment = Creation Moment:
 investor.application.form.label.statement = Statement:
 investor.application.form.label.moneyOffer = Money offer:
 investor.application.form.label.status = Status:
-
+investor.application.form.label.reasonRejected = Reason of rejection:
+investor.application.form.button.create = Create
 investor.application.form.button.return = Return

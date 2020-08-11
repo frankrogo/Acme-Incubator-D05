@@ -2,6 +2,7 @@ authenticated.investment-round.list.label.ticker = Ticker
 authenticated.investment-round.list.label.title = Title
 authenticated.investment-round.list.label.creationMoment = Creation moment
 
+investor.investment-round.form.button.application = Create Application
 authenticated.investment-round.form.label.ticker = Ticker:
 authenticated.investment-round.form.label.title = Title:
 authenticated.investment-round.form.label.creationMoment = Creation moment:

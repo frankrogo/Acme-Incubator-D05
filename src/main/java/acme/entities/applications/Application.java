@@ -50,6 +50,8 @@ public class Application extends DomainEntity {
 	@Pattern(regexp = "^(pending|accepted|rejected)$")
 	private String				status;
 
+	private String				reasonRejected;
+
 	//Relationships
 
 	@NotNull

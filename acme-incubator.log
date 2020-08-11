@@ -278,3 +278,4 @@ at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(Si
 at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138): org.hibernate.hql.internal.ast.QuerySyntaxException: Job is not mapped [select j from Job j where not exists(select a from AuditRecord a where a.job.id = j.id and a.auditor.id = ?1) and j.finalMode = true]
 at org.hibernate.hql.internal.ast.QuerySyntaxException.generateQueryException(QuerySyntaxException.java:79): Job is not mapped [select j from Job j where not exists(select a from AuditRecord a where a.job.id = j.id and a.auditor.id = ?1) and j.finalMode = true]
 at org.hibernate.hql.internal.ast.util.SessionFactoryHelper.requireClassPersister(SessionFactoryHelper.java:169): Job is not mapped
+WARN [com.zaxxer.hikari.pool.HikariPool] {} - Thread starvation or clock leap detected (housekeeper delta={}).
