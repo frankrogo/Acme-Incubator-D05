@@ -21,12 +21,15 @@ public class AuthenticatedForumController extends AbstractController<Authenticat
 	private AuthenticatedForumListMineService	listMineSerivce;
 	@Autowired
 	private AuthenticatedForumShowService		showService;
+	@Autowired
+	private AuthenticatedForumCreateService		createService;
 
 
 	@PostConstruct
 	private void initialize() {
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineSerivce);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 	}
 
 }

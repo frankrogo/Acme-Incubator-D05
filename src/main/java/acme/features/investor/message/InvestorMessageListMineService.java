@@ -37,7 +37,7 @@ public class InvestorMessageListMineService implements AbstractListService<Inves
 	@Override
 	public Collection<Message> findMany(final Request<Message> request) {
 		assert request != null;
-		Forum forum = this.repository.findOneForumById(request.getModel().getInteger("forumId"));
+		Forum forum = this.repository.findForumById(request.getModel().getInteger("forumId"));
 		return this.repository.findManyByForumId(forum.getId());
 	}
 

@@ -21,12 +21,15 @@ public class EntrepreneurMessageController extends AbstractController<Entreprene
 	private EntrepreneurMessageListMineService	listMineService;
 	@Autowired
 	private EntrepreneurMessageShowService		showService;
+	@Autowired
+	private EntrepreneurMessageCreateService	createService;
 
 
 	@PostConstruct
 	private void initialize() {
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 	}
 
 }
