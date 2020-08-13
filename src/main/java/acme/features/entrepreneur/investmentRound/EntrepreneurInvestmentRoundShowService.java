@@ -1,11 +1,15 @@
 
 package acme.features.entrepreneur.investmentRound;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.applications.Application;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
+import acme.features.investor.application.InvestorApplicationRepository;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
@@ -16,6 +20,9 @@ public class EntrepreneurInvestmentRoundShowService implements AbstractShowServi
 
 	@Autowired
 	EntrepreneurInvestmentRoundRepository repository;
+	
+	@Autowired
+	InvestorApplicationRepository applicationRepository;
 
 
 	@Override
@@ -44,7 +51,19 @@ public class EntrepreneurInvestmentRoundShowService implements AbstractShowServi
 		int investmentRoundId = request.getModel().getInteger("id");
 		request.unbind(entity, model, "ticker", "title", "creationMoment", "round", "description", "moneyAmount", "moreInfo", "finalMode");
 		model.setAttribute("investmentRoundId", investmentRoundId);
+		boolean haveApplications = haveApplications(investmentRoundId);
+		model.setAttribute("haveApplications", haveApplications);
+		
 
+	}
+	private boolean haveApplications(int investmentRoundId) {
+		boolean res=true;
+		Collection<Application> applications = this.applicationRepository.findApplicationsByInvestmentRoundId(investmentRoundId);
+		if(applications.size()>0) {
+			res=false;
+		}
+		return res;
+		
 	}
 
 	@Override
