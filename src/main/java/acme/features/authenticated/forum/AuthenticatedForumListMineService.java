@@ -32,7 +32,6 @@ public class AuthenticatedForumListMineService implements AbstractListService<Au
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "title");
-		model.setAttribute("investmentRoundTicker", entity.getInvestmentRound().getTicker());
 	}
 
 	@Override

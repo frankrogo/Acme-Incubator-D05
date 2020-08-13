@@ -1,23 +1,22 @@
 
-package acme.features.entrepreneur.message;
+package acme.features.authenticated.message;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.forums.Forum;
 import acme.entities.messages.Message;
-import acme.entities.roles.Entrepreneur;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class EntrepreneurMessageListMineService implements AbstractListService<Entrepreneur, Message> {
+public class AuthenticatedMessageListByForumService implements AbstractListService<Authenticated, Message> {
 
 	@Autowired
-	EntrepreneurMessageRepository repository;
+	AuthenticatedMessageRepository repository;
 
 
 	@Override
@@ -32,13 +31,20 @@ public class EntrepreneurMessageListMineService implements AbstractListService<E
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "title", "creationMoment");
+		model.setAttribute("userName", this.repository.findUser(entity.getId()));
 	}
 
 	@Override
 	public Collection<Message> findMany(final Request<Message> request) {
 		assert request != null;
-		Forum forum = this.repository.findForumById(request.getModel().getInteger("forumId"));
-		return this.repository.findManyByForumId(forum.getId());
+
+		Collection<Message> result;
+		int forumId;
+
+		forumId = request.getModel().getInteger("forumId");
+		result = this.repository.findAllMessagesByForumId(forumId);
+
+		return result;
 	}
 
 }

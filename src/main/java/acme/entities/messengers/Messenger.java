@@ -23,7 +23,7 @@ public class Messenger extends DomainEntity {
 
 	// Attributes -------------------------
 
-	private Boolean				OwnsTheForum;
+	private Boolean				ownsTheForum;
 
 	// Relationships ------------------------------------------
 

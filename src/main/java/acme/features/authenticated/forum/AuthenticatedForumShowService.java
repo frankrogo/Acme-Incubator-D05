@@ -43,7 +43,17 @@ public class AuthenticatedForumShowService implements AbstractShowService<Authen
 
 		request.unbind(entity, model, "title");
 		model.setAttribute("forumId", entity.getId());
-		model.setAttribute("investmentRoundTicker", entity.getInvestmentRound().getTicker());
+
+		boolean ownerForum = false;
+		Messenger owner;
+		Principal principal;
+
+		owner = this.repository.findTheOwner(entity.getId());
+		principal = request.getPrincipal();
+		if (owner.getAuthenticated().getId() == principal.getActiveRoleId()) {
+			ownerForum = true;
+		}
+		model.setAttribute("ownerForum", ownerForum);
 	}
 
 	@Override

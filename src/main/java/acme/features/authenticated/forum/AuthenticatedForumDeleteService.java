@@ -1,29 +1,30 @@
 
-package acme.features.entrepreneur.forum;
+package acme.features.authenticated.forum;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import acme.entities.forums.Forum;
 import acme.entities.messages.Message;
 import acme.entities.messengers.Messenger;
-import acme.entities.roles.Entrepreneur;
 import acme.features.authenticated.message.AuthenticatedMessageRepository;
 import acme.features.authenticated.messenger.AuthenticatedMessengerRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractDeleteService;
 
-public class EntrepreneurForumDeleteService implements AbstractDeleteService<Entrepreneur, Forum> {
+@Service
+public class AuthenticatedForumDeleteService implements AbstractDeleteService<Authenticated, Forum> {
 
 	@Autowired
-	EntrepreneurForumRepository			repository;
-
+	AuthenticatedForumRepository		repository;
 	@Autowired
 	AuthenticatedMessengerRepository	messengerRepository;
-
 	@Autowired
 	AuthenticatedMessageRepository		messageRepository;
 
@@ -31,7 +32,18 @@ public class EntrepreneurForumDeleteService implements AbstractDeleteService<Ent
 	@Override
 	public boolean authorise(final Request<Forum> request) {
 		assert request != null;
-		return true;
+		boolean result;
+		int forumId;
+		Messenger owner;
+		Forum erased;
+		Principal principal;
+
+		erased = this.repository.findOneById(request.getModel().getInteger("id"));
+		forumId = erased.getId();
+		owner = this.repository.findTheOwner(forumId);
+		principal = request.getPrincipal();
+		result = owner.getOwnsTheForum() && owner.getAuthenticated().getId() == principal.getActiveRoleId();
+		return result;
 	}
 
 	@Override
@@ -39,7 +51,7 @@ public class EntrepreneurForumDeleteService implements AbstractDeleteService<Ent
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		request.bind(entity, errors);
+		request.bind(entity, errors, "title", "investmentRound", "authenticated");
 	}
 
 	@Override
@@ -47,13 +59,19 @@ public class EntrepreneurForumDeleteService implements AbstractDeleteService<Ent
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "title", "investmentRound");
+		request.unbind(entity, model);
 	}
 
 	@Override
 	public Forum findOne(final Request<Forum> request) {
 		assert request != null;
-		return this.repository.findOneById(request.getModel().getInteger("forumId"));
+		Forum result;
+		int id;
+
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneById(id);
+
+		return result;
 	}
 
 	@Override

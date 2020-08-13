@@ -1,9 +1,16 @@
-investor.message.list.label.title = Title
-investor.message.list.label.creationMoment = Creation moment
-investor.message.list.button.return = Return
+entrepreneur.messenger.list.label.ownsTheForum = ¿Owns the forum?
+entrepreneur.messenger.list.label.forumTitle = Forum
+entrepreneur.messenger.list.label.entrepreneurName = Authenticated user
 
-investor.message.form.label.title = Title
-investor.message.form.label.creationMoment = Creation moment
-investor.message.form.label.tags = Tags
-investor.message.form.label.body = Body
-investor.message.form.button.return = Return
+entrepreneur.messenger.form.label.forumTitle = Forum
+entrepreneur.messenger.form.label.ownsTheForum = ¿Owns the forum?
+
+entrepreneur.messenger.error.name = The user either doesn't exist or is already a messenger.
+entrepreneur.messenger.error.emptyName = The user name can not be blank.
+
+entrepreneur.messenger.form.label.userName = Username:
+entrepreneur.messenger.form.button.delete = Delete
+entrepreneur.messenger.form.button.create = Add messenger
+entrepreneur.messenger.form.button.return = Return
+
+entrepreneur.messenger.list.button.return = Return

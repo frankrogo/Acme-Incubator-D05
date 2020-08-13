@@ -55,8 +55,6 @@ public class AuthenticatedMessengerCreateService implements AbstractCreateServic
 		request.unbind(entity, model);
 		Integer forumId = request.getModel().getInteger("forumId");
 		model.setAttribute("forumId", forumId);
-		model.setAttribute("forumTitle", this.repository.findForumById(forumId).getTitle());
-		model.setAttribute("usersInvolved", this.repository.findInvolvedUsers(forumId));
 	}
 
 	@Override

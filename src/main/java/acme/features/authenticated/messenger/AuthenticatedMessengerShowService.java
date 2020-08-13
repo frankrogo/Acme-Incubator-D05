@@ -30,7 +30,7 @@ public class AuthenticatedMessengerShowService implements AbstractShowService<Au
 		assert entity != null;
 		assert model != null;
 
-		boolean isMine = false;
+		boolean ownerForum = false;
 		Messenger owner;
 		Principal principal;
 		Integer forumId = entity.getForum().getId();
@@ -39,12 +39,11 @@ public class AuthenticatedMessengerShowService implements AbstractShowService<Au
 
 		request.unbind(entity, model, "ownsTheForum");
 		model.setAttribute("forumTitle", entity.getForum().getTitle());
-		model.setAttribute("usersInvolved", this.repository.findInvolvedUsers(forumId));
 
 		if (owner.getAuthenticated().getId() == principal.getActiveRoleId() && !entity.getOwnsTheForum()) {
-			isMine = true;
+			ownerForum = true;
 		}
-		model.setAttribute("isMine", isMine);
+		model.setAttribute("ownerForum", ownerForum);
 	}
 
 	@Override

@@ -14,20 +14,20 @@ import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
 
 @Controller
-@RequestMapping("/entrepreneur/message/")
+@RequestMapping("/authenticated/message/")
 public class AuthenticatedMessageController extends AbstractController<Authenticated, Message> {
 
 	@Autowired
-	private AuthenticatedMessageListMineService	listMineService;
+	private AuthenticatedMessageListByForumService	listByForumService;
 	@Autowired
-	private AuthenticatedMessageShowService		showService;
+	private AuthenticatedMessageShowService			showService;
 	@Autowired
-	private AuthenticatedMessageCreateService	createService;
+	private AuthenticatedMessageCreateService		createService;
 
 
 	@PostConstruct
 	private void initialize() {
-		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
+		super.addCustomCommand(CustomCommand.LIST_BY_FORUM, BasicCommand.LIST, this.listByForumService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 	}

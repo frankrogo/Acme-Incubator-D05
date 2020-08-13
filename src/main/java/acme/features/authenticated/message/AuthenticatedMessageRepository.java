@@ -17,7 +17,7 @@ import acme.framework.repositories.AbstractRepository;
 public interface AuthenticatedMessageRepository extends AbstractRepository {
 
 	@Query("select m from Message m where m.forum.id = ?1")
-	Collection<Message> findManyByForumId(int id);
+	Collection<Message> findAllMessagesByForumId(int id);
 
 	@Query("select f from Forum f where f.id=?1")
 	Forum findForumById(int id);

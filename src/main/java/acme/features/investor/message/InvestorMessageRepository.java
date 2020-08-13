@@ -37,4 +37,7 @@ public interface InvestorMessageRepository extends AbstractRepository {
 	@Query("select c from Configuration c")
 	Configuration findConfiguration();
 
+	@Query("select ua.username from UserAccount ua where ua.id in (select au.userAccount.id from Authenticated au where au.id in (select ms.authenticated.id from Message ms where ms.id = ?1))")
+	String findUser(int messageId);
+
 }

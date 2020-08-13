@@ -61,9 +61,9 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		model.setAttribute("forumId", entity.getForum().getId());
 
 		if (request.isMethod(HttpMethod.GET)) {
-			model.setAttribute("check", "false");
+			model.setAttribute("checkbox", "false");
 		} else {
-			request.transfer(model, "check");
+			request.transfer(model, "checkbox");
 		}
 	}
 
@@ -98,15 +98,15 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 			spamTitle = SpamChecker.spamChecker(configuration, title);
 			spamBody = SpamChecker.spamChecker(configuration, body);
 			spamTags = SpamChecker.spamChecker(configuration, tags);
-			errors.state(request, !spamTitle, "title", "employer.job.error.spamTitle");
-			errors.state(request, !spamBody, "body", "employer.job.error.spamBody");
-			errors.state(request, !spamTags, "tags", "employer.job.error.spamTags");
+			errors.state(request, !spamTitle, "title", "authenticated.job.error.spamTitle");
+			errors.state(request, !spamBody, "body", "authenticated.job.error.spamBody");
+			errors.state(request, !spamTags, "tags", "authenticated.job.error.spamTags");
 		}
 
 		//Checkbox validation
-		String res = request.getModel().getString("check");
+		String res = request.getModel().getString("checkbox");
 		isAccepted = res.equals("true");
-		errors.state(request, isAccepted, "check", "provider.request.error.must-accept");
+		errors.state(request, isAccepted, "checkbox", "authenticated.request.error.must-accept");
 	}
 
 	@Override

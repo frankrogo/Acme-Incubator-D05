@@ -1,0 +1,18 @@
+authenticated.message.list.label.title = Title
+authenticated.message.list.label.creationMoment = Creation moment
+authenticated.message.list.label.userName = Messenger
+authenticated.message.list.button.return = Return
+
+authenticated.message.form.label.userName = Messenger
+authenticated.message.form.label.title = Title
+authenticated.message.form.label.creationMoment = Creation moment
+authenticated.message.form.label.tags = Tags
+authenticated.message.form.label.checkbox = I understand that messages cannot be deleted
+authenticated.message.form.label.body = Body
+authenticated.message.form.forumTitle = Forum:
+authenticated.message.form.button.return = Return
+
+employer.job.error.spamTitle = Title must not contain spam words
+employer.job.error.spamBody = Body must not contain spam words
+employer.job.error.spamTags = Tags must not contain spam words
+provider.request.error.must-accept = You must check the checkbox before creating the message

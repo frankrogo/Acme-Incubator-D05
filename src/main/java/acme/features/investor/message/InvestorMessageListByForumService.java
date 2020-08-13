@@ -1,22 +1,23 @@
 
-package acme.features.authenticated.message;
+package acme.features.investor.message;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.forums.Forum;
 import acme.entities.messages.Message;
+import acme.entities.roles.Investor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedMessageListMineService implements AbstractListService<Authenticated, Message> {
+public class InvestorMessageListByForumService implements AbstractListService<Investor, Message> {
 
 	@Autowired
-	AuthenticatedMessageRepository repository;
+	InvestorMessageRepository repository;
 
 
 	@Override
@@ -31,19 +32,14 @@ public class AuthenticatedMessageListMineService implements AbstractListService<
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "title", "creationMoment");
+		model.setAttribute("userName", this.repository.findUser(entity.getId()));
 	}
 
 	@Override
 	public Collection<Message> findMany(final Request<Message> request) {
 		assert request != null;
-
-		Collection<Message> result;
-		int forumId;
-
-		forumId = request.getModel().getInteger("forumId");
-		result = this.repository.findManyByForumId(forumId);
-
-		return result;
+		Forum forum = this.repository.findForumById(request.getModel().getInteger("forumId"));
+		return this.repository.findManyByForumId(forum.getId());
 	}
 
 }

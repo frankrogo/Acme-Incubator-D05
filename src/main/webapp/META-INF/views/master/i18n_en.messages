@@ -53,6 +53,7 @@ master.menu.authenticated.list-inquiry = List inquiries
 master.menu.authenticated.list-overture = List overtures
 master.menu.authenticated.list-challenge = List challenges
 master.menu.authenticated.list-investment-round = List active investment rounds
+master.menu.authenticated.forum.create = Create forum
 
 # master.menu.administrator ###################################################
 

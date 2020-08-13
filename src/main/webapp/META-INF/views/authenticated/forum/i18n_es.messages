@@ -1,0 +1,8 @@
+authenticated.forum.form.label.title = Título
+
+authenticated.forum.form.label.title = Título
+authenticated.forum.form.button.messages = Mensajes del foro
+authenticated.forum.form.button.messengers = Ver foreros
+authenticated.forum.form.button.createMessenger = Añadir forero
+authenticated.forum.form.button.createMessage = Postear nuevo mensaje
+authenticated.forum.form.button.return = Volver

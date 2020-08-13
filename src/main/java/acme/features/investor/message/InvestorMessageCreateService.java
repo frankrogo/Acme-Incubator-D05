@@ -61,9 +61,9 @@ public class InvestorMessageCreateService implements AbstractCreateService<Inves
 		model.setAttribute("forumId", entity.getForum().getId());
 
 		if (request.isMethod(HttpMethod.GET)) {
-			model.setAttribute("check", "false");
+			model.setAttribute("checkbox", "false");
 		} else {
-			request.transfer(model, "check");
+			request.transfer(model, "checkbox");
 		}
 	}
 
@@ -107,7 +107,7 @@ public class InvestorMessageCreateService implements AbstractCreateService<Inves
 		//Checkbox validation
 		String res = request.getModel().getString("check");
 		isAccepted = res.equals("true");
-		errors.state(request, isAccepted, "check", "provider.request.error.must-accept");
+		errors.state(request, isAccepted, "checkbox", "provider.request.error.must-accept");
 	}
 
 	@Override
