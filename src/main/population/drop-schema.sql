@@ -45,6 +45,10 @@
 
     alter table `forum` 
        drop 
+       foreign key `FKtch75j3tlc8qby4lru5kkgh83`;
+
+    alter table `forum` 
+       drop 
        foreign key `FKq8ggcjgl5by5gf6l5bji632hu`;
 
     alter table `investment_round` 
@@ -57,15 +61,19 @@
 
     alter table `message` 
        drop 
-       foreign key `FKba2j1h6asoxs9sepj58m1xfch`;
+       foreign key `FK3ny0h1379q528toyokq81noiu`;
 
     alter table `message` 
        drop 
        foreign key `FKfwwpivgx5j4vw4594dgrw884q`;
 
-    alter table `message` 
+    alter table `messenger` 
        drop 
-       foreign key `FKck2q4vpk2ky3722hq3gk0al8f`;
+       foreign key `FK41x7stgfv3ynpx6a4rrjv9sbv`;
+
+    alter table `messenger` 
+       drop 
+       foreign key `FKh1s115o7s58c61tedfgudh5my`;
 
     alter table `provider` 
        drop 
@@ -102,6 +110,8 @@
     drop table if exists `investor`;
 
     drop table if exists `message`;
+
+    drop table if exists `messenger`;
 
     drop table if exists `notice`;
 

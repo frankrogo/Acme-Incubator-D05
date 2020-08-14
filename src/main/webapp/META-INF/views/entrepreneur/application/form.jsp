@@ -21,7 +21,7 @@
 	<acme:form-textbox readonly="true" code="entrepreneur.application.form.label.ticker" path="ticker"/>
 	<acme:form-moment readonly="true" code="entrepreneur.application.form.label.creationMoment" path="creationMoment"/>
 	<acme:form-textarea readonly="true" code="entrepreneur.application.form.label.statement" path="statement"/>
-	<acme:form-money readonly="true"code="entrepreneur.application.form.label.moneyOffer" path="moneyOffer"/>
+	<acme:form-money readonly="true" code="entrepreneur.application.form.label.moneyOffer" path="moneyOffer"/>
 	
 	
 	<jstl:if test="${status == 'pending'}">

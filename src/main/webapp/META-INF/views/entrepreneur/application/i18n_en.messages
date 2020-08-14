@@ -13,6 +13,8 @@ entrepreneur.application.form.label.statusAccepted = Accept
 entrepreneur.application.form.label.statusRejected = Reject
 entrepreneur.application.form.label.reasonRejected = Reason of rejection:
 entrepreneur.application.reasonRejected.empty = You must give a reason to make a rejection
+entrepreneur.application.reasonRejected.accepted = Reason rejected field must be blank if status is "Accepted"
+entrepreneur.application.reasonRejected.penging = To reject the application please change the status to "Rejected"
 entrepreneur.application.reasonRejected.spam = The reason given can't contain spam words
 
 entrepreneur.application.form.button.update = Update

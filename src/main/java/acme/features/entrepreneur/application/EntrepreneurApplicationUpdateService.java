@@ -86,6 +86,22 @@ public class EntrepreneurApplicationUpdateService implements AbstractUpdateServi
 			}
 		}
 
+		if (request.getModel().getAttribute("status").equals("Accepted")) {
+			if (!errors.hasErrors("reasonRejected")) {
+				reasonRejected = request.getModel().getString("reasonRejected");
+				hasReason = !StringHelper.isBlank(reasonRejected);
+				errors.state(request, !hasReason, "reasonRejected", "entrepreneur.application.reasonRejected.accepted");
+			}
+		}
+
+		if (request.getModel().getAttribute("status").equals("Pending")) {
+			if (!errors.hasErrors("reasonRejected")) {
+				reasonRejected = request.getModel().getString("reasonRejected");
+				hasReason = !StringHelper.isBlank(reasonRejected);
+				errors.state(request, !hasReason, "reasonRejected", "entrepreneur.application.reasonRejected.pending");
+			}
+		}
+
 	}
 
 	@Override

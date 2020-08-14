@@ -14,7 +14,7 @@ import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
 
 @Controller
-@RequestMapping("/entrepreneur/forum/")
+@RequestMapping("/authenticated/forum/")
 public class AuthenticatedForumController extends AbstractController<Authenticated, Forum> {
 
 	@Autowired

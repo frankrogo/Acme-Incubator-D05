@@ -28,7 +28,7 @@ public class Forum extends DomainEntity {
 
 	//Relationships
 
-	@NotNull
+	//@NotNull
 	@Valid
 	@OneToOne(optional = true) //No todos los foros están relacionados con un inv.round.
 	//Un inv.round sí o sí tiene un forum.

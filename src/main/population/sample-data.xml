@@ -157,7 +157,7 @@
 		<property name="roles">
 			<list>
 				<ref bean="investor1Investor" />
-				<ref bean="investor1Authenticathed" />
+				<ref bean="investor1Authenticated" />
 			</list>
 		</property>
 	</bean>
@@ -169,7 +169,7 @@
 		<property name="userAccount" ref="investor1UserAccount" />
 	</bean>
 
-	<bean name="investor1Authenticathed" class="acme.framework.entities.Authenticated">
+	<bean name="investor1Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="investor1UserAccount" />
 	</bean>
 	
@@ -187,7 +187,7 @@
 		<property name="roles">
 			<list>
 				<ref bean="investor2Investor" />
-				<ref bean="investor2Authenticathed" />
+				<ref bean="investor2Authenticated" />
 			</list>
 		</property>
 	</bean>
@@ -199,7 +199,7 @@
 		<property name="userAccount" ref="investor2UserAccount" />
 	</bean>
 
-	<bean name="investor2Authenticathed" class="acme.framework.entities.Authenticated">
+	<bean name="investor2Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="investor2UserAccount" />
 	</bean>
 	
@@ -322,6 +322,7 @@
         <property name="statement" value="Nothing to be said" />
         <property name="moneyOffer" value="€ 2000.99" />
         <property name="status" value="pending" />
+        <property name="reasonRejected" value=""/>
         <property name="investor" ref="investor1Investor" />
         <property name="investmentRound" ref="investmentRound01" />
     </bean>
@@ -332,6 +333,7 @@
         <property name="statement" value="Nothing to be said" />
         <property name="moneyOffer" value="€ 2000.99" />
         <property name="status" value="accepted" />
+        <property name="reasonRejected"> <null/> </property>
         <property name="investor" ref="investor1Investor" />
         <property name="investmentRound" ref="investmentRound01" />
     </bean>
@@ -342,6 +344,7 @@
         <property name="statement" value="Nothing to be said" />
         <property name="moneyOffer" value="€ 2000.99" />
         <property name="status" value="rejected" />
+        <property name="reasonRejected" value="Whatever reason"/>
         <property name="investor" ref="investor1Investor" />
         <property name="investmentRound" ref="investmentRound01" />
     </bean>
@@ -352,6 +355,7 @@
         <property name="statement" value="Nothing to be said" />
         <property name="moneyOffer" value="€ 2000.99" />
         <property name="status" value="accepted" />
+        <property name="reasonRejected"> <null/> </property>
         <property name="investor" ref="investor2Investor" />
         <property name="investmentRound" ref="investmentRound01" />
     </bean>
@@ -362,6 +366,7 @@
         <property name="statement" value="Nothing to be said" />
         <property name="moneyOffer" value="€ 2000.99" />
         <property name="status" value="pending" />
+    	<property name="reasonRejected" value=""/>
         <property name="investor" ref="investor2Investor" />
         <property name="investmentRound" ref="investmentRound02" />
     </bean>
@@ -372,6 +377,7 @@
         <property name="statement" value="Nothing to be said" />
         <property name="moneyOffer" value="€ 2000.99" />
         <property name="status" value="accepted" />
+        <property name="reasonRejected"> <null/> </property>
         <property name="investor" ref="investor2Investor" />
         <property name="investmentRound" ref="investmentRound02" />
     </bean>
@@ -381,16 +387,35 @@
 	<bean name="forum01" class="acme.entities.forums.Forum">
         <property name="title" value="Forum 1" />
         <property name="investmentRound" ref="investmentRound01" />
+        <property name="authenticated" ref="entrepreneur1Authenticated"/>
     </bean>
     
     <bean name="forum02" class="acme.entities.forums.Forum">
         <property name="title" value="Forum 2" />
         <property name="investmentRound" ref="investmentRound02" />
+        <property name="authenticated" ref="entrepreneur2Authenticated"/>
     </bean>
     
     <bean name="forum03" class="acme.entities.forums.Forum">
         <property name="title" value="Forum 3" />
         <property name="investmentRound" ref="investmentRound03" />
+        <property name="authenticated" ref="entrepreneur2Authenticated"/>
+    </bean>
+    
+    <bean name="forum04" class="acme.entities.forums.Forum">
+        <property name="title" value="Forum 4" />
+        <property name="investmentRound">
+        	<null />
+        </property>
+        <property name="authenticated" ref="bookkeeper1Authenticated"/>
+    </bean>
+    
+    <bean name="forum05" class="acme.entities.forums.Forum">
+        <property name="title" value="Forum 5" />
+        <property name="investmentRound">
+        	<null />
+        </property>
+        <property name="authenticated" ref="investor1Authenticated"/>
     </bean>
     
 	<!-- Messages -->
@@ -401,8 +426,7 @@
         <property name="tags" value="tagA, tagB" />
         <property name="body" value="Hello" />
         <property name="forum" ref="forum01" />
-        <property name="entrepreneur" ref="entrepreneur1Entrepreneur" />
-        <property name="investor" ref="investor1Investor" />
+        <property name="authenticated" ref="entrepreneur1Authenticated"/>
     </bean>
     
     <bean name="message02" class="acme.entities.messages.Message">
@@ -411,8 +435,7 @@
         <property name="tags" value="tagA, tagB, tagC" />
         <property name="body" value="Hello" />
         <property name="forum" ref="forum02" />
-        <property name="entrepreneur" ref="entrepreneur2Entrepreneur" />
-        <property name="investor" ref="investor2Investor" />
+        <property name="authenticated" ref="entrepreneur2Authenticated"/>
     </bean>
     
     <bean name="message03" class="acme.entities.messages.Message">
@@ -422,10 +445,65 @@
         		<null />
         </property>
         <property name="body" value="Hello" />
-        <property name="forum" ref="forum01" />
-        <property name="entrepreneur" ref="entrepreneur1Entrepreneur" />
-        <property name="investor" ref="investor2Investor" />
+        <property name="forum" ref="forum03" />
+        <property name="authenticated" ref="entrepreneur2Authenticated"/>
     </bean>
+    
+    <bean name="message04" class="acme.entities.messages.Message">
+        <property name="title" value="Message 4" />
+        <property name="creationMoment" value="2020/05/04 17:00" />
+        <property name="tags"  value="tagA" />
+        <property name="body" value="Hello" />
+        <property name="forum" ref="forum04" />
+        <property name="authenticated" ref="bookkeeper2Authenticated"/>
+    </bean>
+    
+    <bean name="message05" class="acme.entities.messages.Message">
+        <property name="title" value="Message 5" />
+        <property name="creationMoment" value="2020/05/04 17:00" />
+        <property name="tags"  value="tagC" />
+        <property name="body" value="Hello" />
+        <property name="forum" ref="forum05" />
+        <property name="authenticated" ref="investor1Authenticated"/>
+    </bean>
+    
+    <!-- Messengers -->
+	
+	<bean name="messenger1" class="acme.entities.messengers.Messenger">
+		<property name="ownsTheForum" value="true"></property>
+		<property name="forum" ref="forum01"></property>
+		<property name="authenticated" ref="entrepreneur1Authenticated"></property>
+	</bean>
+	
+	<bean name="messenger2" class="acme.entities.messengers.Messenger">
+		<property name="ownsTheForum" value="false"></property>
+		<property name="forum" ref="forum02"></property>
+		<property name="authenticated" ref="entrepreneur2Authenticated"></property>
+	</bean>
+	
+	<bean name="messenger3" class="acme.entities.messengers.Messenger">
+		<property name="ownsTheForum" value="false"></property>
+		<property name="forum" ref="forum03"></property>
+		<property name="authenticated" ref="entrepreneur2Authenticated"></property>
+	</bean>
+	
+	<bean name="messenger4" class="acme.entities.messengers.Messenger">
+		<property name="ownsTheForum" value="true"></property>
+		<property name="forum" ref="forum04"></property>
+		<property name="authenticated" ref="bookkeeper1Authenticated"></property>
+	</bean>
+	
+	<bean name="messenger5" class="acme.entities.messengers.Messenger">
+		<property name="ownsTheForum" value="true"></property>
+		<property name="forum" ref="forum05"></property>
+		<property name="authenticated" ref="investor1Authenticated"></property>
+	</bean>
+	
+	<bean name="messenger6" class="acme.entities.messengers.Messenger">
+		<property name="ownsTheForum" value="false"></property>
+		<property name="forum" ref="forum04"></property>
+		<property name="authenticated" ref="bookkeeper2Authenticated"></property>
+	</bean>
 	
 	<!-- Bulletins -->
 	

@@ -43,6 +43,7 @@
         `creation_moment` datetime(6),
         `money_offer_amount` double precision,
         `money_offer_currency` varchar(255),
+        `reason_rejected` varchar(255),
         `statement` varchar(255),
         `status` varchar(255),
         `ticker` varchar(255),
@@ -118,7 +119,8 @@
        `id` integer not null,
         `version` integer not null,
         `title` varchar(255),
-        `investment_round_id` integer not null,
+        `authenticated_id` integer not null,
+        `investment_round_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -170,9 +172,17 @@
         `creation_moment` datetime(6),
         `tags` varchar(255),
         `title` varchar(255),
-        `entrepreneur_id` integer,
+        `authenticated_id` integer not null,
         `forum_id` integer not null,
-        `investor_id` integer,
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `messenger` (
+       `id` integer not null,
+        `version` integer not null,
+        `owns_the_forum` bit,
+        `authenticated_id` integer,
+        `forum_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -276,9 +286,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    alter table `forum` 
-       add constraint UK_ofnp3l952r0ymjahya6fuy1xq unique (`investment_round_id`);
-
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);
 
@@ -338,6 +345,11 @@
        references `user_account` (`id`);
 
     alter table `forum` 
+       add constraint `FKtch75j3tlc8qby4lru5kkgh83` 
+       foreign key (`authenticated_id`) 
+       references `authenticated` (`id`);
+
+    alter table `forum` 
        add constraint `FKq8ggcjgl5by5gf6l5bji632hu` 
        foreign key (`investment_round_id`) 
        references `investment_round` (`id`);
@@ -353,19 +365,24 @@
        references `user_account` (`id`);
 
     alter table `message` 
-       add constraint `FKba2j1h6asoxs9sepj58m1xfch` 
-       foreign key (`entrepreneur_id`) 
-       references `entrepreneur` (`id`);
+       add constraint `FK3ny0h1379q528toyokq81noiu` 
+       foreign key (`authenticated_id`) 
+       references `authenticated` (`id`);
 
     alter table `message` 
        add constraint `FKfwwpivgx5j4vw4594dgrw884q` 
        foreign key (`forum_id`) 
        references `forum` (`id`);
 
-    alter table `message` 
-       add constraint `FKck2q4vpk2ky3722hq3gk0al8f` 
-       foreign key (`investor_id`) 
-       references `investor` (`id`);
+    alter table `messenger` 
+       add constraint `FK41x7stgfv3ynpx6a4rrjv9sbv` 
+       foreign key (`authenticated_id`) 
+       references `authenticated` (`id`);
+
+    alter table `messenger` 
+       add constraint `FKh1s115o7s58c61tedfgudh5my` 
+       foreign key (`forum_id`) 
+       references `forum` (`id`);
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
