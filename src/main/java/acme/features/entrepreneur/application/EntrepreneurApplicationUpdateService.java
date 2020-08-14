@@ -10,7 +10,6 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
-import acme.framework.helpers.StringHelper;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
@@ -74,34 +73,56 @@ public class EntrepreneurApplicationUpdateService implements AbstractUpdateServi
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		errors.state(request, this.checkRejectDecision(entity), "reasonRejected", "entrepreneur.application.error.rejectDecision");
+		errors.state(request, this.checkOtherDecision(entity), "reasonRejected", "entrepreneur.application.error.otherDecision");
 
-		String reasonRejected;
-		boolean hasReason;
+		//		String reasonRejected;
+		//		boolean hasReason;
 
-		if (request.getModel().getAttribute("status").equals("Rejected")) {
-			if (!errors.hasErrors("reasonRejected")) {
-				reasonRejected = request.getModel().getString("reasonRejected");
-				hasReason = !StringHelper.isBlank(reasonRejected);
-				errors.state(request, hasReason, "reasonRejected", "entrepreneur.application.reasonRejected.empty");
-			}
+		//		if (request.getModel().getAttribute("status").equals("rejected")) {
+		//			if (!errors.hasErrors("reasonRejected")) {
+		//				reasonRejected = request.getModel().getString("reasonRejected");
+		//				hasReason = !StringHelper.isBlank(reasonRejected);
+		//				errors.state(request, hasReason, "reasonRejected", "entrepreneur.application.reasonRejected.empty");
+		//			}
+		//		}
+		//
+		//		if (request.getModel().getAttribute("status").equals("accepted")) {
+		//			if (!errors.hasErrors("reasonRejected")) {
+		//				reasonRejected = request.getModel().getString("reasonRejected");
+		//				hasReason = StringHelper.isBlank(reasonRejected);
+		//				errors.state(request, hasReason, "reasonRejected", "entrepreneur.application.reasonRejected.accepted");
+		//			}
+		//		}
+		//
+		//		if (request.getModel().getAttribute("status").equals("pending")) {
+		//			if (!errors.hasErrors("reasonRejected")) {
+		//				reasonRejected = request.getModel().getString("reasonRejected");
+		//				hasReason = StringHelper.isBlank(reasonRejected);
+		//				errors.state(request, hasReason, "reasonRejected", "entrepreneur.application.reasonRejected.pending");
+		//			}
+		//		}
+		//
+		//		if (request.getModel().getAttribute("status").equals("pending")) {
+		//			if (!errors.hasErrors("reasonRejected")) {
+		//				reasonRejected = request.getModel().getString("reasonRejected");
+		//				hasReason = !StringHelper.isBlank(reasonRejected);
+		//				errors.state(request, hasReason, "reasonRejected", "entrepreneur.application.reasonRejected.noUpdate");
+		//			}
+		//		}
+	}
+	private boolean checkRejectDecision(final Application a) {
+		if (a.getStatus().equals("rejected")) {
+			return !a.getReasonRejected().equals("");
 		}
+		return true;
+	}
 
-		if (request.getModel().getAttribute("status").equals("Accepted")) {
-			if (!errors.hasErrors("reasonRejected")) {
-				reasonRejected = request.getModel().getString("reasonRejected");
-				hasReason = !StringHelper.isBlank(reasonRejected);
-				errors.state(request, !hasReason, "reasonRejected", "entrepreneur.application.reasonRejected.accepted");
-			}
+	private boolean checkOtherDecision(final Application a) {
+		if (!a.getStatus().equals("rejected")) {
+			return a.getReasonRejected().equals("");
 		}
-
-		if (request.getModel().getAttribute("status").equals("Pending")) {
-			if (!errors.hasErrors("reasonRejected")) {
-				reasonRejected = request.getModel().getString("reasonRejected");
-				hasReason = !StringHelper.isBlank(reasonRejected);
-				errors.state(request, !hasReason, "reasonRejected", "entrepreneur.application.reasonRejected.pending");
-			}
-		}
-
+		return true;
 	}
 
 	@Override

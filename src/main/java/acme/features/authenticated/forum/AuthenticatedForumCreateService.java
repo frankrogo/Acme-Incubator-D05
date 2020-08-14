@@ -33,7 +33,8 @@ public class AuthenticatedForumCreateService implements AbstractCreateService<Au
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "investmentRound");
+		//request.bind(entity, errors, "investmentRound");
+		request.bind(entity, errors);
 	}
 
 	@Override

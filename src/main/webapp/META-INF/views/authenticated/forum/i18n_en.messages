@@ -5,4 +5,5 @@ authenticated.forum.form.button.messages = Forum's messages
 authenticated.forum.form.button.messengers = Forum's messengers
 authenticated.forum.form.button.createMessenger = Add messenger
 authenticated.forum.form.button.createMessage = Post new message
+authenticated.forum.form.button.create = Create forum
 authenticated.forum.form.button.return = Return
