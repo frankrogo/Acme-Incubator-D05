@@ -7,7 +7,7 @@ bookkeeper.accounting-record.form.label.investmentRoundTicker = Ticker de la ron
 bookkeeper.accounting-record.form.label.title = Título:
 bookkeeper.accounting-record.form.label.creationMoment = Fecha de creación:
 bookkeeper.accounting-record.form.label.status = Estado:
-bookkeeper.accounting-record.form.label.body = Body:
-
+bookkeeper.accounting-record.form.label.body = Cuerpo:
+bookkeeper.accounting-record.form.button.create = Crear
 
 bookkeeper.accounting-record.form.button.return = Volver
