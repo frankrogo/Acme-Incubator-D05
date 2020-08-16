@@ -13,6 +13,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Length;
+
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Investor;
 import acme.framework.datatypes.Money;
@@ -27,11 +29,10 @@ public class Application extends DomainEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	//Porperties
+	//Properties
 
-	//@Column(unique = true)
-	//@NotBlank
-	//@Length(min = 5, max = 15)
+	@NotBlank
+	@Length(min = 13, max = 13)
 	private String				ticker;
 
 	@NotNull

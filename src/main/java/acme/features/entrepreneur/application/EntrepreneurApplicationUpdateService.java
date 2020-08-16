@@ -73,45 +73,11 @@ public class EntrepreneurApplicationUpdateService implements AbstractUpdateServi
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		errors.state(request, this.checkRejectDecision(entity), "reasonRejected", "entrepreneur.application.error.rejectDecision");
+		errors.state(request, this.checkReasonReject(entity), "reasonRejected", "entrepreneur.application.error.reasonRejected");
 		errors.state(request, this.checkOtherDecision(entity), "reasonRejected", "entrepreneur.application.error.otherDecision");
 
-		//		String reasonRejected;
-		//		boolean hasReason;
-
-		//		if (request.getModel().getAttribute("status").equals("rejected")) {
-		//			if (!errors.hasErrors("reasonRejected")) {
-		//				reasonRejected = request.getModel().getString("reasonRejected");
-		//				hasReason = !StringHelper.isBlank(reasonRejected);
-		//				errors.state(request, hasReason, "reasonRejected", "entrepreneur.application.reasonRejected.empty");
-		//			}
-		//		}
-		//
-		//		if (request.getModel().getAttribute("status").equals("accepted")) {
-		//			if (!errors.hasErrors("reasonRejected")) {
-		//				reasonRejected = request.getModel().getString("reasonRejected");
-		//				hasReason = StringHelper.isBlank(reasonRejected);
-		//				errors.state(request, hasReason, "reasonRejected", "entrepreneur.application.reasonRejected.accepted");
-		//			}
-		//		}
-		//
-		//		if (request.getModel().getAttribute("status").equals("pending")) {
-		//			if (!errors.hasErrors("reasonRejected")) {
-		//				reasonRejected = request.getModel().getString("reasonRejected");
-		//				hasReason = StringHelper.isBlank(reasonRejected);
-		//				errors.state(request, hasReason, "reasonRejected", "entrepreneur.application.reasonRejected.pending");
-		//			}
-		//		}
-		//
-		//		if (request.getModel().getAttribute("status").equals("pending")) {
-		//			if (!errors.hasErrors("reasonRejected")) {
-		//				reasonRejected = request.getModel().getString("reasonRejected");
-		//				hasReason = !StringHelper.isBlank(reasonRejected);
-		//				errors.state(request, hasReason, "reasonRejected", "entrepreneur.application.reasonRejected.noUpdate");
-		//			}
-		//		}
 	}
-	private boolean checkRejectDecision(final Application a) {
+	private boolean checkReasonReject(final Application a) {
 		if (a.getStatus().equals("rejected")) {
 			return !a.getReasonRejected().equals("");
 		}

@@ -53,42 +53,6 @@
 	<acme:form-textarea readonly="true" code="entrepreneur.application.form.label.statement" path="statement"/>
 	<acme:form-money readonly="true" code="entrepreneur.application.form.label.moneyOffer" path="moneyOffer"/>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	<%-- <jstl:if test="${status == 'pending'}">
-	<acme:form-select code="entrepreneur.application.form.label.status" path="status">
-			<acme:form-option code="entrepreneur.application.form.label.statusPending" value="pending" selected="true"/>
-			<acme:form-option code="entrepreneur.application.form.label.statusAccepted" value="accepted"/>
-			<acme:form-option code="entrepreneur.application.form.label.statusRejected" value="rejected"/>
-	</acme:form-select>
-	</jstl:if>
-	
-	<jstl:if test="${command == 'update' && (status == 'accepted' || status == 'rejected')}">
-	<acme:form-select code="entrepreneur.application.form.label.status" path="status">
-			<acme:form-option code="entrepreneur.application.form.label.statusPending" value="pending" selected="true"/>
-			<acme:form-option code="entrepreneur.application.form.label.statusAccepted" value="accepted"/>
-			<acme:form-option code="entrepreneur.application.form.label.statusRejected" value="rejected"/>
-	</acme:form-select>
-	</jstl:if>
-	
-	<jstl:if test="${command == 'show' && (status == 'accepted' || status == 'rejected')}">
-		<acme:form-textbox readonly="true" code="entrepreneur.application.form.label.status" path="status"/>
-	</jstl:if>
-	
-	<jstl:if test="${status == 'pending' || status == 'rejected'}">
-		<acme:form-textbox readonly="false" code="entrepreneur.application.form.label.reasonRejected" path="reasonRejected"/>
-	</jstl:if> --%>
-	
-	<%-- <jstl:if test="${status == 'pending' || command == 'update'}">
-		<acme:form-submit test="${command == 'show' || command == 'update'}" code="entrepreneur.application.form.button.update" action="/entrepreneur/application/update"/>
-	</jstl:if> --%>
-	
 	<acme:form-submit test="${status == 'pending' || (status == 'rejected' && reasonRejected == '') || (status == 'accepted' && reasonRejected != '')}" code="entrepreneur.application.form.button.update" action="/entrepreneur/application/update"/>
 	
 

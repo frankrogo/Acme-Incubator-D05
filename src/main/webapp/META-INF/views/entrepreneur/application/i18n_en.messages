@@ -12,13 +12,8 @@ entrepreneur.application.form.label.statusPending = pending
 entrepreneur.application.form.label.statusAccepted = accepted
 entrepreneur.application.form.label.statusRejected = rejected
 entrepreneur.application.form.label.reasonRejected = Reason of rejection:
-entrepreneur.application.reasonRejected.empty = You must give a reason to make a rejection
-entrepreneur.application.reasonRejected.accepted = Reason rejected field must be blank if status is "accepted"
-entrepreneur.application.reasonRejected.pending = To reject the application please change the status to "rejected"
-entrepreneur.application.reasonRejected.noUpdate = You cannot update without changing something
-entrepreneur.application.reasonRejected.spam = The reason given can't contain spam words
-entrepreneur.application.error.rejectDecision = Rejected applications require a decision
-entrepreneur.application.error.otherDecision = Only rejected applications require a decision
+entrepreneur.application.error.reasonRejected = Rejected applications require a reason to be rejection
+entrepreneur.application.error.otherDecision = Only rejected applications require a reason to be rejected
 
 entrepreneur.application.form.button.update = Update
 entrepreneur.application.form.button.return = Return

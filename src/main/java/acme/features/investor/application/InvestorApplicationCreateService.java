@@ -26,7 +26,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert request != null;
 
 		InvestmentRound invround = this.repository.findInvestmentRoundById(request.getModel().getInteger("investmentRoundId"));
-		return invround == null || !invround.isFinalMode();
+		return invround == null || invround.isFinalMode();
 	}
 
 	@Override
@@ -42,24 +42,40 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "ticker", "statement", "moneyOffer", "qualifications");
-		model.setAttribute("investmentRoundId", entity.getInvestmentRound().getId());
+		request.unbind(entity, model, "ticker", "statement", "moneyOffer");
+		model.setAttribute("investmentRoundId", request.getModel().getInteger("investmentRoundId"));
+		model.setAttribute("investmentRoundTicker", entity.getInvestmentRound().getTicker());
 	}
 
 	@Override
 	public Application instantiate(final Request<Application> request) {
 		Application result;
 		result = new Application();
-
+		Investor investor;
 		Date moment;
 		moment = new Date(System.currentTimeMillis() - 1);
-
 		result.setCreationMoment(moment);
 		result.setStatus("pending");
-		result.setInvestor(this.repository.findInvestorById(request.getPrincipal().getActiveRoleId()));
+
+		investor = this.repository.findInvestorById(request.getPrincipal().getActiveRoleId());
+		result.setInvestor(investor);
 		result.setInvestmentRound(this.repository.findInvestmentRoundById(request.getModel().getInteger("investmentRoundId")));
 
+		String sss = investor.getSector().substring(0, 3).toUpperCase();
+		String año = String.valueOf(result.getCreationMoment().getYear());
+		String yy = año.substring(año.length() - 2);
+		result.setTicker(sss + "-" + yy + "-" + this.getNNNNNN());
+
 		return result;
+	}
+
+	private String getNNNNNN() {
+		String random = String.valueOf((int) (Math.random() * 999999 + 1));
+		String res = random;
+		for (int i = 6; i > random.length(); i--) {
+			res = "0" + res;
+		}
+		return res;
 	}
 
 	@Override
@@ -74,6 +90,10 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		if (!errors.hasErrors("ticker")) {
 			noOtherSameTicker = this.repository.findApplicationByTicker(ticker) == null;
 			errors.state(request, noOtherSameTicker, "ticker", "investor.application.error.ticker");
+		}
+
+		if (!errors.hasErrors("moneyOffer")) {
+			errors.state(request, entity.getMoneyOffer().getCurrency().equals("EUR") || entity.getMoneyOffer().getCurrency().equals("€"), "moneyOffer", "investor.application.form.error.zoneEur");
 		}
 	}
 
