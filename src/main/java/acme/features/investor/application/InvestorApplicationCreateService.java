@@ -89,7 +89,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 
 		if (!errors.hasErrors("ticker")) {
 			noOtherSameTicker = this.repository.findApplicationByTicker(ticker) == null;
-			errors.state(request, noOtherSameTicker, "ticker", "investor.application.error.ticker");
+			errors.state(request, noOtherSameTicker, "ticker", "investor.application.form.error.ticker");
 		}
 
 		if (!errors.hasErrors("moneyOffer")) {

@@ -5,8 +5,9 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
+	<acme:form-hidden path="investmentRoundId"/>
 	<h4><acme:message code="investor.application.form.investmentRoundTicker"/> <acme:print value="${investmentRoundTicker}"/></h4><br>
-	<acme:form-textbox code="investor.application.form.label.ticker" path="ticker"/>
+	<acme:form-textbox readonly = "true" code="investor.application.form.label.ticker" path="ticker"/>
 	
 	<jstl:if test="${command != 'create' }">
 		<acme:form-moment code="investor.application.form.label.creationMoment" path="creationMoment"/>

@@ -12,5 +12,5 @@ investor.application.form.label.status = Estado:
 investor.application.form.label.reasonRejected = Razón de rechazo:
 investor.application.form.button.create = Crear
 investor.application.form.button.return = Volver
-investor.application.error.ticker = El ticker ya existe
-investor.application.error.zoneEur = Sólo se admite EUR o € como moneda
+investor.application.form.error.ticker = El ticker ya existe
+investor.application.form.error.zoneEur = Sólo se admite EUR o € como moneda
