@@ -10,6 +10,7 @@ authenticated.message.form.label.tags = Tags
 authenticated.message.form.label.checkbox = I understand that messages cannot be deleted
 authenticated.message.form.label.body = Body
 authenticated.message.form.forumTitle = Forum:
+authenticated.message.form.userName = Username:
 authenticated.message.form.button.return = Return
 
 employer.job.error.spamTitle = Title must not contain spam words

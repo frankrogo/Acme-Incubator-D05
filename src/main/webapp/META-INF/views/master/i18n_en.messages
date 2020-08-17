@@ -54,6 +54,7 @@ master.menu.authenticated.list-overture = List overtures
 master.menu.authenticated.list-challenge = List challenges
 master.menu.authenticated.list-investment-round = List active investment rounds
 master.menu.authenticated.forum.create = Create forum
+master.menu.authenticated.list-forum = My authenticated forums
 
 # master.menu.administrator ###################################################
 
@@ -82,14 +83,14 @@ master.menu.entrepreneur = Entrepreneur
 
 master.menu.entrepreneur.investment-round.list-mine = List my investment rounds
 master.menu.entrepreneur.application.list-mine = List applications made to my inv.rounds
-master.menu.entrepreneur.forum.list-mine = My forums
+master.menu.entrepreneur.forum.list-mine = My inv.round's forums
 
 # master.menu.investor ########################################################
 
 master.menu.investor = Investor
 
 master.menu.investor.application.list-mine = List my applications
-master.menu.investor.forum.list-mine = My forums
+master.menu.investor.forum.list-mine = Forums from my accepted applications
 
 # master.menu.bookkeeper ########################################################
 

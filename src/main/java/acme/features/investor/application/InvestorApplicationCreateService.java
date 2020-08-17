@@ -34,7 +34,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		request.bind(entity, errors);
+		request.bind(entity, errors, "creationMoment", "status", "investor", "investmentRound");
 	}
 
 	@Override

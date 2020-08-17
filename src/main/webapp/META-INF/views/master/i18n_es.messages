@@ -54,6 +54,7 @@ master.menu.authenticated.list-overture = Lista de propuestas
 master.menu.authenticated.list-challenge = Lista de retos
 master.menu.authenticated.list-investment-round = Lista de rondas de inversión
 master.menu.authenticated.forum.create = Crear foro
+master.menu.authenticated.list-forum = Mis foros de autentificado
 
 # master.menu.administrator ###################################################
 

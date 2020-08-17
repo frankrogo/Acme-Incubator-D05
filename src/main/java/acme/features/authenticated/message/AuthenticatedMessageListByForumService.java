@@ -30,7 +30,8 @@ public class AuthenticatedMessageListByForumService implements AbstractListServi
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "title", "creationMoment");
+		request.unbind(entity, model, "title", "creationMoment", "body");
+		model.setAttribute("forumTitle", entity.getForum().getTitle());
 		model.setAttribute("userName", this.repository.findUser(entity.getId()));
 	}
 

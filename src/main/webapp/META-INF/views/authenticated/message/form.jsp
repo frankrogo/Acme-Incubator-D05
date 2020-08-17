@@ -19,8 +19,8 @@
 	<acme:form-hidden path="forumId"/>
 	
 	<jstl:if test="${command != 'create'}">
-		<h4><acme:message readonly = "true" code="authenticated.message.form.userName"/> <acme:print value="${userName}"/></h4>
-		<h4><acme:message readonly = "true"recode="authenticated.message.form.forumTitle"/> <acme:print value="${forumTitle}"/></h4>
+		<h4><acme:message code="authenticated.message.form.userName"/> <acme:print value="${userName}"/></h4>
+		<h4><acme:message code="authenticated.message.form.forumTitle"/> <acme:print value="${forumTitle}"/></h4>
 		<acme:form-moment readonly = "true" code="authenticated.message.form.label.creationMoment" path="creationMoment"/>
 	</jstl:if>
 	

@@ -42,7 +42,7 @@ public class AuthenticatedMessengerCreateService implements AbstractCreateServic
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		request.bind(entity, errors, "isOwner", "forum", "authenticated");
+		request.bind(entity, errors, "ownsTheForum", "forum", "authenticated");
 
 	}
 
@@ -55,6 +55,8 @@ public class AuthenticatedMessengerCreateService implements AbstractCreateServic
 		request.unbind(entity, model);
 		Integer forumId = request.getModel().getInteger("forumId");
 		model.setAttribute("forumId", forumId);
+		model.setAttribute("userName", "");
+
 	}
 
 	@Override
@@ -64,7 +66,6 @@ public class AuthenticatedMessengerCreateService implements AbstractCreateServic
 
 		Integer forumId = request.getModel().getInteger("forumId");
 		result.setForum(this.repository.findForumById(forumId));
-		result.setAuthenticated(this.repository.findAuthByAccountId(request.getPrincipal().getActiveRoleId()));
 
 		return result;
 	}
@@ -95,11 +96,11 @@ public class AuthenticatedMessengerCreateService implements AbstractCreateServic
 
 	@Override
 	public void create(final Request<Messenger> request, final Messenger entity) {
-
 		String userName = request.getModel().getString("userName");
-		UserAccount uaccount = this.repository.findUserByName(userName);
-		Authenticated authenticated = this.repository.findAuthByAccountId(uaccount.getId());
-		entity.setAuthenticated(authenticated);
+		entity.setAuthenticated(this.repository.findAuthByName(userName));
+
+		Integer forumId = request.getModel().getInteger("forumId");
+		entity.setForum(this.repository.findForumById(forumId));
 
 		this.repository.save(entity);
 

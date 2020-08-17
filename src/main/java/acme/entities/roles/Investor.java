@@ -22,7 +22,7 @@ public class Investor extends UserRole {
 	private String				firm;
 
 	@NotBlank
-	@Pattern(regexp = "^[a-zA-Z]{3}-[a-zA-Z0-9]", message = "{acme.validation.investor.sector.pattern}")
+	@Pattern(regexp = "^[a-zA-Z]{3}[a-zA-Z0-9 ]*$", message = "{acme.validation.investor.sector.pattern}")
 	private String				sector;
 
 	@NotBlank

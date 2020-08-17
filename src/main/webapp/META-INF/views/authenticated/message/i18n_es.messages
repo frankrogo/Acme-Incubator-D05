@@ -10,6 +10,7 @@ authenticated.message.form.label.checkbox = Entiendo que los mensajes no pueden 
 authenticated.message.form.label.tags = Etiquetas
 authenticated.message.form.label.body = Cuerpo
 authenticated.message.form.forumTitle = Foro:
+authenticated.message.form.userName = Nombre de usuario:
 authenticated.message.form.button.return = Volver
 
 employer.job.error.spamTitle = El título no debe contener palabras spam

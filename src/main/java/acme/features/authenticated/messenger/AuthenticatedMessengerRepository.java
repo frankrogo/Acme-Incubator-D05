@@ -39,4 +39,7 @@ public interface AuthenticatedMessengerRepository extends AbstractRepository {
 	@Query("select au from Authenticated au where au.userAccount.id = ?1")
 	Authenticated findAuthByAccountId(int id);
 
+	@Query("select au from Authenticated au where au.userAccount.username = ?1")
+	Authenticated findAuthByName(String userName);
+
 }

@@ -77,6 +77,8 @@
 	      	<acme:menu-suboption code="master.menu.authenticated.list-investment-round" action="/authenticated/investment-round/list" />
 	      	<acme:menu-separator/>
 	      	<acme:menu-suboption code="master.menu.authenticated.forum.create" action="/authenticated/forum/create" />
+	      	<acme:menu-separator/>
+	      	<acme:menu-suboption code="master.menu.authenticated.list-forum" action="/authenticated/forum/list-mine" />
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.entrepreneur" access="hasRole('Entrepreneur')">

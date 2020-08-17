@@ -39,6 +39,7 @@ public class AuthenticatedMessengerShowService implements AbstractShowService<Au
 
 		request.unbind(entity, model, "ownsTheForum");
 		model.setAttribute("forumTitle", entity.getForum().getTitle());
+		model.setAttribute("userName", entity.getAuthenticated().getUserAccount().getUsername());
 
 		if (owner.getAuthenticated().getId() == principal.getActiveRoleId() && !entity.getOwnsTheForum()) {
 			ownerForum = true;

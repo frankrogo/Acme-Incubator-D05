@@ -32,7 +32,7 @@ public class AuthenticatedMessengerDeleteService implements AbstractDeleteServic
 		forumId = erased.getForum().getId();
 		owner = this.repository.findTheOwner(forumId);
 		principal = request.getPrincipal();
-		result = !erased.getOwnsTheForum() && owner.getAuthenticated().getId() == principal.getActiveRoleId();
+		result = erased.getOwnsTheForum() && owner.getAuthenticated().getId() == principal.getActiveRoleId();
 		return result;
 	}
 

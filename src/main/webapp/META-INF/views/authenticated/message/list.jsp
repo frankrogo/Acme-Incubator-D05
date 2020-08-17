@@ -19,7 +19,7 @@
 <acme:list>
 	<acme:list-column code="authenticated.message.list.label.title" path="title" width="20%"/>
 	<acme:list-column code="authenticated.message.list.label.creationMoment" path="creationMoment" width="20%"/>
-	<acme:list-column code="authenticated.message.list.label.userName" path="userName" readonly="true"/>
+	<acme:list-column code="authenticated.message.list.label.userName" path="userName" width="20%"/>
 </acme:list>
 
 <acme:form-return code="authenticated.message.list.button.return"/>
