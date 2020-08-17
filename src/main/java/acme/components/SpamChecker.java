@@ -21,7 +21,7 @@ public class SpamChecker {
 
 		spamWords = config.getSpamWords();
 		spamThreshold = config.getSpamThreshold();
-		spamReady = SpamChecker.beforeChecking1(spamWords);
+		spamReady = SpamChecker.beforeChecking2(spamWords);
 		textReady = SpamChecker.beforeChecking2(text);
 
 		numWords = textReady.size();
@@ -45,19 +45,19 @@ public class SpamChecker {
 		return result;
 	}
 
-	public static Collection<String> beforeChecking1(final String text) {
-
-		Collection<String> result = new ArrayList<String>();
-		result.add(text);
-
-		String[] s = text.split(",");
-
-		for (String word : s) {
-			//word.trim().replaceAll(" +", " ");
-			result.add(word);
-		}
-		return result;
-	}
+	//	public static Collection<String> beforeChecking1(final String text) {
+	//
+	//		Collection<String> result = new ArrayList<String>();
+	//		result.add(text);
+	//
+	//		String[] s = text.split(",");
+	//
+	//		for (String word : s) {
+	//			//word.trim().replaceAll(" +", " ");
+	//			result.add(word);
+	//		}
+	//		return result;
+	//	}
 
 	public static Collection<String> beforeChecking2(final String text) {
 

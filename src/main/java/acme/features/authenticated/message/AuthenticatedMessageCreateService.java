@@ -88,19 +88,23 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert errors != null;
 
 		//Spam validation
-		boolean spamBody, spamTitle, spamTags, isAccepted;
+		boolean spamCheckOk, isAccepted;
 
 		if (!errors.hasErrors()) {
 			Configuration configuration = this.repository.findConfiguration();
-			String title = entity.getTitle();
-			String body = entity.getBody();
-			String tags = entity.getTags();
-			spamTitle = SpamChecker.spamChecker(configuration, title);
-			spamBody = SpamChecker.spamChecker(configuration, body);
-			spamTags = SpamChecker.spamChecker(configuration, tags);
-			errors.state(request, !spamTitle, "title", "authenticated.job.error.spamTitle");
-			errors.state(request, !spamBody, "body", "authenticated.job.error.spamBody");
-			errors.state(request, !spamTags, "tags", "authenticated.job.error.spamTags");
+			String spam = entity.getTitle() + "," + entity.getBody() + "," + entity.getTags();
+			spamCheckOk = SpamChecker.spamChecker(configuration, spam);
+			errors.state(request, !spamCheckOk, "*", "authenticated.message.error.spam");
+
+			//			String title = entity.getTitle();
+			//			String body = entity.getBody();
+			//			String tags = entity.getTags();
+			//			spamTitle = SpamChecker.spamChecker(configuration, title);
+			//			spamBody = SpamChecker.spamChecker(configuration, body);
+			//			spamTags = SpamChecker.spamChecker(configuration, tags);
+			//			errors.state(request, !spamTitle, "title", "authenticated.job.error.spamTitle");
+			//			errors.state(request, !spamBody, "body", "authenticated.job.error.spamBody");
+			//			errors.state(request, !spamTags, "tags", "authenticated.job.error.spamTags");
 		}
 
 		//Checkbox validation

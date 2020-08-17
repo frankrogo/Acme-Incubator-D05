@@ -14,7 +14,8 @@ authenticated.message.form.userName = Nombre de usuario:
 authenticated.message.form.button.return = Volver
 authenticated.message.form.button.create = Crear
 
-authenticated.job.error.spamTitle = El título no debe contener palabras spam
-authenticated.job.error.spamBody = El cuerpo no debe contener palabras spam
-authenticated.job.error.spamTags = Las etiquetas no deben contener palabras spam
+authenticated.message.error.spam = Intente no escribir palabras spam
+authenticated.message.error.spamTitle = El título no debe contener palabras spam
+authenticated.message.error.spamBody = El cuerpo no debe contener palabras spam
+authenticated.message.error.spamTags = Las etiquetas no deben contener palabras spam
 authenticated.request.error.must-accept = Debes marcar el checkbox antes de crear un mensaje

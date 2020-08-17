@@ -14,7 +14,7 @@ authenticated.message.form.userName = Username:
 authenticated.message.form.button.return = Return
 authenticated.message.form.button.create = Create
 
-authenticated.job.error.spamTitle = Title must not contain spam words
-authenticated.job.error.spamBody = Body must not contain spam words
-authenticated.job.error.spamTags = Tags must not contain spam words
+authenticated.message.error.spam = Try not to write spam words
+authenticated.message.error.spamBody = Body must not contain spam words
+authenticated.message.error.spamTags = Tags must not contain spam words
 authenticated.request.error.must-accept = You must check the checkbox before creating the message
