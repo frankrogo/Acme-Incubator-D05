@@ -28,7 +28,7 @@ public interface AuthenticatedMessengerRepository extends AbstractRepository {
 	Forum findForumById(int id);
 
 	@Query("select au from Authenticated au where au.id=?1")
-	Authenticated findAuthenticatedById(int id);
+	Authenticated findAuthById(int id);
 
 	@Query("select ua.username from UserAccount ua where ua.id in (select au.userAccount.id from Authenticated au where au.id in (select ms.authenticated.id from Messenger ms where ms.forum.id = ?1))")
 	Collection<String> findInvolvedUsers(int forumId);

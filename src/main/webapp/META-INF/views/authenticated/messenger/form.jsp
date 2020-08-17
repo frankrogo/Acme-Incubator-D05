@@ -6,15 +6,12 @@
 <acme:form>
 	<acme:form-hidden path="forumId"/>
 	
-	
-	<h4><acme:message code="authenticated.messenger.form.label.forumId"/> <acme:print value="${forumId}"/></h4><br>
 	<jstl:if test="${command != 'create' }">
-		<h4><acme:message code="authenticated.messenger.form.label.userName"/> <acme:print value="${userName}"/></h4><br>
-		<h4><acme:message code="authenticated.messenger.form.label.forumTitle"/> <acme:print value="${forumTitle}"/></h4><br>
+		<h4><acme:message code="authenticated.messenger.form.label.forumName"/> <acme:print value="${forumName}"/></h4><br>
 		<acme:form-textbox readonly = "true" code="authenticated.messenger.form.label.ownsTheForum" path="ownsTheForum"/>
 	</jstl:if>
 	
-	<jstl:if test="${(command != 'create' && ownsTheForum == true)}">
+	<jstl:if test="${(command == 'show' && ownerForum == true) || command == 'delete'}">
 		<acme:form-submit code= "authenticated.messenger.form.button.delete" action= "/authenticated/messenger/delete"/>
 	</jstl:if>
 	

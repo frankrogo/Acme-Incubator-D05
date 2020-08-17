@@ -55,7 +55,7 @@ public class AuthenticatedMessengerCreateService implements AbstractCreateServic
 		request.unbind(entity, model);
 		Integer forumId = request.getModel().getInteger("forumId");
 		model.setAttribute("forumId", forumId);
-		model.setAttribute("userName", "");
+		model.setAttribute("forumName", this.repository.findForumById(forumId).getTitle());
 
 	}
 
@@ -63,9 +63,9 @@ public class AuthenticatedMessengerCreateService implements AbstractCreateServic
 	public Messenger instantiate(final Request<Messenger> request) {
 		Messenger result = new Messenger();
 		result.setOwnsTheForum(false);
-
 		Integer forumId = request.getModel().getInteger("forumId");
 		result.setForum(this.repository.findForumById(forumId));
+		result.setAuthenticated(this.repository.findAuthById(request.getPrincipal().getActiveRoleId()));
 
 		return result;
 	}
@@ -84,9 +84,9 @@ public class AuthenticatedMessengerCreateService implements AbstractCreateServic
 			if (userName.trim().isEmpty()) {
 				isEmpty = true;
 			} else {
-				UserAccount uaccount = this.repository.findUserByName(userName);
+				UserAccount uac = this.repository.findUserByName(userName);
 				List<String> isAMessenger = (List<String>) this.repository.findInvolvedUsers(request.getModel().getInteger("forumId"));
-				isNull = uaccount == null || isAMessenger.contains(uaccount.getUsername());
+				isNull = uac == null || isAMessenger.contains(uac.getUsername());
 			}
 			errors.state(request, !isNull, "*", "authenticated.messenger.error.nullName");
 			errors.state(request, !isEmpty, "*", "authenticated.messenger.error.emptyName");
@@ -97,13 +97,10 @@ public class AuthenticatedMessengerCreateService implements AbstractCreateServic
 	@Override
 	public void create(final Request<Messenger> request, final Messenger entity) {
 		String userName = request.getModel().getString("userName");
-		entity.setAuthenticated(this.repository.findAuthByName(userName));
-
-		Integer forumId = request.getModel().getInteger("forumId");
-		entity.setForum(this.repository.findForumById(forumId));
-
+		UserAccount uac = this.repository.findUserByName(userName);
+		Authenticated auth = this.repository.findAuthByAccountId(uac.getId());
+		entity.setAuthenticated(auth);
 		this.repository.save(entity);
-
 	}
 
 }

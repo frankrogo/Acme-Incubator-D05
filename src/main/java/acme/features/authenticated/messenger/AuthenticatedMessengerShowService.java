@@ -30,16 +30,16 @@ public class AuthenticatedMessengerShowService implements AbstractShowService<Au
 		assert entity != null;
 		assert model != null;
 
+		request.unbind(entity, model, "ownsTheForum");
+		Integer forumId = entity.getForum().getId();
+		model.setAttribute("forumName", entity.getForum().getTitle());
+
 		boolean ownerForum = false;
 		Messenger owner;
 		Principal principal;
-		Integer forumId = entity.getForum().getId();
+
 		owner = this.repository.findTheOwner(forumId);
 		principal = request.getPrincipal();
-
-		request.unbind(entity, model, "ownsTheForum");
-		model.setAttribute("forumTitle", entity.getForum().getTitle());
-		model.setAttribute("userName", entity.getAuthenticated().getUserAccount().getUsername());
 
 		if (owner.getAuthenticated().getId() == principal.getActiveRoleId() && !entity.getOwnsTheForum()) {
 			ownerForum = true;

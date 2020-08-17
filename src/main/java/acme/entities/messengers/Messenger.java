@@ -29,12 +29,12 @@ public class Messenger extends DomainEntity {
 
 	@NotNull
 	@Valid
-	@ManyToOne //(optional = false)
+	@ManyToOne(optional = false)
 	private Forum				forum;
 
 	@NotNull
 	@Valid
-	@ManyToOne //(optional = true)
+	@ManyToOne(optional = false)
 	private Authenticated		authenticated;
 
 }

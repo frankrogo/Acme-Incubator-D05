@@ -5,8 +5,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.messenger.list.label.forumTitle" path="forumTitle" width="20%"/>
-	<acme:list-column code="authenticated.messenger.list.label.userName" path="userName" width="30%"/>
+	<acme:list-column code="authenticated.messenger.list.label.forumName" path="forumName" width="20%"/>
+	<acme:list-column code="authenticated.messenger.list.label.authName" path="authName" width="30%"/>
 	<acme:list-column code="authenticated.messenger.list.label.ownsTheForum" path="ownsTheForum" width="20%"/>
 </acme:list>
 

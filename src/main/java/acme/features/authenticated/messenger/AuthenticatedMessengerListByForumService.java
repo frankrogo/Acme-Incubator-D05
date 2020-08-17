@@ -33,8 +33,8 @@ public class AuthenticatedMessengerListByForumService implements AbstractListSer
 
 		request.unbind(entity, model, "ownsTheForum");
 		model.setAttribute("forumId", entity.getForum().getId());
-		model.setAttribute("forumTitle", entity.getForum().getTitle());
-		model.setAttribute("userName", entity.getAuthenticated().getUserAccount().getUsername());
+		model.setAttribute("forumName", entity.getForum().getTitle());
+		model.setAttribute("authenticatedName", entity.getAuthenticated().getUserAccount().getUsername());
 	}
 
 	@Override
