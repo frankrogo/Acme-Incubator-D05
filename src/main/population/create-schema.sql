@@ -181,8 +181,8 @@
        `id` integer not null,
         `version` integer not null,
         `owns_the_forum` bit,
-        `authenticated_id` integer,
-        `forum_id` integer,
+        `authenticated_id` integer not null,
+        `forum_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 

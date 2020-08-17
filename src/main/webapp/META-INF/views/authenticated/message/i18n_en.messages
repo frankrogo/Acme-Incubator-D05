@@ -12,8 +12,9 @@ authenticated.message.form.label.body = Body
 authenticated.message.form.forumTitle = Forum:
 authenticated.message.form.userName = Username:
 authenticated.message.form.button.return = Return
+authenticated.message.form.button.create = Create
 
-employer.job.error.spamTitle = Title must not contain spam words
-employer.job.error.spamBody = Body must not contain spam words
-employer.job.error.spamTags = Tags must not contain spam words
-provider.request.error.must-accept = You must check the checkbox before creating the message
+authenticated.job.error.spamTitle = Title must not contain spam words
+authenticated.job.error.spamBody = Body must not contain spam words
+authenticated.job.error.spamTags = Tags must not contain spam words
+authenticated.request.error.must-accept = You must check the checkbox before creating the message
