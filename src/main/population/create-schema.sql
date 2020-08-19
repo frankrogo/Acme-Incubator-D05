@@ -64,7 +64,17 @@
         `version` integer not null,
         `user_account_id` integer,
         `firm` varchar(255),
-        `responsability_statement` varchar(255),
+        `responsability_statement` varchar(1024),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `bookkeeper_request` (
+       `id` integer not null,
+        `version` integer not null,
+        `firm` varchar(255),
+        `responsability_statement` varchar(1024),
+        `status` varchar(255),
+        `user_account_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -331,6 +341,11 @@
 
     alter table `bookkeeper` 
        add constraint FK_krvjp9eaqyapewl2igugbo9o8 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `bookkeeper_request` 
+       add constraint `FKrkmyfaktfktoo2v26a9qu4ebb` 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 

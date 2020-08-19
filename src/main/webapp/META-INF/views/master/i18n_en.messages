@@ -76,6 +76,7 @@ master.menu.administrator.create-inquiry = Create inquiry
 master.menu.administrator.create-overture = Create overture
 master.menu.administrator.create-challenge = Create challenge
 master.menu.administrator.configuration = Customisation parameters
+master.menu.user-account.bookkeeper-requests = Bookkeeper requests
 
 # master.menu.entrepreneur ########################################################
 
@@ -99,6 +100,8 @@ master.menu.bookkeeper = Bookkeeper
 master.menu.bookkeeper.accounting-record.list-mine = List my accounting records
 master.menu.bookkeeper.investment-round.list-mine = List inv.rounds to which I've written an acc.record
 master.menu.bookkeeper.investment-round.list-not-mine = List inv.rounds to which I've not written an acc.record
+master.menu.user-account.become-bookkeeper = Become a bookkeeper
+master.menu.user-account.bookkeeper = Bookkeeper data
 
 # master.menu.provider ########################################################
 
@@ -118,6 +121,8 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.bookkeeper = Bookkeeper data
+master.menu.user-account.become-bookkeeper = Become a bookkeeper
 
 # master.footer ###############################################################
 

@@ -1,0 +1,12 @@
+authenticated.bookkeeper-request.form.title.create = Petición a rol de Auditor
+
+authenticated.bookkeeper-request.form.label.firm = Empresa
+authenticated.bookkeeper-request.form.label.responsibilityStatement = Declaración de reponsibilidad
+authenticated.bookkeeper-request.from.accepted = Su petición ha sido aceptada. Compruebe sus datos desde la pestaña de cuenta del menú
+authenticated.bookkeeper-request.form.pending = Su petición sigue pendiente.
+authenticated.bookkeeper-request.form.rejected = Su petición ha sido rechazada.
+authenticated.bookkeeper-request.form.button.create = Hacer la petición
+authenticated.bookkeeper-request.form.button.return = Volver
+
+authenticated.bookkeeper.request.form.error.firm = No puede estar vacío o nulo
+authenticated.bookkeeper.request.form.error.responsabilityStatement = No puede estar vacío o nulo
