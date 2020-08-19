@@ -1,13 +1,16 @@
-investor.application.form.investmentRoundTicker = Ticker de la ronda de inversión:
 investor.application.list.label.IRoundticker = Ticker de la ronda de inversión
 investor.application.list.label.IRoundtitle = Título de la ronda de inversión
 investor.application.list.label.ticker = Ticker
 investor.application.list.label.creationMoment = Fecha de creación
 
+investor.application.form.investmentRoundTicker = Ticker de la ronda de inversión:
 investor.application.form.label.ticker = Ticker:
 investor.application.form.label.creationMoment = Fecha de creación:
 investor.application.form.label.statement = Declaración:
 investor.application.form.label.moneyOffer = Oferta monetaria:
 investor.application.form.label.status = Estado:
-
+investor.application.form.label.reasonRejected = Razón de rechazo:
+investor.application.form.button.create = Crear
 investor.application.form.button.return = Volver
+investor.application.form.error.ticker = El ticker ya existe
+investor.application.form.error.zoneEur = Sólo se admite EUR o € como moneda

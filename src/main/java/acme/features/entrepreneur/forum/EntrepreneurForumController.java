@@ -21,12 +21,18 @@ public class EntrepreneurForumController extends AbstractController<Entrepreneur
 	private EntrepreneurForumListMineService	listMineSerivce;
 	@Autowired
 	private EntrepreneurForumShowService		showService;
+	//	@Autowired
+	//	private EntrepreneurForumCreateService		createService;
+	//	@Autowired
+	//	private EntrepreneurForumDeleteService		deleteService;
 
 
 	@PostConstruct
 	private void initialize() {
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineSerivce);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		//		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+		//		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 
 }

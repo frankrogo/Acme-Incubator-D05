@@ -1,0 +1,7 @@
+
+authenticated.bookkeeper.bookkeeper.form.title.update = Editar datos de contador
+
+authenticated.bookkeeper.form.label.firm = Firma
+authenticated.bookkeeper.form.label.responsabilityStatement = Declaración de responsabilidad
+authenticated.bookkeeper.form.label.update = Editar
+authenticated.bookkeeper.form.button.return = Volver

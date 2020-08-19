@@ -1,14 +1,20 @@
-entrepreneur.application.form.label.investmentRoundTicker = Ticker de la ronda de inversión:
-entrepreneur.application.list.label.IRoundticker = Ticker de la ronda de inversión
-entrepreneur.application.list.label.IRoundtitle = Título de la ronda de inversión
 entrepreneur.application.list.label.ticker = Ticker
 entrepreneur.application.list.label.creationMoment = Fecha de creación
 
+entrepreneur.application.form.label.investmentRoundTicker = Ticker de la ronda de inversión:
+entrepreneur.application.form.label.IRoundtitle = Título de la ronda de inversión:
 entrepreneur.application.form.label.ticker = Ticker:
 entrepreneur.application.form.label.creationMoment = Fecha de creación:
 entrepreneur.application.form.label.statement = Declaración:
 entrepreneur.application.form.label.moneyOffer = Oferta monetaria:
 entrepreneur.application.form.label.status = Estado:
+entrepreneur.application.form.label.statusPending = pendiente
+entrepreneur.application.form.label.statusAccepted = aceptado
+entrepreneur.application.form.label.statusRejected = rechazado
+entrepreneur.application.form.label.reasonRejected = Razón de rechazo:
+entrepreneur.application.error.reasonRejected = Las aplicaciones rechazadas necesitan una razón de rechazo
+entrepreneur.application.error.otherDecision = Solo las aplicaciones rechazadas necesitan una razón de rechazo
 
+entrepreneur.application.form.button.update = Actualizar
 entrepreneur.application.form.button.return = Volver
-authenticated.activity.list.button.return = Volver
+

@@ -27,11 +27,9 @@ public class Application extends DomainEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	//Porperties
+	//Properties
 
-	//@Column(unique = true)
-	//@NotBlank
-	//@Length(min = 5, max = 15)
+	@NotBlank
 	private String				ticker;
 
 	@NotNull
@@ -49,6 +47,8 @@ public class Application extends DomainEntity {
 	@NotBlank
 	@Pattern(regexp = "^(pending|accepted|rejected)$")
 	private String				status;
+
+	private String				reasonRejected;
 
 	//Relationships
 

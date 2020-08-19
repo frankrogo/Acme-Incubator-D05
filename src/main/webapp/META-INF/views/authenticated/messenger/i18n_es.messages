@@ -1,0 +1,15 @@
+authenticated.messenger.list.label.ownsTheForum = ¿Es dueño del foro?
+authenticated.messenger.list.label.forumName = Foro
+authenticated.messenger.list.label.authName = Usuario autenticado
+
+authenticated.messenger.error.nullName = El usuario no existe o es ya un forero
+authenticated.messenger.error.emptyName = El nombre de usuario no debe estar vacío
+
+authenticated.messenger.form.label.ownsTheForum = ¿Es dueño del foro?
+authenticated.messenger.form.label.forumName = Foro:
+authenticated.messenger.form.button.delete = Eliminar
+authenticated.messenger.form.button.create = Añadir forero
+authenticated.messenger.form.button.return = Volver
+authenticated.messenger.form.label.userName = Nombre de usuario:
+
+authenticated.messenger.list.button.return = Volver

@@ -14,8 +14,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import acme.entities.forums.Forum;
-import acme.entities.roles.Entrepreneur;
-import acme.entities.roles.Investor;
+import acme.framework.entities.Authenticated;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -52,12 +51,7 @@ public class Message extends DomainEntity {
 
 	@NotNull
 	@Valid
-	@ManyToOne(optional = true)
-	private Entrepreneur		entrepreneur;
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = true)
-	private Investor			investor;
+	@ManyToOne(optional = false)
+	private Authenticated		authenticated;
 
 }

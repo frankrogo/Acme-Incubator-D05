@@ -1,5 +1,5 @@
 
-package acme.features.investor.message;
+package acme.features.entrepreneur.message;
 
 import java.util.Collection;
 
@@ -8,16 +8,16 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.forums.Forum;
 import acme.entities.messages.Message;
-import acme.entities.roles.Investor;
+import acme.entities.roles.Entrepreneur;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class InvestorMessageListMineService implements AbstractListService<Investor, Message> {
+public class EntrepreneurMessageListByForumService implements AbstractListService<Entrepreneur, Message> {
 
 	@Autowired
-	InvestorMessageRepository repository;
+	EntrepreneurMessageRepository repository;
 
 
 	@Override
@@ -32,12 +32,13 @@ public class InvestorMessageListMineService implements AbstractListService<Inves
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "title", "creationMoment");
+		model.setAttribute("userName", this.repository.findUser(entity.getId()));
 	}
 
 	@Override
 	public Collection<Message> findMany(final Request<Message> request) {
 		assert request != null;
-		Forum forum = this.repository.findOneForumById(request.getModel().getInteger("forumId"));
+		Forum forum = this.repository.findForumById(request.getModel().getInteger("forumId"));
 		return this.repository.findManyByForumId(forum.getId());
 	}
 

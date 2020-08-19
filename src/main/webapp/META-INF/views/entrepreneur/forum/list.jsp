@@ -18,6 +18,7 @@
 
 <acme:list>
 	<acme:list-column code="entrepreneur.forum.form.label.title" path="title" width="20%"/>
+	<acme:list-column code="entrepreneur.forum.form.label.investmentRoundTicker" path="investmentRoundTicker" width="20%"/>
 </acme:list>
 
 

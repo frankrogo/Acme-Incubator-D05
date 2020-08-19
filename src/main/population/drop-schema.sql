@@ -35,6 +35,10 @@
        drop 
        foreign key FK_krvjp9eaqyapewl2igugbo9o8;
 
+    alter table `bookkeeper_request` 
+       drop 
+       foreign key `FKrkmyfaktfktoo2v26a9qu4ebb`;
+
     alter table `consumer` 
        drop 
        foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
@@ -42,6 +46,10 @@
     alter table `entrepreneur` 
        drop 
        foreign key FK_r6tqltqvrlh1cyy8rsj5pev1q;
+
+    alter table `forum` 
+       drop 
+       foreign key `FKtch75j3tlc8qby4lru5kkgh83`;
 
     alter table `forum` 
        drop 
@@ -57,15 +65,19 @@
 
     alter table `message` 
        drop 
-       foreign key `FKba2j1h6asoxs9sepj58m1xfch`;
+       foreign key `FK3ny0h1379q528toyokq81noiu`;
 
     alter table `message` 
        drop 
        foreign key `FKfwwpivgx5j4vw4594dgrw884q`;
 
-    alter table `message` 
+    alter table `messenger` 
        drop 
-       foreign key `FKck2q4vpk2ky3722hq3gk0al8f`;
+       foreign key `FK41x7stgfv3ynpx6a4rrjv9sbv`;
+
+    alter table `messenger` 
+       drop 
+       foreign key `FKh1s115o7s58c61tedfgudh5my`;
 
     alter table `provider` 
        drop 
@@ -85,6 +97,8 @@
 
     drop table if exists `bookkeeper`;
 
+    drop table if exists `bookkeeper_request`;
+
     drop table if exists `challenge`;
 
     drop table if exists `configuration`;
@@ -102,6 +116,8 @@
     drop table if exists `investor`;
 
     drop table if exists `message`;
+
+    drop table if exists `messenger`;
 
     drop table if exists `notice`;
 

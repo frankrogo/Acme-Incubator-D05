@@ -19,8 +19,7 @@
 <acme:list>
 	<acme:list-column code="investor.message.list.label.title" path="title" width="20%"/>
 	<acme:list-column code="investor.message.list.label.creationMoment" path="creationMoment" width="20%"/>
+	<acme:list-column code="investor.message.list.label.userName" path="userName" readonly="true"/>
 </acme:list>
 
 <acme:form-return code="investor.message.list.button.return"/>
-
-
