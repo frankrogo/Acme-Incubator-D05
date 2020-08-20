@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import acme.components.CustomCommand;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
+import acme.features.administrator.toolRecord.AdministratorToolRecordCreateService;
+import acme.features.administrator.toolRecord.AdministratorToolRecordDeleteService;
+import acme.features.administrator.toolRecord.AdministratorToolRecordUpdateService;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
@@ -21,6 +24,12 @@ public class EntrepreneurInvestmentRoundController extends AbstractController<En
 	private EntrepreneurInvestmentRoundListMineService	listMineService;
 	@Autowired
 	private EntrepreneurInvestmentRoundShowService		showService;
+	@Autowired
+	private EntrepreneurInvestmentRoundCreateService	createService;
+	@Autowired
+	private EntrepreneurInvestmentRoundUpdateService	updateService;
+	@Autowired
+	private EntrepreneurInvestmentRoundDeleteService	deleteService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -29,6 +38,9 @@ public class EntrepreneurInvestmentRoundController extends AbstractController<En
 	private void initialise() {
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+	  	super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 
 	}
 

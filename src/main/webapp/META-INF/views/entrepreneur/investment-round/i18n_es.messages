@@ -10,6 +10,19 @@ entrepreneur.investment-round.form.label.description = Descripción:
 entrepreneur.investment-round.form.label.moneyAmount = Cantidad monetaria:
 entrepreneur.investment-round.form.label.moreInfo = Más info:
 entrepreneur.investment-round.form.label.finalMode = Modo final:
+entrepreneur.investment-round.form.label.titleActivity = Título de actividad:
+entrepreneur.investment-round.form.label.deadLineActivity = Fecha límite actividad:
+entrepreneur.investment-round.form.label.budgetActivity = Presupuesto actividad:
+entrepreneur.investment-round.form.label.entrepreneur = Entrepreneur
 
 entrepreneur.investment-round.form.button.activities = Actividades
 entrepreneur.investment-round.form.button.return = Volver
+entrepreneur.investment-round.form.button.create = Crear
+entrepreneur.investment-round.form.button.update = Actualizar
+entrepreneur.investment-round.form.button.delete = Borrar
+
+Entrepreneur.InvestmentRound.error.titleActivity.notblank = No puede estar en blanco
+Entrepreneur.InvestmentRound.error.deadLineActivity.notnull = No puede ser Null
+Entrepreneur.InvestmentRound.error.budgetActivity.notblank = No puede estar en blanco
+Entrepreneur.InvestmentRound.error.budgetActivity.notvalid = No valido 
+Entrepreneur.InvestmentRound.error.finalMode.notvalid = No se puede establecer como modo final a menos que el Presupuesto sea igual que la Cantidad monetaria

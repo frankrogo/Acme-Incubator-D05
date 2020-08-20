@@ -38,13 +38,19 @@ public class BookkeeperAccountingRecordListByIrService implements AbstractListSe
 	public Collection<AccountingRecord> findMany(final Request<AccountingRecord> request) {
 		assert request != null;
 
-		Collection<AccountingRecord> res;
+		Collection<AccountingRecord> accountingRecords;
 		int investmentRoundId;
 
 		investmentRoundId = request.getModel().getInteger("investmentRoundId");
-		res = this.repository.findAllByInvestmentRoundId(investmentRoundId);
+		accountingRecords = this.repository.findAllByInvestmentRoundId(investmentRoundId);
+		for(AccountingRecord ar: accountingRecords) {
+			if(ar.isStatus()==false) {
+				accountingRecords.remove(ar);
+				
+			}
+		}
 
-		return res;
+		return accountingRecords;
 	}
 
 }

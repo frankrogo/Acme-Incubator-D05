@@ -30,7 +30,7 @@ public class InvestmentRound extends DomainEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	//Properties
-
+	@NotBlank
 	private String				ticker;
 
 	@NotNull

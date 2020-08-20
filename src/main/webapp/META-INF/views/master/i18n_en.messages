@@ -84,6 +84,8 @@ master.menu.entrepreneur = Entrepreneur
 
 master.menu.entrepreneur.investment-round.list-mine = List my investment rounds
 master.menu.entrepreneur.application.list-mine = List applications made to my inv.rounds
+master.menu.entrepreneur.forum.list-mine = My forums
+master.menu.entrepreneur.investment-round.create = Create investment rounds
 master.menu.entrepreneur.forum.list-mine = My inv.round's forums
 
 # master.menu.investor ########################################################
@@ -121,8 +123,13 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.become-entrepreneur = Become a entrepreneur
+master.menu.user-account.entrepreneur = Entrepreneur
+master.menu.user-account.become-investor = Become a investor
+master.menu.user-account.investor = Investor
 master.menu.user-account.bookkeeper = Bookkeeper data
 master.menu.user-account.become-bookkeeper = Become a bookkeeper
+
 
 # master.footer ###############################################################
 

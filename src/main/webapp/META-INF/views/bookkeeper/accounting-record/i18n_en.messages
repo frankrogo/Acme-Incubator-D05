@@ -8,7 +8,7 @@ bookkeeper.accounting-record.form.label.title = Title:
 bookkeeper.accounting-record.form.label.creationMoment = Creation moment:
 bookkeeper.accounting-record.form.label.status = Status:
 bookkeeper.accounting-record.form.label.body = Body:
-
+bookkeeper.accounting-record.form.button.create = Create
 
 bookkeeper.accounting-record.form.button.return = Return
 

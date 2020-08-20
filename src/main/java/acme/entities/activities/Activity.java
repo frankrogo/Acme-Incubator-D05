@@ -1,4 +1,4 @@
-
+ 
 package acme.entities.activities;
 
 import java.util.Date;

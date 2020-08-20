@@ -7,11 +7,23 @@ entrepreneur.investment-round.form.label.title = Title:
 entrepreneur.investment-round.form.label.creationMoment = Creation moment:
 entrepreneur.investment-round.form.label.round = Round:
 entrepreneur.investment-round.form.label.description = Description:
-entrepreneur.investment-round.form.label.moneyAmount = Money amount
+entrepreneur.investment-round.form.label.moneyAmount = Money amount:
 entrepreneur.investment-round.form.label.moreInfo = More info:
 entrepreneur.investment-round.form.label.finalMode = Final mode:
+entrepreneur.investment-round.form.label.titleActivity = Activity title:
+entrepreneur.investment-round.form.label.deadLineActivity = Activity deadline:
+entrepreneur.investment-round.form.label.budgetActivity = Activity budget:
+entrepreneur.investment-round.form.label.entrepreneur = Entrepreneur
 
 entrepreneur.investment-round.form.button.activities = Activities
 entrepreneur.investment-round.form.button.return = Return
+entrepreneur.investment-round.form.button.create = Create
+entrepreneur.investment-round.form.button.update = Update
+entrepreneur.investment-round.form.button.delete = Delete
 
+Entrepreneur.InvestmentRound.error.titleActivity.notblank = Must not be blank
+Entrepreneur.InvestmentRound.error.deadLineActivity.notnull = May not be null
+Entrepreneur.InvestmentRound.error.budgetActivity.notblank = Must not be blank
+Entrepreneur.InvestmentRound.error.budgetActivity.notvalid = No valid 
+Entrepreneur.InvestmentRound.error.finalMode.notvalid = Cannot be set to final mode unless Budget is greater than the Money Amoung
 
