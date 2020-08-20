@@ -53,6 +53,8 @@ master.menu.authenticated.list-inquiry = Lista de consultas
 master.menu.authenticated.list-overture = Lista de propuestas
 master.menu.authenticated.list-challenge = Lista de retos
 master.menu.authenticated.list-investment-round = Lista de rondas de inversión
+master.menu.authenticated.forum.create = Crear foro
+master.menu.authenticated.list-forum = Mis foros de autentificado
 
 # master.menu.administrator ###################################################
 
@@ -74,6 +76,7 @@ master.menu.administrator.create-inquiry = Crear consulta
 master.menu.administrator.create-overture = Crear propuesta
 master.menu.administrator.create-challenge = Crear reto
 master.menu.administrator.configuration = Parametros de customización
+master.menu.user-account.bookkeeper-requests = Solicitudes para ser contable
 
 # master.menu.entrepreneur ########################################################
 
@@ -121,7 +124,8 @@ master.menu.user-account.become-entrepreneur = Hazte empresario
 master.menu.user-account.entrepreneur = Empresario
 master.menu.user-account.become-investor = Hazte inversor
 master.menu.user-account.investor = Inversor
-
+master.menu.user-account.bookkeeper = Datos de contador
+master.menu.user-account.become-bookkeeper = Hazte contador
 
 ﻿# master.footer ###############################################################
 

@@ -1,0 +1,13 @@
+administrator.bookkeeper-request.list.label.firm = Firm
+administrator.bookkeeper-request.list.label.status = Status
+administrator.bookkeeper-request.list.label.responsibilityStatement = Responsibility statement
+administrator.bookkeeper-request.list.label.userName = Username
+
+administrator.bookkeeper-request.form.label.userName = Requested by:
+administrator.bookkeeper-request.form.label.username = Username:
+administrator.bookkeeper-request.form.label.firm = Firm:
+administrator.bookkeeper-request.form.label.responsibilityStatement = Responsibility statement:
+administrator.bookkeeper-request.form.button.accept = Accept
+administrator.bookkeeper-request.form.button.reject = Reject
+administrator.bookkeeper-request.form.button.return = Return
+administrator.bookkeeper-request.form.label.status = Status:

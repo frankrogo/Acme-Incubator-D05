@@ -1,0 +1,12 @@
+authenticated.bookkeeper-request.form.title.create = Request to become an auditor
+
+authenticated.bookkeeper-request.form.label.firm = Firm
+authenticated.bookkeeper-request.form.label.responsibilityStatement = Responsibility statement
+authenticated.bookkeeper-request.form.accepted = Your request has been accepted. Check your data under the Account tab of the menu
+authenticated.bookkeeper-request.form.pending = Your request is still pending.
+authenticated.bookkeeper-request.form.rejected = Your request has been rejected.
+authenticated.bookkeeper-request.form.button.create = Send request
+authenticated.bookkeeper-request.form.button.return = Return
+
+authenticated.bookkeeper.request.form.error.firm = Cannot be blank or null
+authenticated.bookkeeper.request.form.error.responsabilityStatement = Cannot be blank or null

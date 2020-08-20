@@ -1,0 +1,15 @@
+authenticated.messenger.list.label.ownsTheForum = ¿Owns the forum?
+authenticated.messenger.list.label.forumName = Forum
+authenticated.messenger.list.label.authName = Authenticated user
+
+authenticated.messenger.error.nullName = The user do not exist or is a registered messenger
+authenticated.messenger.error.emptyName = The user must not be empty
+
+authenticated.messenger.form.label.forumName = Forum:
+authenticated.messenger.form.label.ownsTheForum = ¿Owns the forum?
+authenticated.messenger.form.button.delete = Delete
+authenticated.messenger.form.button.create = Add messenger
+authenticated.messenger.form.button.return = Return
+authenticated.messenger.form.label.userName = Username:
+
+authenticated.messenger.list.button.return = Return

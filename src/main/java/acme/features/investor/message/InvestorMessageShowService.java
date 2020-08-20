@@ -42,6 +42,8 @@ public class InvestorMessageShowService implements AbstractShowService<Investor,
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "title", "creationMoment", "tags", "body");
+		model.setAttribute("forumTitle", entity.getForum().getTitle());
+		model.setAttribute("userName", this.repository.findUser(entity.getId()));
 	}
 
 	@Override

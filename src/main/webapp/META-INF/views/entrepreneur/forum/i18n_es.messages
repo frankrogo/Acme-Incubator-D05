@@ -1,6 +1,9 @@
-entrepreneur.forum.form.label.title = Título
+entrepreneur.forum.list.label.title = Título
+entrepreneur.forum.list.label.investmentRoundTicker = Ticker de la ronda de inversión
 
-entrepreneur.forum.form.label.investmentRoundTicker = Ticker de la ronda de inversión
-entrepreneur.forum.form.label.title = Título
-entrepreneur.forum.form.button.messages = Mis mensajes
+entrepreneur.forum.form.label.investmentRoundTicker = Ticker de la ronda de inversión:
+entrepreneur.forum.form.label.title = Título:
+entrepreneur.forum.form.button.messages = Mensajes del foro
+entrepreneur.forum.form.button.createMessage = Nuevo mensaje
+entrepreneur.forum.form.button.messengers = Foreros
 entrepreneur.forum.form.button.return = Volver

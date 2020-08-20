@@ -1,9 +1,12 @@
 investor.message.list.label.title = Título
 investor.message.list.label.creationMoment = Fecha de creación
 investor.message.list.button.return = Volver
+investor.message.list.label.userName = Forero
 
+investor.message.form.label.userName = Forero
 investor.message.form.label.title = Título
 investor.message.form.label.creationMoment = Fecha de creación
+investor.message.form.label.checkbox = Entiendo que los mensajes no pueden ser borrados
 investor.message.form.label.tags = Etiquetas
 investor.message.form.label.body = Cuerpo
 investor.message.form.button.return = Volver
