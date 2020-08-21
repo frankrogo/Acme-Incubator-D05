@@ -13,6 +13,8 @@ authenticated.investment-round.form.label.moreInfo = More info:
 authenticated.investment-round.form.label.finalMode = Final mode:
 
 authenticated.investment-round.form.button.activities = Activities
+authenticated.investment-round.form.button.accounting-record = Accounting records
+
 authenticated.investment-round.form.button.return = Return
 
 

@@ -13,4 +13,5 @@ authenticated.investment-round.form.label.moreInfo = Más info:
 authenticated.investment-round.form.label.finalMode = Modo final:
 
 authenticated.investment-round.form.button.activities = Actividades
+authenticated.investment-round.form.button.accounting-record = Registros contables
 authenticated.investment-round.form.button.return = Volver

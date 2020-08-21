@@ -31,6 +31,8 @@ public class EntrepreneurActivityListByInvestmentRoundService implements Abstrac
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "title", "creationMoment", "deadline");
+		model.setAttribute("finalmode", this.repository.findInvestmentRoundById(entity.getInvestmentRound().getId()).isFinalMode());
+		model.setAttribute("investmentRoundId", entity.getInvestmentRound().getId());
 	}
 
 	@Override
