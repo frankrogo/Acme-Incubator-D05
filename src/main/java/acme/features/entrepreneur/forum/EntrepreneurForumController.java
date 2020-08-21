@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import acme.components.CustomCommand;
 import acme.entities.forums.Forum;
 import acme.entities.roles.Entrepreneur;
+import acme.features.authenticated.messenger.AuthenticatedMessengerListByForumService;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
@@ -21,8 +22,6 @@ public class EntrepreneurForumController extends AbstractController<Entrepreneur
 	private EntrepreneurForumListMineService	listMineSerivce;
 	@Autowired
 	private EntrepreneurForumShowService		showService;
-	//	@Autowired
-	//	private EntrepreneurForumCreateService		createService;
 	//	@Autowired
 	//	private EntrepreneurForumDeleteService		deleteService;
 

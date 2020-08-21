@@ -18,8 +18,6 @@ import acme.framework.controllers.AbstractController;
 public class EntrepreneurMessageController extends AbstractController<Entrepreneur, Message> {
 
 	@Autowired
-	private EntrepreneurMessageListByForumService	listByForumService;
-	@Autowired
 	private EntrepreneurMessageShowService			showService;
 	@Autowired
 	private EntrepreneurMessageCreateService		createService;
@@ -27,7 +25,6 @@ public class EntrepreneurMessageController extends AbstractController<Entreprene
 
 	@PostConstruct
 	private void initialize() {
-		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listByForumService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 	}

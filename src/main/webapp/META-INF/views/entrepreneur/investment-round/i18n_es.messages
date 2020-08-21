@@ -14,6 +14,7 @@ entrepreneur.investment-round.form.label.titleActivity = Título de actividad:
 entrepreneur.investment-round.form.label.deadLineActivity = Fecha límite actividad:
 entrepreneur.investment-round.form.label.budgetActivity = Presupuesto actividad:
 entrepreneur.investment-round.form.label.entrepreneur = Entrepreneur
+entrepreneur.investment-round.form.label.titleForum = Título del foro : 
 
 entrepreneur.investment-round.form.button.activities = Actividades
 entrepreneur.investment-round.form.button.return = Volver
@@ -26,3 +27,6 @@ Entrepreneur.InvestmentRound.error.deadLineActivity.notnull = No puede ser Null
 Entrepreneur.InvestmentRound.error.budgetActivity.notblank = No puede estar en blanco
 Entrepreneur.InvestmentRound.error.budgetActivity.notvalid = No valido 
 Entrepreneur.InvestmentRound.error.finalMode.notvalid = No se puede establecer como modo final a menos que el Presupuesto sea igual que la Cantidad monetaria
+Entrepreneur.InvestmentRound.error.spam = Título, descripción o Título de actividad contienen una palabra spam
+Entrepreneur.InvestmentRound.error.update.spam = Título o descripción contienen una palabra spam
+Entrepreneur.InvestmentRound.error.titleForum.notblank = No puede estar en blanco

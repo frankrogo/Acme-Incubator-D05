@@ -43,6 +43,7 @@ public class EntrepreneurForumShowService implements AbstractShowService<Entrepr
 		assert model != null;
 		request.unbind(entity, model, "title");
 		model.setAttribute("investmentRoundTicker", entity.getInvestmentRound().getTicker());
+		model.setAttribute("forumId", request.getModel().getInteger("id"));
 	}
 
 	@Override

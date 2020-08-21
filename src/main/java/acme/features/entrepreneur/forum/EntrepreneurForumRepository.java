@@ -20,6 +20,9 @@ public interface EntrepreneurForumRepository extends AbstractRepository {
 	@Query("select f from Forum f where f.investmentRound.entrepreneur.id = ?1")
 	Collection<Forum> findManyByEntrepreneurId(int entrepreneurId);
 
+	@Query("select f from Forum f where f.authenticated.id = ?1")
+	Collection<Forum> findManyByAuthenticatedId(int entrepreneurId);
+	
 	@Query("select f from Forum f where f.id = ?1")
 	Forum findOneById(int id);
 
