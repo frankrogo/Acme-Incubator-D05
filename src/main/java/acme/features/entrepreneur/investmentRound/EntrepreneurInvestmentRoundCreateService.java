@@ -78,11 +78,11 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		Entrepreneur entrepreneur = this.repository.findEntrepreneurById(principal.getActiveRoleId());
 		result.setEntrepreneur(entrepreneur);
 		result.setCreationMoment(new Date(System.currentTimeMillis() - 1));
-		String sss = entrepreneur.getAuthorityName().substring(0, 3).toUpperCase();
+		String sss = getSSS(entrepreneur.getSector());
 		String año = String.valueOf(result.getCreationMoment().getYear());
 		String yy = año.substring(año.length() - 2);
 
-		result.setTicker(sss + "-" + yy + "-" + getNNNNNNN());
+		result.setTicker(sss + "-" + yy + "-" + getNNNNNN());
 
 		return result;
 	}
@@ -121,15 +121,26 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		return res;
 	}
 
-	private String getNNNNNNN() {
-		String random = String.valueOf((int) (Math.random() * 99999999 + 1));
+	private String getSSS(String sector) {
+		String res = "XXX";
+		if(sector.length()==1) {
+			res= sector.toUpperCase() + "XX" ;
+		}else if(sector.length()==2) {
+			res= sector.toUpperCase() + "X";
+		}else if(sector.length()>2) {
+			res = sector.substring(0,3).toUpperCase();
+		}
+		return res;
+		
+	}
+	private String getNNNNNN() {
+		String random = String.valueOf((int) (Math.random() * 999999 + 1));
 		String res = random;
-		for (int i = 7; i > random.length(); i--) {
+		for (int i = 6; i  > random.length(); i--) {
 			res = "0" + res;
 		}
 		return res;
 	}
-
 	private boolean finalModeValidate(Money moneyAmount, String budgetActivity, boolean finalMode) {
 		boolean res = false;
 		if (!budgetActivity.isEmpty()&& budgetActivity!=null && moneyAmount != null && budgetActivity!=null && moneyAmount.getCurrency().equals("€") && moneyAmount.getAmount()!=null) {
