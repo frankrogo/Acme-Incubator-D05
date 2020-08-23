@@ -29,5 +29,6 @@
 	
 	<acme:form-submit test="${isInvestor}" code="investor.investment-round.form.button.application" action="/investor/application/create?investmentRoundId=${investmentRoundId}"  method="get"/>
 	<acme:form-submit code="authenticated.investment-round.form.button.activities" action="/authenticated/activity/list-by-ir?investmentRoundId=${investmentRoundId}" method="get"/>
+	<acme:form-submit code="authenticated.investment-round.form.button.accounting-record" action="/authenticated/accounting-record/list-by-ir?investmentRoundId=${investmentRoundId}" method="get"/>
   	<acme:form-return code="authenticated.investment-round.form.button.return"/>
 </acme:form>

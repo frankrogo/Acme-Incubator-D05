@@ -266,6 +266,13 @@
         <property name="budget" value="€ 1000000" />
         <property name="investmentRound" ref="investmentRound02" />
     </bean>
+        <bean name="activity04" class="acme.entities.activities.Activity">
+        <property name="title" value="Activity 4" />
+        <property name="creationMoment" value="2019/02/27 00:00" />
+        <property name="deadline" value="2021/01/01 00:00" />
+        <property name="budget" value="€ 3000000" />
+        <property name="investmentRound" ref="investmentRound01" />
+    </bean>
     
 	<!-- Accounting Records -->
 	

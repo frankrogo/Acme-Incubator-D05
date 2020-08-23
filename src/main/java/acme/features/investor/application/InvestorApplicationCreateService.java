@@ -61,7 +61,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		result.setInvestor(investor);
 		result.setInvestmentRound(this.repository.findInvestmentRoundById(request.getModel().getInteger("investmentRoundId")));
 
-		String sss = investor.getSector().substring(0, 3).toUpperCase();
+		String sss = getSSS(investor.getSector());
 		String año = String.valueOf(result.getCreationMoment().getYear());
 		String yy = año.substring(año.length() - 2);
 		result.setTicker(sss + "-" + yy + "-" + this.getNNNNNN());
@@ -72,12 +72,25 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 	private String getNNNNNN() {
 		String random = String.valueOf((int) (Math.random() * 999999 + 1));
 		String res = random;
-		for (int i = 6; i > random.length(); i--) {
+		for (int i = 6; i  > random.length(); i--) {
 			res = "0" + res;
 		}
 		return res;
 	}
 
+	private String getSSS(String sector) {
+		String res = "XXX";
+		if(sector.length()==1) {
+			res= sector.toUpperCase() + "XX" ;
+		}else if(sector.length()==2) {
+			res= sector.toUpperCase() + "X";
+		}else if(sector.length()>2) {
+			res = sector.substring(0,3).toUpperCase();
+		}
+		return res;
+		
+	}
+	
 	@Override
 	public void validate(final Request<Application> request, final Application entity, final Errors errors) {
 		assert request != null;

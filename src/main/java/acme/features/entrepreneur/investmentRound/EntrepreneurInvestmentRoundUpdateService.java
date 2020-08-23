@@ -5,7 +5,9 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamChecker;
 import acme.entities.activities.Activity;
+import acme.entities.configurations.Configuration;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
 import acme.features.entrepreneur.activity.EntrepreneurActivityRepository;
@@ -77,7 +79,11 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		Collection<Activity> activities = this.activityRepository.findManyByInvestmentRoundId(investmentRoundId);
 		errors.state(request, AmountFinalMode(entity.isFinalMode(),entity.getMoneyAmount(), getSumBudgets(activities)) == true, "finalMode",
 				"Entrepreneur.InvestmentRound.error.finalMode.notvalid");
-		
+		boolean spamCheckOk;
+		Configuration configuration = this.repository.findConfiguration();
+		String spam = request.getModel().getString("title")+ " " + request.getModel().getString("description") ;
+		spamCheckOk = SpamChecker.spamChecker(configuration, spam);
+		errors.state(request, !spamCheckOk, "*", "Entrepreneur.InvestmentRound.error.update.spam");
 		
 	}
 

@@ -6,14 +6,21 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamChecker;
 import acme.entities.activities.Activity;
+import acme.entities.configurations.Configuration;
+import acme.entities.forums.Forum;
 import acme.entities.investmentRounds.InvestmentRound;
+import acme.entities.messengers.Messenger;
 import acme.entities.roles.Entrepreneur;
+import acme.features.authenticated.messenger.AuthenticatedMessengerRepository;
 import acme.features.entrepreneur.activity.EntrepreneurActivityRepository;
+import acme.features.entrepreneur.forum.EntrepreneurForumRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.datatypes.Money;
+import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 
@@ -24,6 +31,12 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 	EntrepreneurInvestmentRoundRepository repository;
 	@Autowired
 	EntrepreneurActivityRepository activityRepository;
+	@Autowired
+	EntrepreneurForumRepository forumRepository;
+	@Autowired
+	AuthenticatedMessengerRepository messengerRepository;
+	
+	
 
 	@Override
 	public boolean authorise(final Request<InvestmentRound> request) {
@@ -51,6 +64,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		model.setAttribute("titleActivity", "");
 		model.setAttribute("deadLineActivity", "");
 		model.setAttribute("budgetActivity", "");
+		model.setAttribute("titleForum", "");
 	}
 
 	@Override
@@ -59,15 +73,16 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		Principal principal = request.getPrincipal();
 
 
+
 		result = new InvestmentRound();
 		Entrepreneur entrepreneur = this.repository.findEntrepreneurById(principal.getActiveRoleId());
 		result.setEntrepreneur(entrepreneur);
 		result.setCreationMoment(new Date(System.currentTimeMillis() - 1));
-		String sss = entrepreneur.getAuthorityName().substring(0, 3).toUpperCase();
+		String sss = getSSS(entrepreneur.getSector());
 		String año = String.valueOf(result.getCreationMoment().getYear());
 		String yy = año.substring(año.length() - 2);
 
-		result.setTicker(sss + "-" + yy + "-" + getNNNNNNN());
+		result.setTicker(sss + "-" + yy + "-" + getNNNNNN());
 
 		return result;
 	}
@@ -87,7 +102,14 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		errors.state(request, moneyBudget(budgetActivity) == true, "budgetActivity","Entrepreneur.InvestmentRound.error.budgetActivity.notvalid");
 		errors.state(request, finalModeValidate(entity.getMoneyAmount(), budgetActivity, finalMode) == true, "finalMode",
 				"Entrepreneur.InvestmentRound.error.finalMode.notvalid");
-
+		
+		errors.state(request, !request.getModel().getString("titleForum").isEmpty(), "titleForum","Entrepreneur.InvestmentRound.error.titleForum.notblank");
+		
+		boolean spamCheckOk;
+		Configuration configuration = this.repository.findConfiguration();
+		String spam = request.getModel().getString("title")+ " " + request.getModel().getString("description") + " " + request.getModel().getString("titleActivity")  ;
+		spamCheckOk = SpamChecker.spamChecker(configuration, spam);
+		errors.state(request, !spamCheckOk, "*", "Entrepreneur.InvestmentRound.error.spam");
 	}
 
 	private boolean moneyBudget(String budget) {
@@ -99,15 +121,26 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		return res;
 	}
 
-	private String getNNNNNNN() {
-		String random = String.valueOf((int) (Math.random() * 99999999 + 1));
+	private String getSSS(String sector) {
+		String res = "XXX";
+		if(sector.length()==1) {
+			res= sector.toUpperCase() + "XX" ;
+		}else if(sector.length()==2) {
+			res= sector.toUpperCase() + "X";
+		}else if(sector.length()>2) {
+			res = sector.substring(0,3).toUpperCase();
+		}
+		return res;
+		
+	}
+	private String getNNNNNN() {
+		String random = String.valueOf((int) (Math.random() * 999999 + 1));
 		String res = random;
-		for (int i = 7; i > random.length(); i--) {
+		for (int i = 6; i  > random.length(); i--) {
 			res = "0" + res;
 		}
 		return res;
 	}
-
 	private boolean finalModeValidate(Money moneyAmount, String budgetActivity, boolean finalMode) {
 		boolean res = false;
 		if (!budgetActivity.isEmpty()&& budgetActivity!=null && moneyAmount != null && budgetActivity!=null && moneyAmount.getCurrency().equals("€") && moneyAmount.getAmount()!=null) {
@@ -127,6 +160,8 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 
 	@Override
 	public void create(final Request<InvestmentRound> request, final InvestmentRound entity) {
+		assert request != null;
+		assert entity != null;
 		this.repository.save(entity);
 		String titleActivity = request.getModel().getString("titleActivity");
 		Date deadLineActivity = request.getModel().getDate("deadLineActivity");
@@ -144,6 +179,26 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		activity.setBudget(budget);
 		activity.setInvestmentRound(entity);
 		this.activityRepository.save(activity);
+		
+		Forum forum = new Forum();
+		Principal principal = request.getPrincipal();
+		int userAccountId = principal.getAccountId();
+		Authenticated authenticated = this.repository.findOneAuthenticatedByUserAccountId(userAccountId);
+		forum.setAuthenticated(authenticated);
+		forum.setInvestmentRound(entity);
+		forum.setTitle(request.getModel().getString("titleForum"));
+		this.forumRepository.save(forum);
+		
+		Messenger messenger = new Messenger();
+		messenger.setAuthenticated(authenticated);
+		messenger.setForum(forum);
+		messenger.setOwnsTheForum(true);
+		this.messengerRepository.save(messenger);
+		
+		
+		
+		
+
 
 	}
 }
