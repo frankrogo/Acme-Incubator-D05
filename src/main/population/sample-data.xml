@@ -100,7 +100,7 @@
 
 	<bean name="entrepreneur1Entrepreneur" class="acme.entities.roles.Entrepreneur">
 		<property name="startup" value="Entrepreneur 1 Corporative" />
-		<property name="sector" value="Sector 1" />
+		<property name="sector" value="A" />
 		<property name="qualifications" value="Qualifications" />
 		<property name="skills" value="Skills" />
 		<property name="userAccount" ref="entrepreneur1UserAccount" />

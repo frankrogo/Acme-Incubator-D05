@@ -79,9 +79,9 @@ public class AdministratorNoticeCreateService implements AbstractCreateService<A
 			errors.state(request, future, "deadline", "administrator.notice.error.future-deadline");
 		}
 		//Checked related notices
-
-		boolean comma = this.checkComma(entity.getLinks());
-		boolean linksChecked = this.checkLinks(entity.getLinks());
+		String links =entity.getLinks() + ",";
+		boolean comma = this.checkComma(links);
+		boolean linksChecked = this.checkLinks(links);
 
 		if (!entity.getLinks().isEmpty() && comma == false && linksChecked == true) {
 			errors.state(request, comma, "links", "administrator.notice.error.comma");

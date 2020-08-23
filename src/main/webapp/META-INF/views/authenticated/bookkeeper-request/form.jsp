@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<jstl:if test="${alreadyRequested == 'false'}">	
+	<jstl:if test="${alreadyRequested != 'true'}">	
 		<br/><acme:form-textbox code="authenticated.bookkeeper-request.form.label.firm" path="firm"/>
 		<acme:form-textarea code="authenticated.bookkeeper-request.form.label.responsibilityStatement" path="responsabilityStatement"/>
 		<acme:form-submit test="${command == 'create'}" code="authenticated.bookkeeper-request.form.button.create" action="/authenticated/bookkeeper-request/create"/>
