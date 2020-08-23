@@ -41,8 +41,6 @@
 	<acme:form-submit code= "entrepreneur.message.form.button.create" action= "/entrepreneur/message/create?forumId=${forumId}"/>
 	</jstl:if>
 	
-	<acme:form-return code="authenticated.message.form.button.return"/>	
-	
 </acme:form>	
 		
   	<acme:form-return code="entrepreneur.message.form.button.return"/>
