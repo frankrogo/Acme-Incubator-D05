@@ -58,6 +58,7 @@ public class AdministratorConfigurationUpdateService implements AbstractUpdateSe
 	public void update(final Request<Configuration> request, final Configuration entity) {
 		assert request != null;
 		assert entity != null;
+		entity.setActivitySectors(entity.getActivitySectors().replaceAll("\\s+",""));
 		this.repository.save(entity);
 	}
 

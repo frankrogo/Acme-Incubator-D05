@@ -15,7 +15,9 @@ package acme.features.authenticated.entrepreneur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.configurations.Configuration;
 import acme.entities.roles.Entrepreneur;
+import acme.features.administrator.configuration.AdministratorConfigurationRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -33,7 +35,8 @@ public class AuthenticatedEntrepreneurUpdateService implements AbstractUpdateSer
 
 	@Autowired
 	private AuthenticatedEntrepreneurRepository repository;
-
+	@Autowired
+	private AdministratorConfigurationRepository configurationRepository;
 
 	@Override
 	public boolean authorise(final Request<Entrepreneur> request) {
@@ -58,6 +61,10 @@ public class AuthenticatedEntrepreneurUpdateService implements AbstractUpdateSer
 		assert model != null;
 
 		request.unbind(entity, model, "startup", "sector", "qualifications","skills");
+		Configuration config = this.configurationRepository.findOneConfiguration();
+		String paramConfig = config.getActivitySectors();
+		String[] params= paramConfig.split(",");
+		model.setAttribute("params", params);
 	}
 
 	@Override

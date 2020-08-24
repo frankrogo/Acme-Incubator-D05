@@ -4,6 +4,7 @@ package acme.entities.configurations;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;

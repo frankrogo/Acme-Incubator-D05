@@ -96,13 +96,17 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		Date deadLineActivity = request.getModel().getDate("deadLineActivity");
 		String budgetActivity = request.getModel().getString("budgetActivity");
 		Boolean finalMode = entity.isFinalMode();
+		
 		errors.state(request, !titleActivity.equals(""), "titleActivity","Entrepreneur.InvestmentRound.error.titleActivity.notblank");
 		errors.state(request, deadLineActivity != null, "deadLineActivity","Entrepreneur.InvestmentRound.error.deadLineActivity.notnull");
 		errors.state(request, !budgetActivity.isEmpty(), "budgetActivity","Entrepreneur.InvestmentRound.error.budgetActivity.notblank");
 		errors.state(request, moneyBudget(budgetActivity) == true, "budgetActivity","Entrepreneur.InvestmentRound.error.budgetActivity.notvalid");
 		errors.state(request, finalModeValidate(entity.getMoneyAmount(), budgetActivity, finalMode) == true, "finalMode",
 				"Entrepreneur.InvestmentRound.error.finalMode.notvalid");
-		
+		if(!budgetActivity.isEmpty() && entity.getMoneyAmount()!=null) {
+		Double budget = Double.valueOf(budgetActivity.replace("€", "").replace(".", ""));
+		errors.state(request, budget <=  entity.getMoneyAmount().getAmount(), "budgetActivity","Entrepreneur.InvestmentRound.error.budgetActivity.novalidAmount");
+		}	
 		errors.state(request, !request.getModel().getString("titleForum").isEmpty(), "titleForum","Entrepreneur.InvestmentRound.error.titleForum.notblank");
 		
 		boolean spamCheckOk;

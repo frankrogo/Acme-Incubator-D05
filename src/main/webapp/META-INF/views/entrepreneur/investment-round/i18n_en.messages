@@ -26,9 +26,10 @@ Entrepreneur.InvestmentRound.error.titleActivity.notblank = Must not be blank
 Entrepreneur.InvestmentRound.error.deadLineActivity.notnull = May not be null
 Entrepreneur.InvestmentRound.error.budgetActivity.notblank = Must not be blank
 Entrepreneur.InvestmentRound.error.budgetActivity.notvalid = No valid 
-Entrepreneur.InvestmentRound.error.finalMode.notvalid = Cannot be set to final mode unless Budget is greater than the Money Amoung
+Entrepreneur.InvestmentRound.error.finalMode.notvalid = Cannot be set to final mode unless Budget is equals than the Money Amoung
 Entrepreneur.InvestmentRound.error.spam = Title, description or activity title contains a spam word
 Entrepreneur.InvestmentRound.error.update.spam = Title or description o contains a spam word
 Entrepreneur.InvestmentRound.error.titleForum.notblank = Must not be null
+Entrepreneur.InvestmentRound.error.budgetActivity.novalidAmount = Budget Activity can't be greater than Money Amount
 
 
