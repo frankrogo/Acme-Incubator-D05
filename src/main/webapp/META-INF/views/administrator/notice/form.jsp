@@ -6,7 +6,7 @@
 
 <acme:form>
 	<jstl:if test="${command != 'create'}">
-	<img src ="${header}" />
+	<img src ="${headerImage}" />
 	</jstl:if>
 	<jstl:if test="${command == 'create'}">
 		<acme:form-textarea placeholder="http://www.example1.com , http://www.example2.com " code="administrator.notice.form.label.links" path="links"/>

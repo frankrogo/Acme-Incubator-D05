@@ -42,7 +42,7 @@ public class AdministratorNoticeCreateService implements AbstractCreateService<A
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "header", "title", "deadline", "body", "links");
+		request.unbind(entity, model, "headerImage", "title", "deadline", "body", "links");
 
 		if (request.isMethod(HttpMethod.GET)) {
 			model.setAttribute("checked", "false");

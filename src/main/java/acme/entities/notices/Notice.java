@@ -25,7 +25,7 @@ public class Notice extends DomainEntity {
 
 	@NotBlank
 	@URL
-	private String				header;
+	private String				headerImage;
 
 	@NotBlank
 	private String				title;
