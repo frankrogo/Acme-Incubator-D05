@@ -32,6 +32,9 @@ public class AuthenticatedMessengerShowService implements AbstractShowService<Au
 
 		request.unbind(entity, model, "ownsTheForum");
 		Integer forumId = entity.getForum().getId();
+		if (entity.getForum().getInvestmentRound() != null) {
+			model.setAttribute("investmentRoundTicker", entity.getForum().getInvestmentRound().getTicker());
+		}
 		model.setAttribute("forumName", entity.getForum().getTitle());
 
 		boolean ownerForum = false;

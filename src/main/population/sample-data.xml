@@ -213,7 +213,7 @@
         <property name="description" value="Description" />
         <property name="moneyAmount" value="€ 1000" />
         <property name="moreInfo" value="http://www.invroundone.com/" />
-        <property name="finalMode" value="false" />
+        <property name="finalMode" value="true" />
         <property name="entrepreneur" ref="entrepreneur1Entrepreneur" />
      </bean>
      
@@ -237,7 +237,7 @@
         <property name="description" value="Description" />
         <property name="moneyAmount" value="€ 5,000.41" />
         <property name="moreInfo" value="http://www.invroundthree.com/" />
-        <property name="finalMode" value="true" />
+        <property name="finalMode" value="false" />
         <property name="entrepreneur" ref="entrepreneur2Entrepreneur" />
      </bean>
      
@@ -403,12 +403,6 @@
         <property name="authenticated" ref="entrepreneur2Authenticated"/>
     </bean>
     
-    <bean name="forum03" class="acme.entities.forums.Forum">
-        <property name="title" value="Forum 3" />
-        <property name="investmentRound" ref="investmentRound03" />
-        <property name="authenticated" ref="entrepreneur2Authenticated"/>
-    </bean>
-    
     <bean name="forum04" class="acme.entities.forums.Forum">
         <property name="title" value="Forum 4" />
         <property name="investmentRound">
@@ -439,25 +433,34 @@
     <bean name="message02" class="acme.entities.messages.Message">
         <property name="title" value="Message 2" />
         <property name="creationMoment" value="2020/05/04 17:00" />
+        <property name="tags" value="tagA, tagB" />
+        <property name="body" value="Hello" />
+        <property name="forum" ref="forum01" />
+        <property name="authenticated" ref="investor2Authenticated"/>
+    </bean>
+    
+    <bean name="message03" class="acme.entities.messages.Message">
+        <property name="title" value="Message 3" />
+        <property name="creationMoment" value="2020/05/04 17:00" />
         <property name="tags" value="tagA, tagB, tagC" />
         <property name="body" value="Hello" />
         <property name="forum" ref="forum02" />
         <property name="authenticated" ref="entrepreneur2Authenticated"/>
     </bean>
     
-    <bean name="message03" class="acme.entities.messages.Message">
-        <property name="title" value="Message 3" />
+    <bean name="message04" class="acme.entities.messages.Message">
+        <property name="title" value="Message 4" />
         <property name="creationMoment" value="2020/05/04 17:00" />
         <property name="tags">
         		<null />
         </property>
         <property name="body" value="Hello" />
-        <property name="forum" ref="forum03" />
-        <property name="authenticated" ref="entrepreneur2Authenticated"/>
+        <property name="forum" ref="forum02" />
+        <property name="authenticated" ref="investor2Authenticated"/>
     </bean>
     
-    <bean name="message04" class="acme.entities.messages.Message">
-        <property name="title" value="Message 4" />
+    <bean name="message05" class="acme.entities.messages.Message">
+        <property name="title" value="Message 5" />
         <property name="creationMoment" value="2020/05/04 17:00" />
         <property name="tags"  value="tagA" />
         <property name="body" value="Hello" />
@@ -465,8 +468,8 @@
         <property name="authenticated" ref="bookkeeper2Authenticated"/>
     </bean>
     
-    <bean name="message05" class="acme.entities.messages.Message">
-        <property name="title" value="Message 5" />
+    <bean name="message06" class="acme.entities.messages.Message">
+        <property name="title" value="Message 6" />
         <property name="creationMoment" value="2020/05/04 17:00" />
         <property name="tags"  value="tagC" />
         <property name="body" value="Hello" />
@@ -484,29 +487,41 @@
 	
 	<bean name="messenger2" class="acme.entities.messengers.Messenger">
 		<property name="ownsTheForum" value="false"></property>
-		<property name="forum" ref="forum02"></property>
-		<property name="authenticated" ref="entrepreneur2Authenticated"></property>
+		<property name="forum" ref="forum01"></property>
+		<property name="authenticated" ref="investor1Authenticated"></property>
 	</bean>
 	
 	<bean name="messenger3" class="acme.entities.messengers.Messenger">
 		<property name="ownsTheForum" value="false"></property>
-		<property name="forum" ref="forum03"></property>
-		<property name="authenticated" ref="entrepreneur2Authenticated"></property>
+		<property name="forum" ref="forum01"></property>
+		<property name="authenticated" ref="investor2Authenticated"></property>
 	</bean>
 	
 	<bean name="messenger4" class="acme.entities.messengers.Messenger">
+		<property name="ownsTheForum" value="true"></property>
+		<property name="forum" ref="forum02"></property>
+		<property name="authenticated" ref="entrepreneur2Authenticated"></property>
+	</bean>
+	
+	<bean name="messenger5" class="acme.entities.messengers.Messenger">
+		<property name="ownsTheForum" value="false"></property>
+		<property name="forum" ref="forum02"></property>
+		<property name="authenticated" ref="investor2Authenticated"></property>
+	</bean>
+	
+	<bean name="messenger7" class="acme.entities.messengers.Messenger">
 		<property name="ownsTheForum" value="true"></property>
 		<property name="forum" ref="forum04"></property>
 		<property name="authenticated" ref="bookkeeper1Authenticated"></property>
 	</bean>
 	
-	<bean name="messenger5" class="acme.entities.messengers.Messenger">
+	<bean name="messenger8" class="acme.entities.messengers.Messenger">
 		<property name="ownsTheForum" value="true"></property>
 		<property name="forum" ref="forum05"></property>
 		<property name="authenticated" ref="investor1Authenticated"></property>
 	</bean>
 	
-	<bean name="messenger6" class="acme.entities.messengers.Messenger">
+	<bean name="messenger9" class="acme.entities.messengers.Messenger">
 		<property name="ownsTheForum" value="false"></property>
 		<property name="forum" ref="forum04"></property>
 		<property name="authenticated" ref="bookkeeper2Authenticated"></property>
@@ -539,7 +554,7 @@
 	<!-- Notices -->
 		
 	<bean id="notice01" class="acme.entities.notices.Notice">
-		<property name="header" value="https://phantom-elmundo.unidadeditorial.es/ab3588cdbeaaa4171cf10c3d9da481e3/resize/600/f/webp/assets/multimedia/imagenes/2020/06/09/15917076655032.jpg" />
+		<property name="headerImage" value="https://phantom-elmundo.unidadeditorial.es/ab3588cdbeaaa4171cf10c3d9da481e3/resize/600/f/webp/assets/multimedia/imagenes/2020/06/09/15917076655032.jpg" />
 		<property name="title" value="Notice 01" />
 		<property name="creationMoment" value="2019/02/15 17:45" />
 		<property name="deadline" value="2021/12/31 23:11" />
@@ -548,7 +563,7 @@
 	</bean>
 	
 	<bean id="notice02" class="acme.entities.notices.Notice">
-		<property name="header" value="https://phantom-elmundo.unidadeditorial.es/ab3588cdbeaaa4171cf10c3d9da481e3/resize/600/f/webp/assets/multimedia/imagenes/2020/06/09/15917076655032.jpg" />
+		<property name="headerImage" value="https://phantom-elmundo.unidadeditorial.es/ab3588cdbeaaa4171cf10c3d9da481e3/resize/600/f/webp/assets/multimedia/imagenes/2020/06/09/15917076655032.jpg" />
 		<property name="title" value="Notice 02" />
 		<property name="creationMoment" value="2019/01/15 17:45" />
 		<property name="deadline" value="2021/07/31 23:11" />
@@ -557,7 +572,7 @@
 	</bean>
 	
 	<bean id="notice03" class="acme.entities.notices.Notice">
-		<property name="header" value="https://phantom-elmundo.unidadeditorial.es/d3263622be6928b999f39695a59dde7f/crop/0x22/680x474/resize/600/f/webp/assets/multimedia/imagenes/2020/06/25/15931004862474.jpg" />
+		<property name="headerImage" value="https://phantom-elmundo.unidadeditorial.es/d3263622be6928b999f39695a59dde7f/crop/0x22/680x474/resize/600/f/webp/assets/multimedia/imagenes/2020/06/25/15931004862474.jpg" />
 		<property name="title" value="Notice 03" />
 		<property name="creationMoment" value="2019/10/15 00:01" />
 		<property name="deadline" value="2021/01/30 07:11" />
@@ -566,7 +581,7 @@
 	</bean>
 	
 	<bean id="notice04" class="acme.entities.notices.Notice">
-		<property name="header" value="https://www.inversi.cl/wp-content/uploads/2018/02/header-bg.png" />
+		<property name="headerImage" value="https://www.inversi.cl/wp-content/uploads/2018/02/header-bg.png" />
 		<property name="title" value="Notice 04" />
 		<property name="creationMoment" value="2019/10/15 00:01" />
 		<property name="deadline" value="2020/06/28 07:11" />
