@@ -63,9 +63,10 @@ public class EntrepreneurActivityCreateService implements AbstractCreateService<
 		Collection<Activity> activities = this.repository.findManyByInvestmentRoundId(entity.getInvestmentRound().getId());
 		InvestmentRound ivr = entity.getInvestmentRound();
 		Double actualBudget = entity.getBudget().getAmount();
+		errors.state(request, actualBudget != null, "budget", "entrepreneur.activity.error.budget.null");
 		Double resta = 0.0;
 		boolean res = this.overAmount(activities, ivr, actualBudget); //si false, la activity actual excede el amount
-		if (res == false) {//en ese caso
+		if (res == false && !errors.hasErrors("budget")) {//en ese caso
 			resta = this.quantityLeft(activities, ivr, actualBudget);//print cuanto me he pasado
 			errors.state(request, res, "budget", "entrepreneur.activity.error.budget.overAmount" + resta + "EUR");
 		}
