@@ -23,7 +23,9 @@ entrepreneur.investment-round.form.button.update = Actualizar
 entrepreneur.investment-round.form.button.delete = Borrar
 
 Entrepreneur.InvestmentRound.error.titleActivity.notblank = No puede estar en blanco
-Entrepreneur.InvestmentRound.error.deadLineActivity.notnull = No puede ser Null
+Entrepreneur.InvestmentRound.error.deadLineActivity.notnull = No puede ser nulo
+entrepreneur.investmentRound.error.deadlineActivity.future = La fecha límite de la actividad debe ser después de la fecha y hora actuales
+entrepreneur.investmentRound.error.deadlineActivity.format = Formato de fecha límite incorrecto
 Entrepreneur.InvestmentRound.error.budgetActivity.notblank = No puede estar en blanco
 Entrepreneur.InvestmentRound.error.budgetActivity.notvalid = No valido 
 Entrepreneur.InvestmentRound.error.finalMode.notvalid = No se puede establecer como modo final a menos que el Presupuesto sea igual que la Cantidad monetaria

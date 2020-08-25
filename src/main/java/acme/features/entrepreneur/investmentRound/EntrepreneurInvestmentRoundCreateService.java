@@ -1,7 +1,11 @@
 
 package acme.features.entrepreneur.investmentRound;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,15 +32,14 @@ import acme.framework.services.AbstractCreateService;
 public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateService<Entrepreneur, InvestmentRound> {
 
 	@Autowired
-	EntrepreneurInvestmentRoundRepository repository;
+	EntrepreneurInvestmentRoundRepository	repository;
 	@Autowired
-	EntrepreneurActivityRepository activityRepository;
+	EntrepreneurActivityRepository			activityRepository;
 	@Autowired
-	EntrepreneurForumRepository forumRepository;
+	EntrepreneurForumRepository				forumRepository;
 	@Autowired
-	AuthenticatedMessengerRepository messengerRepository;
-	
-	
+	AuthenticatedMessengerRepository		messengerRepository;
+
 
 	@Override
 	public boolean authorise(final Request<InvestmentRound> request) {
@@ -57,8 +60,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "round", "title", "description", "moneyAmount", "moreInfo", "finalMode", "ticker",
-				"creationMoment", "entrepreneur"
+		request.unbind(entity, model, "round", "title", "description", "moneyAmount", "moreInfo", "finalMode", "ticker", "creationMoment", "entrepreneur"
 
 		);
 		model.setAttribute("titleActivity", "");
@@ -72,17 +74,15 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		InvestmentRound result;
 		Principal principal = request.getPrincipal();
 
-
-
 		result = new InvestmentRound();
 		Entrepreneur entrepreneur = this.repository.findEntrepreneurById(principal.getActiveRoleId());
 		result.setEntrepreneur(entrepreneur);
 		result.setCreationMoment(new Date(System.currentTimeMillis() - 1));
-		String sss = getSSS(entrepreneur.getSector());
+		String sss = this.getSSS(entrepreneur.getSector());
 		String año = String.valueOf(result.getCreationMoment().getYear());
 		String yy = año.substring(año.length() - 2);
 
-		result.setTicker(sss + "-" + yy + "-" + getNNNNNN());
+		result.setTicker(sss + "-" + yy + "-" + this.getNNNNNN());
 
 		return result;
 	}
@@ -93,66 +93,98 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		assert entity != null;
 		assert errors != null;
 		String titleActivity = request.getModel().getString("titleActivity");
-		Date deadLineActivity = request.getModel().getDate("deadLineActivity");
 		String budgetActivity = request.getModel().getString("budgetActivity");
 		Boolean finalMode = entity.isFinalMode();
-		
-		errors.state(request, !titleActivity.equals(""), "titleActivity","Entrepreneur.InvestmentRound.error.titleActivity.notblank");
-		errors.state(request, deadLineActivity != null, "deadLineActivity","Entrepreneur.InvestmentRound.error.deadLineActivity.notnull");
-		errors.state(request, !budgetActivity.isEmpty(), "budgetActivity","Entrepreneur.InvestmentRound.error.budgetActivity.notblank");
-		errors.state(request, moneyBudget(budgetActivity) == true, "budgetActivity","Entrepreneur.InvestmentRound.error.budgetActivity.notvalid");
-		errors.state(request, finalModeValidate(entity.getMoneyAmount(), budgetActivity, finalMode) == true, "finalMode",
-				"Entrepreneur.InvestmentRound.error.finalMode.notvalid");
-		if(!budgetActivity.isEmpty() && entity.getMoneyAmount()!=null) {
-		Double budget = Double.valueOf(budgetActivity.replace("€", "").replace(".", ""));
-		errors.state(request, budget <=  entity.getMoneyAmount().getAmount(), "budgetActivity","Entrepreneur.InvestmentRound.error.budgetActivity.novalidAmount");
-		}	
-		errors.state(request, !request.getModel().getString("titleForum").isEmpty(), "titleForum","Entrepreneur.InvestmentRound.error.titleForum.notblank");
-		
+		errors.state(request, !titleActivity.equals(""), "titleActivity", "Entrepreneur.InvestmentRound.error.titleActivity.notblank");
+
+		//Deadline validation
+		Calendar calendar;
+		Date minimumDeadline;
+
+		String deadLineActivity = request.getModel().getString("deadLineActivity");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/mm/dd hh:mm");
+
+		boolean notEmpty = true;
+		boolean format = true;
+
+		if (!errors.hasErrors("deadLineActivity") && deadLineActivity.isEmpty()) {//null o vacio
+			notEmpty = false;
+			errors.state(request, notEmpty, "deadLineActivity", "Entrepreneur.InvestmentRound.error.deadLineActivity.notnull");
+		} else if (!errors.hasErrors("deadLineActivity") && !deadLineActivity.isEmpty()) { //no null ni vacio
+			if (!deadLineActivity.matches("[0-9]{4}/(0[1-9]|1[0-2])/(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]")) {
+				format = false;
+				errors.state(request, format, "deadlineActivity", "entrepreneur.investmentRound.error.deadlineActivity.format");
+			} else {//cumple el formato apropiado y no hay error previo con el deadline
+				if (!errors.hasErrors("deadlineActivity")) {
+					calendar = new GregorianCalendar();
+					minimumDeadline = calendar.getTime();
+					Date deadLineDate = null;
+					try {
+						deadLineDate = formatter.parse(deadLineActivity);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+					boolean future = deadLineDate.after(minimumDeadline);
+					errors.state(request, future, "deadlineActivity", "entrepreneur.investmentRound.error.deadlineActivity.future");
+				}
+			}
+
+		}
+
+		errors.state(request, !budgetActivity.isEmpty(), "budgetActivity", "Entrepreneur.InvestmentRound.error.budgetActivity.notblank");
+		errors.state(request, this.moneyBudget(budgetActivity) == true, "budgetActivity", "Entrepreneur.InvestmentRound.error.budgetActivity.notvalid");
+		errors.state(request, this.finalModeValidate(entity.getMoneyAmount(), budgetActivity, finalMode) == true, "finalMode", "Entrepreneur.InvestmentRound.error.finalMode.notvalid");
+		if (!budgetActivity.isEmpty() && entity.getMoneyAmount() != null) {
+			Double budget = Double.valueOf(budgetActivity.replace("€", "").replace(".", ""));
+			errors.state(request, budget <= entity.getMoneyAmount().getAmount(), "budgetActivity", "Entrepreneur.InvestmentRound.error.budgetActivity.novalidAmount");
+		}
+		errors.state(request, !request.getModel().getString("titleForum").isEmpty(), "titleForum", "Entrepreneur.InvestmentRound.error.titleForum.notblank");
+
 		boolean spamCheckOk;
 		Configuration configuration = this.repository.findConfiguration();
-		String spam = request.getModel().getString("title")+ " " + request.getModel().getString("description") + " " + request.getModel().getString("titleActivity")  ;
+		String spam = request.getModel().getString("title") + " " + request.getModel().getString("description") + " " + request.getModel().getString("titleActivity");
 		spamCheckOk = SpamChecker.spamChecker(configuration, spam);
 		errors.state(request, !spamCheckOk, "*", "Entrepreneur.InvestmentRound.error.spam");
 	}
 
-	private boolean moneyBudget(String budget) {
+	private boolean moneyBudget(final String budget) {
 		boolean res = true;
-		if (!budget.contains("€") || budget.matches(".*[a-zA-Z]+.*") || budget.contains("$")
-				|| !budget.matches(".*\\d.*") || budget.isEmpty() ) {
+		if (!budget.contains("€") || budget.matches(".*[a-zA-Z]+.*") || budget.contains("$") || !budget.matches(".*\\d.*") || budget.isEmpty()) {
 			res = false;
 		}
 		return res;
 	}
 
-	private String getSSS(String sector) {
+	private String getSSS(final String sector) {
 		String res = "XXX";
-		if(sector.length()==1) {
-			res= sector.toUpperCase() + "XX" ;
-		}else if(sector.length()==2) {
-			res= sector.toUpperCase() + "X";
-		}else if(sector.length()>2) {
-			res = sector.substring(0,3).toUpperCase();
+		if (sector.length() == 1) {
+			res = sector.toUpperCase() + "XX";
+		} else if (sector.length() == 2) {
+			res = sector.toUpperCase() + "X";
+		} else if (sector.length() > 2) {
+			res = sector.substring(0, 3).toUpperCase();
 		}
 		return res;
-		
+
 	}
 	private String getNNNNNN() {
 		String random = String.valueOf((int) (Math.random() * 999999 + 1));
 		String res = random;
-		for (int i = 6; i  > random.length(); i--) {
+		for (int i = 6; i > random.length(); i--) {
 			res = "0" + res;
 		}
 		return res;
 	}
-	private boolean finalModeValidate(Money moneyAmount, String budgetActivity, boolean finalMode) {
+	private boolean finalModeValidate(final Money moneyAmount, final String budgetActivity, final boolean finalMode) {
 		boolean res = false;
-		if (!budgetActivity.isEmpty()&& budgetActivity!=null && moneyAmount != null && budgetActivity!=null && moneyAmount.getCurrency().equals("€") && moneyAmount.getAmount()!=null) {
-			if (moneyBudget(budgetActivity) ) {
+		if (!budgetActivity.isEmpty() && budgetActivity != null && moneyAmount != null && budgetActivity != null && moneyAmount.getCurrency().equals("€") && moneyAmount.getAmount() != null) {
+			if (this.moneyBudget(budgetActivity)) {
 				Double budget = Double.valueOf(budgetActivity.replace("€", "").replace(".", ""));
 				if (finalMode && budget >= moneyAmount.getAmount()) {
 					res = true;
-				}	
+				}
 			}
 			if (!finalMode) {
 				res = true;
@@ -183,7 +215,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		activity.setBudget(budget);
 		activity.setInvestmentRound(entity);
 		this.activityRepository.save(activity);
-		
+
 		Forum forum = new Forum();
 		Principal principal = request.getPrincipal();
 		int userAccountId = principal.getAccountId();
@@ -192,17 +224,12 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		forum.setInvestmentRound(entity);
 		forum.setTitle(request.getModel().getString("titleForum"));
 		this.forumRepository.save(forum);
-		
+
 		Messenger messenger = new Messenger();
 		messenger.setAuthenticated(authenticated);
 		messenger.setForum(forum);
 		messenger.setOwnsTheForum(true);
 		this.messengerRepository.save(messenger);
-		
-		
-		
-		
-
 
 	}
 }

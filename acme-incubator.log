@@ -1208,3 +1208,68 @@ ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: java.la
 ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP GET /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
 ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
 ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value 'jj'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [jj]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:206): Parse attempt failed for value [jj]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:51): Invalid value
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value 'o'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [o]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:206): Parse attempt failed for value [o]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:51): Invalid value
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value 'jj'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [jj]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:206): Parse attempt failed for value [jj]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:51): Invalid value
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value 'jj'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [jj]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:206): Parse attempt failed for value [jj]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:51): Invalid value
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value '2000-20-32 43:00'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [2000-20-32 43:00]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:206): Parse attempt failed for value [2000-20-32 43:00]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:51): Invalid value
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value 'j'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [j]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:206): Parse attempt failed for value [j]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:51): Invalid value
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value 'o'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [o]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:206): Parse attempt failed for value [o]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:51): Invalid value
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value '2000-20-32 43:00'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [2000-20-32 43:00]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:206): Parse attempt failed for value [2000-20-32 43:00]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:51): Invalid value
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value 'e'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [e]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:206): Parse attempt failed for value [e]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:51): Invalid value
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] HTTP POST /acme-incubator/META-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.META_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value 'o'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [o]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:206): Parse attempt failed for value [o]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:51): Invalid value
