@@ -32,4 +32,4 @@ Entrepreneur.InvestmentRound.error.finalMode.notvalid = No se puede establecer c
 Entrepreneur.InvestmentRound.error.spam = Título, descripción o Título de actividad contienen una palabra spam
 Entrepreneur.InvestmentRound.error.update.spam = Título o descripción contienen una palabra spam
 Entrepreneur.InvestmentRound.error.titleForum.notblank = No puede estar en blanco
-Entrepreneur.InvestmentRound.error.budgetActivity.novalidAmount = El presupuesto no puede ser mayor que la Cantidad Monetaria
+Entrepreneur.InvestmentRound.error.budgetActivity.novalidAmount = El presupuesto de la actividad no puede ser mayor que la cantidad monetaria de la ronda de inversión

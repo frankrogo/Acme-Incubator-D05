@@ -18,3 +18,4 @@ entrepreneur.activity.form.label.deadline = Deadline
 entrepreneur.activity.form.label.budget = Budget
 entrepreneur.activity.form.button.return = Return
 entrepreneur.activity.form.button.create = Create
+entrepreneur.activity.error.budget.overAmount = The budget of the activities have surpased the investment round amount by:
