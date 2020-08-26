@@ -13,6 +13,7 @@ import acme.entities.roles.Entrepreneur;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -43,6 +44,7 @@ public class EntrepreneurActivityCreateService implements AbstractCreateService<
 		assert model != null;
 		request.unbind(entity, model, "title", "deadline", "budget");
 		model.setAttribute("investmentRoundId", request.getModel().getInteger("investmentRoundId"));
+		model.setAttribute("budget", "0€");
 
 	}
 
@@ -62,8 +64,8 @@ public class EntrepreneurActivityCreateService implements AbstractCreateService<
 		assert errors != null;
 		Collection<Activity> activities = this.repository.findManyByInvestmentRoundId(entity.getInvestmentRound().getId());
 		InvestmentRound ivr = entity.getInvestmentRound();
-
-		if (entity.getBudget().getAmount() != null && !entity.getBudget().getCurrency().isEmpty() && entity.getBudget().getCurrency() != null) {
+		Money requesteBudget = entity.getBudget();
+		if (requesteBudget.getAmount()!=null && !requesteBudget.getCurrency().isEmpty() && entity.getBudget().getCurrency() != null &&  (entity.getBudget().getCurrency().contains("€") ) ||  entity.getBudget().getCurrency().contains("EUR")) {
 			Double actualBudget = entity.getBudget().getAmount();
 			errors.state(request, actualBudget != null, "budget", "entrepreneur.activity.error.budget.null");
 			Double resta = 0.0;
@@ -82,25 +84,27 @@ public class EntrepreneurActivityCreateService implements AbstractCreateService<
 		Double rest = 0.0;
 		for (Activity a : activities) {
 			Double acMoney = a.getBudget().getAmount();
-			rest = actualBudget + rest + acMoney;
-			if (rest > ivrAmount) {
-				res = false;
-				break;
-			} else {
-				return res;
-			}
+			rest = acMoney + rest ;
+		}
+		if (rest + actualBudget > ivrAmount) {
+			res = false;
+		} else {
+			return res;
 		}
 		return res;
 	}
 
 	private Double quantityLeft(final Collection<Activity> activities, final InvestmentRound ivr, final Double actualBudget) {
-		Double rest = null;
-		Double resta = null;
+		Double rest = 0.0;
+		Double resta = 0.0;
+		Double acMoney =0.0;
 		Double ivrAmount = ivr.getMoneyAmount().getAmount();
 		for (Activity a : activities) {
-			Double acMoney = a.getBudget().getAmount();
-			rest = actualBudget + rest + acMoney;
+			acMoney = acMoney + a.getBudget().getAmount();
+			
 		}
+		rest = actualBudget + acMoney;
+		
 		resta = rest - ivrAmount;
 		return resta;
 	}

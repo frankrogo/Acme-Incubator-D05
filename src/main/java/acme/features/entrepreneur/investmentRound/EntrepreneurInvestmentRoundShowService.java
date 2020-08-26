@@ -53,6 +53,7 @@ public class EntrepreneurInvestmentRoundShowService implements AbstractShowServi
 		model.setAttribute("investmentRoundId", investmentRoundId);
 		boolean haveApplications = haveApplications(investmentRoundId);
 		model.setAttribute("haveApplications", haveApplications);
+		model.setAttribute("finalmode", this.repository.findOneById(investmentRoundId).isFinalMode());
 		
 
 	}

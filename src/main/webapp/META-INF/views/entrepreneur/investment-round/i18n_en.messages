@@ -16,6 +16,7 @@ entrepreneur.investment-round.form.label.budgetActivity = Activity budget:
 entrepreneur.investment-round.form.label.entrepreneur = Entrepreneur
 entrepreneur.investment-round.form.label.titleForum = Forum title : 
 
+entrepreneur.investment-round.form.button.activities-create= Create activity
 entrepreneur.investment-round.form.button.activities = Activities
 entrepreneur.investment-round.form.button.return = Return
 entrepreneur.investment-round.form.button.create = Create

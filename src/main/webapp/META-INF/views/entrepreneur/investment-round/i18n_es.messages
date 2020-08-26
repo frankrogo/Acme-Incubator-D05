@@ -16,6 +16,7 @@ entrepreneur.investment-round.form.label.budgetActivity = Presupuesto actividad:
 entrepreneur.investment-round.form.label.entrepreneur = Entrepreneur
 entrepreneur.investment-round.form.label.titleForum = Título del foro : 
 
+entrepreneur.investment-round.form.button.activities-create= Crear actividad
 entrepreneur.investment-round.form.button.activities = Actividades
 entrepreneur.investment-round.form.button.return = Volver
 entrepreneur.investment-round.form.button.create = Crear

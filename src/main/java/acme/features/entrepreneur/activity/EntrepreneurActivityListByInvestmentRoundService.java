@@ -34,7 +34,6 @@ public class EntrepreneurActivityListByInvestmentRoundService implements Abstrac
 		request.unbind(entity, model, "title", "creationMoment", "deadline");
 		InvestmentRound ir = this.repository.finOneInvestmentRoundByActivityId(entity.getId());
 		Integer investmentRoundId = ir.getId();
-		model.setAttribute("finalmode", this.repository.findInvestmentRoundById(entity.getInvestmentRound().getId()).isFinalMode());
 		model.setAttribute("investmentRoundId", investmentRoundId);
 	}
 
