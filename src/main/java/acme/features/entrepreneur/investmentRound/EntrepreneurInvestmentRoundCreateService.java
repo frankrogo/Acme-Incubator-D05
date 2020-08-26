@@ -1,8 +1,7 @@
 
 package acme.features.entrepreneur.investmentRound;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -67,6 +66,8 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		model.setAttribute("deadLineActivity", "");
 		model.setAttribute("budgetActivity", "");
 		model.setAttribute("titleForum", "");
+		model.setAttribute("fecha", "");
+		
 	}
 
 	@Override
@@ -94,51 +95,81 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		assert errors != null;
 		String titleActivity = request.getModel().getString("titleActivity");
 		String budgetActivity = request.getModel().getString("budgetActivity");
+		String deadLineActivity = request.getModel().getString("deadLineActivity");
 		Boolean finalMode = entity.isFinalMode();
 		errors.state(request, !titleActivity.equals(""), "titleActivity", "Entrepreneur.InvestmentRound.error.titleActivity.notblank");
-
-		//Deadline validation
-		Calendar calendar;
-		Date minimumDeadline;
-
-		String deadLineActivity = request.getModel().getString("deadLineActivity");
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/mm/dd hh:mm");
-
-		boolean notEmpty = true;
-		boolean format = true;
-
-		if (!errors.hasErrors("deadLineActivity") && deadLineActivity.isEmpty()) {//null o vacio
-			notEmpty = false;
-			errors.state(request, notEmpty, "deadLineActivity", "Entrepreneur.InvestmentRound.error.deadLineActivity.notnull");
-		} else if (!errors.hasErrors("deadLineActivity") && !deadLineActivity.isEmpty()) { //no null ni vacio
-			if (!deadLineActivity.matches("[0-9]{4}/(0[1-9]|1[0-2])/(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]")) {
-				format = false;
-				errors.state(request, format, "deadlineActivity", "entrepreneur.investmentRound.error.deadlineActivity.format");
-			} else {//cumple el formato apropiado y no hay error previo con el deadline
-				if (!errors.hasErrors("deadlineActivity")) {
-					calendar = new GregorianCalendar();
-					minimumDeadline = calendar.getTime();
-					Date deadLineDate = null;
-					try {
-						deadLineDate = formatter.parse(deadLineActivity);
-					} catch (ParseException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-					boolean future = deadLineDate.after(minimumDeadline);
-					errors.state(request, future, "deadlineActivity", "entrepreneur.investmentRound.error.deadlineActivity.future");
-				}
-			}
-
+		errors.state(request, !deadLineActivity.equals(""), "deadLineActivity", "Entrepreneur.InvestmentRound.error.deadLineActivity.notblank");
+		errors.state(request, deadLineActivity.matches("[0-9]{4}/(0[1-9]|1[0-2])/(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]"), "deadLineActivity", "Entrepreneur.InvestmentRound.error.deadLineActivity.format");
+		
+		if(deadLineActivity.matches("[0-9]{4}/(0[1-9]|1[0-2])/(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]")) {
+			Calendar calendar;
+			Date minimumDeadline;
+			calendar = new GregorianCalendar();
+			minimumDeadline = calendar.getTime();
+			request.getModel().setAttribute("fecha", deadLineActivity);
+			Date activityDeadline = request.getModel().getDate("fecha");
+			boolean future = activityDeadline.after(minimumDeadline);
+			errors.state(request, future, "fecha", "entrepreneur.investmentRound.error.deadlineActivity.future");
+			
 		}
+		
+//		//Deadline validation
+//		Calendar calendar;
+//		Date minimumDeadline;
+//
+//		String deadLineActivity = request.getModel().getString("deadLineActivity");
+//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/mm/dd hh:mm");
+//
+//		boolean notEmpty = true;
+//		boolean format = true;
+//
+//		if (!errors.hasErrors("deadLineActivity") && deadLineActivity.isEmpty()) {//null o vacio
+//			notEmpty = false;
+//			errors.state(request, notEmpty, "deadLineActivity", "Entrepreneur.InvestmentRound.error.deadLineActivity.notnull");
+//		} else if (!errors.hasErrors("deadLineActivity") && !deadLineActivity.isEmpty()) { //no null ni vacio
+//			if (!deadLineActivity.matches("[0-9]{4}/(0[1-9]|1[0-2])/(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]")) {
+//				format = false;
+//				errors.state(request, format, "deadlineActivity", "entrepreneur.investmentRound.error.deadlineActivity.format");
+//			} else {//cumple el formato apropiado y no hay error previo con el deadline
+//				if (!errors.hasErrors("deadlineActivity")) {
+//					calendar = new GregorianCalendar();
+//					minimumDeadline = calendar.getTime();
+//					Date deadLineDate = null;
+//					try {
+//						deadLineDate = formatter.parse(deadLineActivity);
+//					} catch (ParseException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//
+//					boolean future = deadLineDate.after(minimumDeadline);
+//					errors.state(request, future, "deadlineActivity", "entrepreneur.investmentRound.error.deadlineActivity.future");
+//				}
+//			}
+//
+//		}
 
 		errors.state(request, !budgetActivity.isEmpty(), "budgetActivity", "Entrepreneur.InvestmentRound.error.budgetActivity.notblank");
-		errors.state(request, this.moneyBudget(budgetActivity) == true, "budgetActivity", "Entrepreneur.InvestmentRound.error.budgetActivity.notvalid");
+		errors.state(request, request.getModel().getAttribute("moneyAmount")!="", "moneyAmount", "Entrepreneur.InvestmentRound.error.moneyAmount.notblank");
+		errors.state(request, this.moneyBudget(budgetActivity), "budgetActivity", "Entrepreneur.InvestmentRound.error.budgetActivity.notvalid");
 		errors.state(request, this.finalModeValidate(entity.getMoneyAmount(), budgetActivity, finalMode) == true, "finalMode", "Entrepreneur.InvestmentRound.error.finalMode.notvalid");
-		if (!budgetActivity.isEmpty() && entity.getMoneyAmount() != null) {
-			Double budget = Double.valueOf(budgetActivity.replace("€", "").replace(".", ""));
-			errors.state(request, budget <= entity.getMoneyAmount().getAmount(), "budgetActivity", "Entrepreneur.InvestmentRound.error.budgetActivity.novalidAmount");
+		
+		if (request.getModel().getAttribute("moneyAmount")!="") {
+			if (budgetActivity != "" && budgetActivity.contains("€")) {
+				String valor = budgetActivity;
+				Double budget = Double.valueOf(valor.replace("€", "").replace(".", ""));
+				errors.state(request, budget <= entity.getMoneyAmount().getAmount(), "budgetActivity",
+						"Entrepreneur.InvestmentRound.error.budgetActivity.novalidAmount");
+			}
+			if (budgetActivity != "" && budgetActivity.contains("EUR")) {
+				String valor = budgetActivity;
+				Double budget = Double.valueOf(valor.replace("EUR", "").replace(".", ""));
+				errors.state(request, budget <= entity.getMoneyAmount().getAmount(), "budgetActivity",
+						"Entrepreneur.InvestmentRound.error.budgetActivity.novalidAmount");
+			}
+		} else {
+			errors.state(request, request.getModel().getAttribute("moneyAmount")!=null, "moneyAmount",
+					"Entrepreneur.InvestmentRound.error.moneyAmount.notblank");
 		}
 		errors.state(request, !request.getModel().getString("titleForum").isEmpty(), "titleForum", "Entrepreneur.InvestmentRound.error.titleForum.notblank");
 
@@ -150,9 +181,12 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 	}
 
 	private boolean moneyBudget(final String budget) {
-		boolean res = true;
-		if (!budget.contains("€") || budget.matches(".*[a-zA-Z]+.*") || budget.contains("$") || !budget.matches(".*\\d.*") || budget.isEmpty()) {
-			res = false;
+		boolean res = false;
+		if ( !budget.isEmpty() &&(budget.matches("([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?\\s?\\€") || 
+				budget.matches("^\\€\\s?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?") || 
+				budget.matches("([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?\\s?(?:^|)EUR(?:$|)") ||
+				budget.matches("(?:^|)EUR(?:$|)\\s?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?"))) {
+			res = true;
 		}
 		return res;
 	}
@@ -179,7 +213,9 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 	}
 	private boolean finalModeValidate(final Money moneyAmount, final String budgetActivity, final boolean finalMode) {
 		boolean res = false;
-		if (!budgetActivity.isEmpty() && budgetActivity != null && moneyAmount != null && budgetActivity != null && moneyAmount.getCurrency().equals("€") && moneyAmount.getAmount() != null) {
+		if (!budgetActivity.isEmpty() && budgetActivity != null && moneyAmount != null && budgetActivity != null
+				&& (budgetActivity.contains("€") || budgetActivity.contains("EUR"))
+				&& moneyAmount.getAmount() != null) {
 			if (this.moneyBudget(budgetActivity)) {
 				Double budget = Double.valueOf(budgetActivity.replace("€", "").replace(".", ""));
 				if (finalMode && budget >= moneyAmount.getAmount()) {
@@ -200,7 +236,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		assert entity != null;
 		this.repository.save(entity);
 		String titleActivity = request.getModel().getString("titleActivity");
-		Date deadLineActivity = request.getModel().getDate("deadLineActivity");
+		Date deadLineActivity = request.getModel().getDate("fecha");
 		String budgetActivity = request.getModel().getString("budgetActivity");
 		Money budget = new Money();
 		budget.setCurrency("€");

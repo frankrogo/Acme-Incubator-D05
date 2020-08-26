@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.activities.Activity;
+import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -31,8 +32,10 @@ public class EntrepreneurActivityListByInvestmentRoundService implements Abstrac
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "title", "creationMoment", "deadline");
+		InvestmentRound ir = this.repository.finOneInvestmentRoundByActivityId(entity.getId());
+		Integer irId = ir.getId();
 		model.setAttribute("finalmode", this.repository.findInvestmentRoundById(entity.getInvestmentRound().getId()).isFinalMode());
-		model.setAttribute("investmentRoundId", entity.getInvestmentRound().getId());
+		model.setAttribute("investmentRoundId", irId);
 	}
 
 	@Override

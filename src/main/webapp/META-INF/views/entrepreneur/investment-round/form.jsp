@@ -45,6 +45,7 @@
 	<jstl:if test="${command == 'create'}">
 	<acme:form-textarea code="entrepreneur.investment-round.form.label.titleActivity" path="titleActivity"/>
 	<acme:form-textbox code="entrepreneur.investment-round.form.label.deadLineActivity" path="deadLineActivity" placeholder="yyyy/mm/dd hh:mm"/>
+	<acme:form-fecha code="entrepreneur.investment-round.form.label.deadLineActivity" path="fecha" />
 	<acme:form-textarea code="entrepreneur.investment-round.form.label.budgetActivity" placeholder="123.456,78 EUR" path="budgetActivity"/>
 	<br>
 	<acme:form-textarea code="entrepreneur.investment-round.form.label.titleForum" path="titleForum"/>
