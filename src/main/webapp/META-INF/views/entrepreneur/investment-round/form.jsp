@@ -55,6 +55,7 @@
 	<acme:form-submit test="${command == 'show' && finalMode == 'false'}" code="entrepreneur.investment-round.form.button.update" action="/entrepreneur/investment-round/update"/>
 	<acme:form-submit test="${command == 'update' }" code="entrepreneur.investment-round.form.button.update" action="/entrepreneur/investment-round/update"/>
 	<jstl:if test="${command == 'show'}">
+	<acme:form-submit code="entrepreneur.investment-round.form.button.activities-create" action="/entrepreneur/activity/create?investmentRoundId=${investmentRoundId}" method="get"/>
 	<acme:form-submit code="entrepreneur.investment-round.form.button.activities" action="/entrepreneur/activity/list-by-ir?investmentRoundId=${investmentRoundId}" method="get"/>
   	</jstl:if>
   		<jstl:if test="${command == 'show' && haveApplications==true}">

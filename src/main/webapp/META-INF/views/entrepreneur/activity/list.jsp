@@ -22,10 +22,6 @@
 </acme:list>
 
 <acme:form>
-<jstl:if test="${!finalmode}">
-	<acme:form-submit code="entrepreneur.activity.form.button.create" action="/entrepreneur/activity/create?investmentRoundId=${investmentRoundId}" method="get"/>
-	<jstl:out value="${investmentRoundId}"></jstl:out>
-	</jstl:if>
 	<acme:form-return code="entrepreneur.activity.list.button.return"/>
 </acme:form>
 
