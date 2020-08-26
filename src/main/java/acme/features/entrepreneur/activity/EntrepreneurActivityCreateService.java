@@ -62,6 +62,7 @@ public class EntrepreneurActivityCreateService implements AbstractCreateService<
 		assert errors != null;
 		Collection<Activity> activities = this.repository.findManyByInvestmentRoundId(entity.getInvestmentRound().getId());
 		InvestmentRound ivr = entity.getInvestmentRound();
+
 		if (entity.getBudget().getAmount() != null && !entity.getBudget().getCurrency().isEmpty() && entity.getBudget().getCurrency() != null) {
 			Double actualBudget = entity.getBudget().getAmount();
 			errors.state(request, actualBudget != null, "budget", "entrepreneur.activity.error.budget.null");

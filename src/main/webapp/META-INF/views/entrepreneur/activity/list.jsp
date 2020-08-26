@@ -23,6 +23,7 @@
 
 <acme:form>
 	<acme:form-return code="entrepreneur.activity.list.button.return" />
+
 </acme:form>
 
 
