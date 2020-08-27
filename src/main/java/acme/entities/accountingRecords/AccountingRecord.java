@@ -30,6 +30,7 @@ public class AccountingRecord extends DomainEntity {
 	@NotBlank
 	private String				title;
 
+	@NotNull
 	private boolean				status;
 
 	@NotNull

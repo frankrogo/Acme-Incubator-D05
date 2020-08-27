@@ -10,9 +10,9 @@ entrepreneur.investment-round.form.label.description = Description:
 entrepreneur.investment-round.form.label.moneyAmount = Money amount:
 entrepreneur.investment-round.form.label.moreInfo = More info:
 entrepreneur.investment-round.form.label.finalMode = Final mode:
-entrepreneur.investment-round.form.label.titleActivity = Activity title:
-entrepreneur.investment-round.form.label.deadLineActivity = Activity deadline:
-entrepreneur.investment-round.form.label.budgetActivity = Activity budget:
+entrepreneur.investment-round.form.label.titleActivity = Activity's title:
+entrepreneur.investment-round.form.label.deadLineActivity = Activity's deadline:
+entrepreneur.investment-round.form.label.budgetActivity = Activity's budget:
 entrepreneur.investment-round.form.label.entrepreneur = Entrepreneur
 entrepreneur.investment-round.form.label.titleForum = Forum title : 
 
@@ -23,16 +23,17 @@ entrepreneur.investment-round.form.button.create = Create
 entrepreneur.investment-round.form.button.update = Update
 entrepreneur.investment-round.form.button.delete = Delete
 
-Entrepreneur.InvestmentRound.error.titleActivity.notblank = Must not be blank
-Entrepreneur.InvestmentRound.error.deadLineActivity.notnull = May not be null
+Entrepreneur.InvestmentRound.error.titleActivity.notblank = Cannot be blank
+Entrepreneur.InvestmentRound.error.deadLineActivity.notnull = Cannot be null
 entrepreneur.investmentRound.error.deadlineActivity.future = Activity's deadline must be after the actual date and time
-entrepreneur.investmentRound.error.deadlineActivity.format = Wrong date and time format!
-Entrepreneur.InvestmentRound.error.budgetActivity.notblank = Must not be blank
-Entrepreneur.InvestmentRound.error.budgetActivity.notvalid = No valid 
-Entrepreneur.InvestmentRound.error.finalMode.notvalid = Cannot be set to final mode unless Budget is equals than the Money Amoung
-Entrepreneur.InvestmentRound.error.spam = Title, description or activity title contains a spam word
-Entrepreneur.InvestmentRound.error.update.spam = Title or description o contains a spam word
-Entrepreneur.InvestmentRound.error.titleForum.notblank = Must not be null
-Entrepreneur.InvestmentRound.error.budgetActivity.novalidAmount = The budget of the activity can't be greater than the money amount of the InvestmentRound
+entrepreneur.investmentRound.error.deadlineActivity.format = Wrong date and time format
+Entrepreneur.InvestmentRound.error.deadLineActivity.notblank = Cannot be empty
+Entrepreneur.InvestmentRound.error.budgetActivity.notblank = Cannot be blank
+Entrepreneur.InvestmentRound.error.budgetActivity.notvalid = Not a valid format 
+Entrepreneur.InvestmentRound.error.finalMode.notvalid = Cannot be saved in final mode until the actual activity's budget equals the money amount
+Entrepreneur.InvestmentRound.error.spam = Title, description or activity's title contains one or more spam words
+Entrepreneur.InvestmentRound.error.update.spam = Title or description contains one or more spam words
+Entrepreneur.InvestmentRound.error.titleForum.notblank = Cannot be blank
+Entrepreneur.InvestmentRound.error.budgetActivity.novalidAmount = The activity's budget can't be greater than the money amount
 
 

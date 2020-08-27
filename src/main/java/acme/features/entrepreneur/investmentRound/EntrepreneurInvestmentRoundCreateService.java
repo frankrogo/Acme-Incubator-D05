@@ -121,42 +121,6 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 
 		}
 
-		//		//Deadline validation
-		//		Calendar calendar;
-		//		Date minimumDeadline;
-		//
-		//		String deadLineActivity = request.getModel().getString("deadLineActivity");
-		//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/mm/dd hh:mm");
-		//
-		//		boolean notEmpty = true;
-		//		boolean format = true;
-		//
-		//		if (!errors.hasErrors("deadLineActivity") && deadLineActivity.isEmpty()) {//null o vacio
-		//			notEmpty = false;
-		//			errors.state(request, notEmpty, "deadLineActivity", "Entrepreneur.InvestmentRound.error.deadLineActivity.notnull");
-		//		} else if (!errors.hasErrors("deadLineActivity") && !deadLineActivity.isEmpty()) { //no null ni vacio
-		//			if (!deadLineActivity.matches("[0-9]{4}/(0[1-9]|1[0-2])/(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]")) {
-		//				format = false;
-		//				errors.state(request, format, "deadlineActivity", "entrepreneur.investmentRound.error.deadlineActivity.format");
-		//			} else {//cumple el formato apropiado y no hay error previo con el deadline
-		//				if (!errors.hasErrors("deadlineActivity")) {
-		//					calendar = new GregorianCalendar();
-		//					minimumDeadline = calendar.getTime();
-		//					Date deadLineDate = null;
-		//					try {
-		//						deadLineDate = formatter.parse(deadLineActivity);
-		//					} catch (ParseException e) {
-		//						// TODO Auto-generated catch block
-		//						e.printStackTrace();
-		//					}
-		//
-		//					boolean future = deadLineDate.after(minimumDeadline);
-		//					errors.state(request, future, "deadlineActivity", "entrepreneur.investmentRound.error.deadlineActivity.future");
-		//				}
-		//			}
-		//
-		//		}
-
 		errors.state(request, !budgetActivity.isEmpty(), "budgetActivity", "Entrepreneur.InvestmentRound.error.budgetActivity.notblank");
 		errors.state(request, request.getModel().getAttribute("moneyAmount") != "", "moneyAmount", "Entrepreneur.InvestmentRound.error.moneyAmount.notblank");
 
