@@ -20,13 +20,16 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 
 	@Query("select i from InvestmentRound i where i.entrepreneur.id =?1")
 	Collection<InvestmentRound> findManyByEntrepreneurId(int entrepreneurId);
-	
+
 	@Query("select e from Entrepreneur e where e.id = ?1")
 	Entrepreneur findEntrepreneurById(int id);
-	
+
 	@Query("select c from Configuration c")
 	Configuration findConfiguration();
-	
+
 	@Query("select a from Authenticated a where  a.userAccount.id = ?1")
 	Authenticated findOneAuthenticatedByUserAccountId(int id);
+
+	@Query("select ir.ticker from InvestmentRound ir")
+	Collection<String> InvestmentRoundTickers();
 }

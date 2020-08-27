@@ -3,7 +3,6 @@ package acme.entities.investmentRounds;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -40,14 +39,12 @@ public class InvestmentRound extends DomainEntity {
 
 	@NotBlank
 	@Pattern(regexp = "^(SEED|ANGEL|SERIES-A|SERIES-B|SERIES-C|BRIDGE)$")
-	//@Pattern(regexp = ".*\\b(SEED|ANGEL|SERIES-A|SERIES-B|SERIES-C|BRIDGE)\\b.*")
 	private String				round;
 
 	@NotBlank
 	private String				title;
 
 	@NotBlank
-	@Column(length = 1024)
 	private String				description;
 
 	@NotNull

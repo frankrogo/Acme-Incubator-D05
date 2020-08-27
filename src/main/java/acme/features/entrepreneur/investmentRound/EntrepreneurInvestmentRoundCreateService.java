@@ -83,8 +83,8 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		String año = String.valueOf(result.getCreationMoment().getYear());
 		String yy = año.substring(año.length() - 2);
 
-		result.setTicker(sss + "-" + yy + "-" + this.getNNNNNN());
-
+		String first = this.getNNNNNN();
+		result.setTicker(this.tickerChecker(sss, yy, first));
 		return result;
 	}
 
@@ -93,6 +93,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
 		String titleActivity = request.getModel().getString("titleActivity");
 		String budgetActivity = request.getModel().getString("budgetActivity");
 		String deadLineActivity = request.getModel().getString("deadLineActivity");
@@ -249,6 +250,18 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		return res;
 
 	}
+
+	private String tickerChecker(final String sss, final String yy, final String NNNNNN) {
+		String tryone = sss + "-" + yy + "-" + NNNNNN;
+		if (this.repository.InvestmentRoundTickers().contains(tryone)) {
+			String last = this.getNNNNNN();
+			tryone = sss + "-" + yy + "-" + last;
+			this.tickerChecker(sss, yy, last);
+		}
+
+		return tryone;
+	}
+
 	private String getNNNNNN() {
 		String random = String.valueOf((int) (Math.random() * 999999 + 1));
 		String res = random;

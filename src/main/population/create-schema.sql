@@ -153,7 +153,7 @@
        `id` integer not null,
         `version` integer not null,
         `creation_moment` datetime(6),
-        `description` varchar(1024),
+        `description` varchar(255),
         `final_mode` bit not null,
         `money_amount_amount` double precision,
         `money_amount_currency` varchar(255),
