@@ -370,7 +370,7 @@
         <property name="statement" value="Nothing to be said" />
         <property name="moneyOffer" value="5 EUR" />
         <property name="status" value="pending" />
-        <property name="reasonRejected"> <null/> </property>
+        <property name="reasonRejected"  value=""/>
         <property name="investor" ref="investor2Investor" />
         <property name="investmentRound" ref="investmentRound02" />
     </bean>

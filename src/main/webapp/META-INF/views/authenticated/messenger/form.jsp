@@ -13,9 +13,7 @@
 	</jstl:if>
 	
 	<jstl:if test="${(command == 'show' && ownerForum == true) || command == 'delete'}">
-		<c:if test="${investmentRoundTicker == null}">
 			<acme:form-submit code= "authenticated.messenger.form.button.delete" action= "/authenticated/messenger/delete"/>
-		</c:if>	
 	</jstl:if>
 	
 	<jstl:if test="${command == 'create' }">
