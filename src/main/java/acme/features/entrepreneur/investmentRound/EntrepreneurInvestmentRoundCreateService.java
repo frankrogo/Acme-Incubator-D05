@@ -262,7 +262,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		if (!budgetActivity.isEmpty() && budgetActivity != null && moneyAmount != null && budgetActivity != null && (budgetActivity.contains("€") || budgetActivity.contains("EUR")) && moneyAmount.getAmount() != null) {
 			if (this.moneyBudgetEs(budgetActivity)) {
 				Double budget = Double.valueOf(budgetActivity.replace("€", "").replace("EUR", "").replace(".", "").replace(",", "."));
-				if (finalMode && budget == moneyAmount.getAmount()) {
+				if (finalMode && budget.equals(moneyAmount.getAmount())) {
 					res = true;
 				}
 			}
@@ -279,7 +279,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		if (!budgetActivity.isEmpty() && budgetActivity != null && moneyAmount != null && budgetActivity != null && (budgetActivity.contains("€") || budgetActivity.contains("EUR")) && moneyAmount.getAmount() != null) {
 			if (this.moneyBudgetEn(budgetActivity)) {
 				Double budget = Double.valueOf(budgetActivity.replace("€", "").replace("EUR", "").replace(",", ""));
-				if (finalMode && budget == moneyAmount.getAmount()) {
+				if (finalMode && budget.equals(moneyAmount.getAmount())) {
 					res = true;
 				}
 			}

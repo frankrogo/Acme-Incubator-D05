@@ -5,10 +5,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
+import acme.entities.forums.Forum;
+import acme.entities.investmentRounds.InvestmentRound;
+import acme.entities.messengers.Messenger;
 import acme.entities.roles.Entrepreneur;
+import acme.features.authenticated.messenger.AuthenticatedMessengerRepository;
+import acme.features.entrepreneur.forum.EntrepreneurForumRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 
@@ -17,6 +23,10 @@ public class EntrepreneurApplicationUpdateService implements AbstractUpdateServi
 
 	@Autowired
 	EntrepreneurApplicationRepository repository;
+	@Autowired
+	EntrepreneurForumRepository forumRepository;
+	@Autowired
+	AuthenticatedMessengerRepository messengerRepository;
 
 
 	@Override
@@ -96,6 +106,22 @@ public class EntrepreneurApplicationUpdateService implements AbstractUpdateServi
 		assert request != null;
 		assert entity != null;
 		entity.setStatus(request.getModel().getString("status"));
+		if(request.getModel().getString("status").equals("accepted")) {
+			InvestmentRound ir = entity.getInvestmentRound();
+			Forum forum = this.forumRepository.findOneByInvestmentRoundId(ir.getId());
+			
+			
+			Messenger messenger = new Messenger();
+			Authenticated authenticated = this.repository.findOneAuthenticatedByUserAccountId(entity.getInvestor().getUserAccount().getId());
+			messenger.setAuthenticated(authenticated);
+			messenger.setForum(forum);
+			messenger.setOwnsTheForum(false);
+			this.messengerRepository.save(messenger);
+			
+			
+			
+			
+		}
 		this.repository.save(entity);
 	}
 

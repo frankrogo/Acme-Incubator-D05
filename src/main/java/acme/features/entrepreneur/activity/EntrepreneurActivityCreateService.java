@@ -50,6 +50,7 @@ public class EntrepreneurActivityCreateService implements AbstractCreateService<
 
 	@Override
 	public Activity instantiate(final Request<Activity> request) {
+		assert request != null;
 		Activity result = new Activity();
 		result.setCreationMoment(new Date(System.currentTimeMillis() - 1));
 		InvestmentRound investmentRound = this.repository.findInvestmentRoundById(request.getModel().getInteger("investmentRoundId"));
@@ -64,8 +65,7 @@ public class EntrepreneurActivityCreateService implements AbstractCreateService<
 		assert errors != null;
 		Collection<Activity> activities = this.repository.findManyByInvestmentRoundId(entity.getInvestmentRound().getId());
 		InvestmentRound ivr = entity.getInvestmentRound();
-		Money requesteBudget = entity.getBudget();
-		if (requesteBudget.getAmount()!=null && !requesteBudget.getCurrency().isEmpty() && entity.getBudget().getCurrency() != null &&  (entity.getBudget().getCurrency().contains("€") ) ||  entity.getBudget().getCurrency().contains("EUR")) {
+		if (!errors.hasErrors("budget")) {
 			Double actualBudget = entity.getBudget().getAmount();
 			errors.state(request, actualBudget != null, "budget", "entrepreneur.activity.error.budget.null");
 			Double resta = 0.0;
