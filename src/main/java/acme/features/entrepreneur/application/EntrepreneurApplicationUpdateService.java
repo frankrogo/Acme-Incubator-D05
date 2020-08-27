@@ -22,11 +22,11 @@ import acme.framework.services.AbstractUpdateService;
 public class EntrepreneurApplicationUpdateService implements AbstractUpdateService<Entrepreneur, Application> {
 
 	@Autowired
-	EntrepreneurApplicationRepository repository;
+	EntrepreneurApplicationRepository	repository;
 	@Autowired
-	EntrepreneurForumRepository forumRepository;
+	EntrepreneurForumRepository			forumRepository;
 	@Autowired
-	AuthenticatedMessengerRepository messengerRepository;
+	AuthenticatedMessengerRepository	messengerRepository;
 
 
 	@Override
@@ -106,21 +106,17 @@ public class EntrepreneurApplicationUpdateService implements AbstractUpdateServi
 		assert request != null;
 		assert entity != null;
 		entity.setStatus(request.getModel().getString("status"));
-		if(request.getModel().getString("status").equals("accepted")) {
+		if (request.getModel().getString("status").equals("accepted")) {
 			InvestmentRound ir = entity.getInvestmentRound();
 			Forum forum = this.forumRepository.findOneByInvestmentRoundId(ir.getId());
-			
-			
+
 			Messenger messenger = new Messenger();
 			Authenticated authenticated = this.repository.findOneAuthenticatedByUserAccountId(entity.getInvestor().getUserAccount().getId());
 			messenger.setAuthenticated(authenticated);
 			messenger.setForum(forum);
 			messenger.setOwnsTheForum(false);
 			this.messengerRepository.save(messenger);
-			
-			
-			
-			
+
 		}
 		this.repository.save(entity);
 	}

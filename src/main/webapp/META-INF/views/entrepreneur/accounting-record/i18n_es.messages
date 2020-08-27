@@ -9,15 +9,15 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-entrepreneur.accounting-record.investment-ticker = Ticker de la ronda de inversión
+entrepreneur.accounting-record.investment-round-ticker = Ticker de la ronda de inversión
 
 entrepreneur.audit-record.list.label.title = Título
 entrepreneur.audit-record.list.label.status = Estado
 entrepreneur.audit-record.list.label.creationMoment = Fecha de creación
 entrepreneur.accounting-record.list.button.return = Volver
 
-entrepreneur.audit-record.form.label.title = Título
-entrepreneur.audit-record.form.label.status = Estado
-entrepreneur.audit-record.form.label.creationMoment = Fecha de creación
-entrepreneur.audit-record.form.label.body = Cuerpo
+entrepreneur.audit-record.form.label.title = Título:
+entrepreneur.audit-record.form.label.status = Estado:
+entrepreneur.audit-record.form.label.creationMoment = Fecha de creación:
+entrepreneur.audit-record.form.label.body = Cuerpo:
 entrepreneur.audit-record.form.button.return = Volver

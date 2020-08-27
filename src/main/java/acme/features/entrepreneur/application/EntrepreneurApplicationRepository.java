@@ -22,7 +22,7 @@ public interface EntrepreneurApplicationRepository extends AbstractRepository {
 
 	@Query("select c from Configuration c")
 	Configuration findConfiguration();
-	
+
 	@Query("select a from Authenticated a where  a.userAccount.id = ?1")
 	Authenticated findOneAuthenticatedByUserAccountId(int id);
 

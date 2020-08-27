@@ -16,21 +16,26 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<acme:form >
-	<h4><acme:message code="bookkeeper.accounting-record.form.label.investmentRoundTicker"/> <acme:print value="${investmentRoundTicker}"/></h4><br>
-	<acme:form-textbox code="bookkeeper.accounting-record.form.label.title" path="title"/>
+<acme:form>
+	<h4>
+		<acme:message code="bookkeeper.accounting-record.form.label.investmentRoundTicker" />
+		<acme:print value="${investmentRoundTicker}" />
+	</h4>
+	<br>
+	<acme:form-textbox code="bookkeeper.accounting-record.form.label.title" path="title" />
 	<jstl:if test="${command != 'create'}">
-	<acme:form-moment  code="bookkeeper.accounting-record.form.label.creationMoment" path="creationMoment"/>
-	 </jstl:if>
-	<acme:form-textbox code="bookkeeper.accounting-record.form.label.body" path="body"/>
-	<acme:form-hidden path="investmentRoundId"/> 
-	<jstl:if test="${command != 'create'}">
-		<acme:form-textbox readonly="true" code="bookkeeper.accounting-record.form.label.status" path="statusl"/>
+		<acme:form-moment code="bookkeeper.accounting-record.form.label.creationMoment" path="creationMoment" readonly="true"/>
 	</jstl:if>
-	<acme:form-checkbox code="bookkeeper.accounting-record.form.label.status" path="status"/>
+	<acme:form-textbox code="bookkeeper.accounting-record.form.label.body" path="body" />
+	<acme:form-hidden path="investmentRoundId" />
+	<acme:form-checkbox code="bookkeeper.accounting-record.form.label.status" path="status" />
+	<jstl:if test="${command != 'create'}">
+		<acme:form-textbox readonly="true" code="bookkeeper.accounting-record.form.label.statusl" path="statusl" />
+	</jstl:if>
 	<acme:form-submit test="${command == 'create'}" code="bookkeeper.accounting-record.form.button.create"
-		action="/bookkeeper/accounting-record/create"/>	
-	<acme:form-submit test="${command != 'create' && status==false}" code="bookkeeper.accounting-record.form.button.update" action="/bookkeeper/accounting-record/update"/>
-		
-	<acme:form-return code="bookkeeper.accounting-record.form.button.return"/>
+		action="/bookkeeper/accounting-record/create" />
+	<acme:form-submit test="${command != 'create' && status==false}" code="bookkeeper.accounting-record.form.button.update"
+		action="/bookkeeper/accounting-record/update" />
+
+	<acme:form-return code="bookkeeper.accounting-record.form.button.return" />
 </acme:form>

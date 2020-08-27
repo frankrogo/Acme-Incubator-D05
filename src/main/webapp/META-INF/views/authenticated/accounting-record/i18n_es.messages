@@ -15,8 +15,8 @@ authenticated.audit-record.list.label.title = Título
 authenticated.audit-record.list.label.status = Estado
 authenticated.audit-record.list.label.creationMoment = Fecha de creación
 
-authenticated.audit-record.form.label.title = Título
-authenticated.audit-record.form.label.status = Estado
-authenticated.audit-record.form.label.creationMoment = Fecha de creación
-authenticated.audit-record.form.label.body = Cuerpo
+authenticated.audit-record.form.label.title = Título:
+authenticated.audit-record.form.label.status = Estado:
+authenticated.audit-record.form.label.creationMoment = Fecha de creación:
+authenticated.audit-record.form.label.body = Cuerpo:
 authenticated.audit-record.form.button.return = Volver

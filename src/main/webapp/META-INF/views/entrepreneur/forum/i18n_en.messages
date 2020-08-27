@@ -1,9 +1,0 @@
-entrepreneur.forum.list.label.title = Title
-entrepreneur.forum.list.label.investmentRoundTicker = Investment Round's ticker
-
-entrepreneur.forum.form.label.investmentRoundTicker = Investment Round's ticker:
-entrepreneur.forum.form.label.title = Title:
-entrepreneur.forum.form.button.messages = All forum messages
-entrepreneur.forum.form.button.createMessage = Post new message
-entrepreneur.forum.form.button.messengers = Messengers
-entrepreneur.forum.form.button.return = Return
