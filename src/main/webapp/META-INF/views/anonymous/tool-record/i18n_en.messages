@@ -8,6 +8,8 @@ anonymous.tool-record.form.label.stars = Stars:
 anonymous.tool-record.form.label.source = Type of source:
 anonymous.tool-record.form.button.return = Return
 
+anonymous.tool-record.list.label.stars =  Stars
+anonymous.tool-record.list.label.sector = Sector
 anonymous.tool-record.list.label.title = Title
 anonymous.tool-record.list.label.inventorName = Inventor name
 

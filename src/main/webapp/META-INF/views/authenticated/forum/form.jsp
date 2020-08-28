@@ -9,7 +9,7 @@
 <acme:form>
 	<jstl:if test="${(command != 'create')}">
 		<c:if test="${investmentRoundTicker != null}">
-			<h4><acme:message code="entrepreneur.forum.form.label.investmentRoundTicker"/> <acme:print value="${investmentRoundTicker}"/></h4><br>
+			<h4><acme:message code="authenticated.forum.form.label.investmentRoundTicker"/> <acme:print value="${investmentRoundTicker}"/></h4><br>
 		</c:if>	
 		<acme:form-textbox readonly= "true" code="authenticated.forum.form.label.title" path="title"/>
 	</jstl:if>

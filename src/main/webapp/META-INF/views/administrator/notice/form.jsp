@@ -6,13 +6,18 @@
 
 <acme:form>
 	<jstl:if test="${command != 'create'}">
-	<img src ="${headerImage}" />
+	<style type="text/css"> 
+		.imagen{
+		max-width: 250px;
+	}
+	</style> 
+	<img src ="${headerImage}" class="imagen"/>
 	</jstl:if>
 	<jstl:if test="${command == 'create'}">
 		<acme:form-textarea placeholder="http://www.example1.com , http://www.example2.com " code="administrator.notice.form.label.links" path="links"/>
 	</jstl:if>
 	<jstl:if test="${command == 'create'}">
-	<acme:form-textbox code="administrator.notice.form.label.header" path="header"/>
+	<acme:form-textbox code="administrator.notice.form.label.header" path="headerImage"/>
 	</jstl:if>
 	
 	<acme:form-textbox code="administrator.notice.form.label.title" path="title"/>

@@ -31,6 +31,7 @@ public class AdministratorTechnologyRecordShowService implements AbstractShowSer
 		request.unbind(entity, model, "stars", "title", "sector", "inventorName", "description", "website", "email");
 		String source = entity.getIsOpenSource() ? "open-source" : "closed-source";
 		model.setAttribute("source", source);
+		model.setAttribute("isopen", entity.getIsOpenSource());
 	}
 
 	@Override

@@ -15,5 +15,6 @@ administrator.tool-record.form.button.delete = Borrar
 administrator.tool-record.form.button.return = Volver
 
 administrator.tool-record.list.label.sector = Sector
+administrator.tool-record.list.label.stars = Estrellas
 administrator.tool-record.list.label.title = Título
 administrator.tool-record.list.label.inventorName = Nombre del inventor

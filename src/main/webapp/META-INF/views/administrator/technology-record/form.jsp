@@ -2,6 +2,7 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <acme:form>
 	<acme:form-textbox code="administrator.technology-record.form.label.title" path="title"/>
@@ -13,8 +14,8 @@
 	<acme:form-textbox code="administrator.technology-record.form.label.stars" path="stars"/>
 	
 	<acme:form-select code="administrator.technology-record.form.label.isOpenSource" path="isOpenSource">
-			<acme:form-option code="administrator.technology-record.form.label.isOpenSource.true" value="true"/>
-			<acme:form-option code="administrator.technology-record.form.label.isOpenSource.false" value="false"/>
+			<acme:form-option code="administrator.technology-record.form.label.isOpenSource.true" value="true" />
+			<acme:form-option code="administrator.technology-record.form.label.isOpenSource.false" value="false" />
 	</acme:form-select>
 	
 	<jstl:if test="${command == 'update'}">
