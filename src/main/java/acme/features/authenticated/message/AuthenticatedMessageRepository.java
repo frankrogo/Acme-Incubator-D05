@@ -39,5 +39,7 @@ public interface AuthenticatedMessageRepository extends AbstractRepository {
 
 	@Query("select c from Configuration c")
 	Configuration findConfiguration();
-
+	
+	@Query("select m from Messenger m where m.forum.id = ?1")
+	Collection<Messenger> findMessengersByForumId(int id);
 }

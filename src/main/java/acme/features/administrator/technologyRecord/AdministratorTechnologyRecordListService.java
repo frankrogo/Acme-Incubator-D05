@@ -32,7 +32,7 @@ public class AdministratorTechnologyRecordListService implements AbstractListSer
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "stars", "title", "inventorName");
+		request.unbind(entity, model, "stars", "title", "inventorName","sector");
 	}
 
 	@Override

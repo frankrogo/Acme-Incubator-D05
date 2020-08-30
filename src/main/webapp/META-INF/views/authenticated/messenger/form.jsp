@@ -2,6 +2,7 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <acme:form>
 	<acme:form-hidden path="forumId"/>
@@ -12,7 +13,7 @@
 	</jstl:if>
 	
 	<jstl:if test="${(command == 'show' && ownerForum == true) || command == 'delete'}">
-		<acme:form-submit code= "authenticated.messenger.form.button.delete" action= "/authenticated/messenger/delete"/>
+			<acme:form-submit code= "authenticated.messenger.form.button.delete" action= "/authenticated/messenger/delete"/>
 	</jstl:if>
 	
 	<jstl:if test="${command == 'create' }">

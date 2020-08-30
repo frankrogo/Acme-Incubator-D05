@@ -32,7 +32,7 @@ public class BookkeeperAccountingRecordShowService implements AbstractShowServic
 		accountingRecord = this.repository.findOneById(accountingRecordId);
 		bookkeeper = accountingRecord.getBookkeeper();
 		principal = request.getPrincipal();
-		result = accountingRecord.isStatus() || !accountingRecord.isStatus() && bookkeeper.getUserAccount().getId() == principal.getAccountId();
+		result = bookkeeper.getUserAccount().getId() == principal.getAccountId();
 		return result;
 	}
 
@@ -43,6 +43,8 @@ public class BookkeeperAccountingRecordShowService implements AbstractShowServic
 		assert model != null;
 		request.unbind(entity, model, "title", "status", "creationMoment", "body");
 		model.setAttribute("investmentRoundTicker", entity.getInvestmentRound().getTicker());
+		String statusl = entity.isStatus() ? "published" : "draft";
+		model.setAttribute("statusl", statusl);
 
 	}
 

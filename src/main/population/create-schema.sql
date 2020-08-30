@@ -2,7 +2,7 @@
     create table `accounting_record` (
        `id` integer not null,
         `version` integer not null,
-        `body` varchar(1024),
+        `body` varchar(255),
         `creation_moment` datetime(6),
         `status` bit not null,
         `title` varchar(255),
@@ -64,7 +64,7 @@
         `version` integer not null,
         `user_account_id` integer,
         `firm` varchar(255),
-        `responsability_statement` varchar(1024),
+        `responsability_statement` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -153,7 +153,7 @@
        `id` integer not null,
         `version` integer not null,
         `creation_moment` datetime(6),
-        `description` varchar(1024),
+        `description` varchar(255),
         `final_mode` bit not null,
         `money_amount_amount` double precision,
         `money_amount_currency` varchar(255),
@@ -178,7 +178,7 @@
     create table `message` (
        `id` integer not null,
         `version` integer not null,
-        `body` varchar(1024),
+        `body` varchar(255),
         `creation_moment` datetime(6),
         `tags` varchar(255),
         `title` varchar(255),
@@ -202,7 +202,7 @@
         `body` varchar(255),
         `creation_moment` datetime(6),
         `deadline` datetime(6),
-        `header` varchar(255),
+        `header_image` varchar(255),
         `links` varchar(255),
         `title` varchar(255),
         primary key (`id`)

@@ -8,6 +8,8 @@ authenticated.tool-record.form.label.stars = Stars:
 authenticated.tool-record.form.label.source = Type of source:
 authenticated.tool-record.form.button.return = Return
 
+authenticated.tool-record.list.label.stars =  Stars
+authenticated.tool-record.list.label.sector = Sector
 authenticated.tool-record.list.label.title = Title
 authenticated.tool-record.list.label.inventorName = Inventor name
 

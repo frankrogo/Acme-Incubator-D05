@@ -7,13 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.accountingRecords.AccountingRecord;
+import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class EntrepreneurAccountingRecordListMineService implements AbstractListService<Entrepreneur, AccountingRecord> {
+public class EntrepreneurAccountingRecordListByInvestmentRoundService implements AbstractListService<Entrepreneur, AccountingRecord> {
 
 	@Autowired
 	EntrepreneurAccountingRecordRepository repository;
@@ -22,7 +24,17 @@ public class EntrepreneurAccountingRecordListMineService implements AbstractList
 	@Override
 	public boolean authorise(final Request<AccountingRecord> request) {
 		assert request != null;
-		return true;
+
+		boolean result;
+		InvestmentRound investmentRound;
+		Entrepreneur entrepreneur;
+		Principal principal;
+
+		investmentRound = this.repository.findInvestmentRoundById(request.getModel().getInteger("investmentRoundId"));
+		entrepreneur = investmentRound.getEntrepreneur();
+		principal = request.getPrincipal();
+		result = entrepreneur.getUserAccount().getId() == principal.getAccountId();
+		return result;
 	}
 
 	@Override

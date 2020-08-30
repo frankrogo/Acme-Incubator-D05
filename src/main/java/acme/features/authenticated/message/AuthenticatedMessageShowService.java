@@ -1,11 +1,15 @@
 
 package acme.features.authenticated.message;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messages.Message;
 import acme.entities.messengers.Messenger;
+import acme.features.authenticated.forum.AuthenticatedForumRepository;
+import acme.features.authenticated.messenger.AuthenticatedMessengerRepository;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -16,7 +20,13 @@ import acme.framework.services.AbstractShowService;
 public class AuthenticatedMessageShowService implements AbstractShowService<Authenticated, Message> {
 
 	@Autowired
-	AuthenticatedMessageRepository repository;
+	AuthenticatedMessageRepository		repository;
+
+	@Autowired
+	AuthenticatedForumRepository		forumRepository;
+
+	@Autowired
+	AuthenticatedMessengerRepository	messengerRepository;
 
 
 	@Override
@@ -24,16 +34,31 @@ public class AuthenticatedMessageShowService implements AbstractShowService<Auth
 		assert request != null;
 
 		boolean result;
+		boolean containsMessenger = false;
 		int messageId;
 		Message message;
+		int forumId;
 		Messenger owner;
+		Authenticated auth;
 		Principal principal;
 
 		messageId = request.getModel().getInteger("id");
 		message = this.repository.findOneById(messageId);
 		owner = this.repository.findTheOwner(message.getForum().getId());
 		principal = request.getPrincipal();
-		result = owner.getAuthenticated().getId() == principal.getActiveRoleId();
+		forumId = message.getForum().getId();
+		auth = this.messengerRepository.findAuthByAccountId(principal.getAccountId());
+		Collection<Messenger> msgs;
+		msgs = this.forumRepository.findMessengersByForumId(forumId);
+
+		for (Messenger m : msgs) {
+			if (m.getAuthenticated() == auth) {
+				containsMessenger = true;
+				break;
+			}
+
+		}
+		result = owner.getAuthenticated().getId() == principal.getActiveRoleId() || containsMessenger;
 		return result;
 	}
 

@@ -88,13 +88,21 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert errors != null;
 
 		//Spam validation
-		boolean spamCheckOk, isAccepted;
+		boolean  isAccepted;
 
 		if (!errors.hasErrors()) {
 			Configuration configuration = this.repository.findConfiguration();
-			String spam = entity.getTitle() + "," + entity.getBody() + "," + entity.getTags();
-			spamCheckOk = SpamChecker.spamChecker(configuration, spam);
-			errors.state(request, !spamCheckOk, "*", "authenticated.message.error.spam");
+			String spamTitle = entity.getTitle(); 
+			Boolean spamCheckTitle = SpamChecker.spamChecker(configuration, spamTitle);
+			errors.state(request, !spamCheckTitle, "title", "authenticated.message.error.spam");
+			
+			String spamBody = entity.getBody() + "," + entity.getTags();
+			Boolean spamCheckBody = SpamChecker.spamChecker(configuration, spamBody);
+			errors.state(request, !spamCheckBody, "body", "authenticated.message.error.spam");
+			
+			String spamTags = entity.getTags();
+			Boolean spamCheckTags = SpamChecker.spamChecker(configuration, spamTags);
+			errors.state(request, !spamCheckTags, "tags", "authenticated.message.error.spam");
 
 			//			String title = entity.getTitle();
 			//			String body = entity.getBody();

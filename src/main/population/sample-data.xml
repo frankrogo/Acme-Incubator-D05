@@ -17,8 +17,19 @@
 
 	<import resource="conversion-service.xml" />
 	
-	<!-- Users -->
+	<!-- Configuration -->
+	
+	<bean id="configuration" class="acme.entities.configurations.Configuration">
+		<property name="spamWords" value="sex,hard core,viagra,cialis,nigeria,you've won,
+		million dollar,sexo,duro,has ganado,millón de dólares"/>
+		<property name="spamThreshold" value="2.50"/>
+		<property name="activitySectors" value="Technology,Science,Arts,Business,Health"></property> 
+	</bean>
+	
+	<!-- UserAccounts -->
+	
 	<!-- Bookkeepers -->
+	
 	<bean name="bookkeeper1UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="bookkeeper1" />
 		<property name="password" value="bookkeeper1" />
@@ -100,7 +111,7 @@
 
 	<bean name="entrepreneur1Entrepreneur" class="acme.entities.roles.Entrepreneur">
 		<property name="startup" value="Entrepreneur 1 Corporative" />
-		<property name="sector" value="Sector 1" />
+		<property name="sector" value="Arts" />
 		<property name="qualifications" value="Qualifications" />
 		<property name="skills" value="Skills" />
 		<property name="userAccount" ref="entrepreneur1UserAccount" />
@@ -131,7 +142,7 @@
 
 	<bean name="entrepreneur2Entrepreneur" class="acme.entities.roles.Entrepreneur">
 		<property name="startup" value="Entrepreneur 2 Corporative" />
-		<property name="sector" value="Sector 2" />
+		<property name="sector" value="Bussiness" />
 		<property name="qualifications" value="Qualifications" />
 		<property name="skills" value="Skills" />
 		<property name="userAccount" ref="entrepreneur2UserAccount" />
@@ -164,7 +175,7 @@
 	
 	<bean name="investor1Investor" class="acme.entities.roles.Investor">
 		<property name="firm" value="Investor One" />
-		<property name="sector" value="Sector 1" />
+		<property name="sector" value="Health" />
 		<property name="profile" value="Profile" />
 		<property name="userAccount" ref="investor1UserAccount" />
 	</bean>
@@ -194,7 +205,7 @@
 	
 	<bean name="investor2Investor" class="acme.entities.roles.Investor">
 		<property name="firm" value="Investor Two" />
-		<property name="sector" value="Sector 2" />
+		<property name="sector" value="Technology" />
 		<property name="profile" value="Profile" />
 		<property name="userAccount" ref="investor2UserAccount" />
 	</bean>
@@ -217,27 +228,39 @@
         <property name="entrepreneur" ref="entrepreneur1Entrepreneur" />
      </bean>
      
+     <bean name="investmentRound04" class="acme.entities.investmentRounds.InvestmentRound">
+        <property name="ticker" value="SEC-15-000003" />
+        <property name="creationMoment" value="2015/02/27 00:00" />
+        <property name="round" value="SERIES-B" />
+        <property name="title" value="Investment Round 4" />
+        <property name="description" value="Description" />
+        <property name="moneyAmount" value="2000EUR" />
+        <property name="moreInfo" value="http://www.invroundfour.com/" />
+        <property name="finalMode" value="true" />
+        <property name="entrepreneur" ref="entrepreneur1Entrepreneur" />
+     </bean>
+     
      <bean name="investmentRound02" class="acme.entities.investmentRounds.InvestmentRound">
-        <property name="ticker" value="SEC-20-000001" />
+        <property name="ticker" value="BUS-20-193551" />
         <property name="creationMoment" value="2020/05/12 00:00" />
         <property name="round" value="SERIES-C" />
         <property name="title" value="Investment Round 2" />
         <property name="description" value="Description" />
-        <property name="moneyAmount" value="€ 400.25" />
+        <property name="moneyAmount" value="€500.75" />
         <property name="moreInfo" value="http://www.invroundtwo.com/" />
         <property name="finalMode" value="true" />
         <property name="entrepreneur" ref="entrepreneur2Entrepreneur" />
      </bean>
      
      <bean name="investmentRound03" class="acme.entities.investmentRounds.InvestmentRound">
-        <property name="ticker" value="SEC-18-000000" />
+        <property name="ticker" value="BUS-18-000001" />
         <property name="creationMoment" value="2018/01/05 00:00" />
         <property name="round" value="BRIDGE" />
         <property name="title" value="Investment Round 3" />
         <property name="description" value="Description" />
         <property name="moneyAmount" value="€ 5,000.41" />
         <property name="moreInfo" value="http://www.invroundthree.com/" />
-        <property name="finalMode" value="true" />
+        <property name="finalMode" value="false" />
         <property name="entrepreneur" ref="entrepreneur2Entrepreneur" />
      </bean>
      
@@ -247,39 +270,117 @@
         <property name="title" value="Activity 1" />
         <property name="creationMoment" value="2019/02/27 00:00" />
         <property name="deadline" value="2021/01/01 00:00" />
-        <property name="budget" value="€ 400.25" />
-        <property name="investmentRound" ref="investmentRound02" />
+        <property name="budget" value="€ 499.99" />
+        <property name="investmentRound" ref="investmentRound01" />
     </bean>
 	
 	<bean name="activity02" class="acme.entities.activities.Activity">
         <property name="title" value="Activity 2" />
-        <property name="creationMoment" value="2019/02/27 00:00" />
-        <property name="deadline" value="2021/01/01 00:00" />
-        <property name="budget" value="€ 95" />
+        <property name="creationMoment" value="2019/02/28 09:00" />
+        <property name="deadline" value="2020/11/30 00:00" />
+        <property name="budget" value="200.01EUR" />
         <property name="investmentRound" ref="investmentRound01" />
     </bean>
     
+    
     <bean name="activity03" class="acme.entities.activities.Activity">
         <property name="title" value="Activity 3" />
-        <property name="creationMoment" value="2019/02/27 00:00" />
+        <property name="creationMoment" value="2015/02/27 00:00" />
         <property name="deadline" value="2021/01/01 00:00" />
-        <property name="budget" value="€ 1000000" />
-        <property name="investmentRound" ref="investmentRound02" />
+        <property name="budget" value="1000.01 EUR" />
+        <property name="investmentRound" ref="investmentRound04" />
     </bean>
+    
         <bean name="activity04" class="acme.entities.activities.Activity">
         <property name="title" value="Activity 4" />
-        <property name="creationMoment" value="2019/02/27 00:00" />
+        <property name="creationMoment" value="2016/02/27 00:00" />
+        <property name="deadline" value="2022/01/01 00:00" />
+        <property name="budget" value="€999.99" />
+        <property name="investmentRound" ref="investmentRound04" />
+    </bean>
+    
+    <bean name="activity05" class="acme.entities.activities.Activity">
+        <property name="title" value="Activity 5" />
+        <property name="creationMoment" value="2020/05/12 00:00" />
         <property name="deadline" value="2021/01/01 00:00" />
-        <property name="budget" value="€ 3000000" />
-        <property name="investmentRound" ref="investmentRound01" />
+        <property name="budget" value="500.75 EUR" />
+        <property name="investmentRound" ref="investmentRound02" />
+    </bean>
+    
+    <!-- Applications -->
+	
+	<bean name="application1" class="acme.entities.applications.Application">
+        <property name="ticker" value="HEA-17-764889" />
+        <property name="creationMoment" value="2017/11/11 01:59" />
+        <property name="statement" value="Nothing to be said" />
+        <property name="moneyOffer" value="EUR900" />
+        <property name="status" value="rejected" />
+        <property name="reasonRejected" value="Not enough money offered"/>
+        <property name="investor" ref="investor1Investor" />
+        <property name="investmentRound" ref="investmentRound04" />
+    </bean>
+    
+    <bean name="application2" class="acme.entities.applications.Application">
+        <property name="ticker" value="HEA-17-000001" />
+        <property name="creationMoment" value="2020/05/12 16:59" />
+        <property name="statement" value = "Nothing to be said" />
+        <property name="moneyOffer" value="1,000.31EUR" />
+        <property name="status" value="accepted" />
+        <property name="reasonRejected"> <null/> </property>
+        <property name="investor" ref="investor1Investor" />
+        <property name="investmentRound" ref="investmentRound02" />
+    </bean>
+    
+    <bean name="application3" class="acme.entities.applications.Application">
+        <property name="ticker" value="TEC-16-110402" />
+        <property name="creationMoment" value="2016/11/11 01:59" />
+        <property name="statement" value="Nothing to be said" />
+        <property name="moneyOffer" value="€ 2000.00" />
+        <property name="status" value="accepted" />
+        <property name="reasonRejected" value=""/>
+        <property name="investor" ref="investor2Investor" />
+        <property name="investmentRound" ref="investmentRound04" />
+    </bean>
+    
+    <bean name="application4" class="acme.entities.applications.Application">
+        <property name="ticker" value="TEC-16-003032" />
+        <property name="creationMoment" value="2016/11/11 01:59" />
+        <property name="statement" value="Nothing to be said" />
+        <property name="moneyOffer" value="€ 2000.99" />
+        <property name="status" value="pending" />
+        <property name="reasonRejected"> <null/> </property>
+        <property name="investor" ref="investor2Investor" />
+        <property name="investmentRound" ref="investmentRound04" />
+    </bean>
+    
+    <bean name="application5" class="acme.entities.applications.Application">
+        <property name="ticker" value="TEC-20-020313" />
+        <property name="creationMoment" value="2020/05/15 01:59" />
+        <property name="statement" value="Nothing to be said" />
+        <property name="moneyOffer" value="€ 2,000.99" />
+        <property name="status" value="accepted" />
+    	<property name="reasonRejected" value=""/>
+        <property name="investor" ref="investor2Investor" />
+        <property name="investmentRound" ref="investmentRound02" />
+    </bean>
+    
+    <bean name="application6" class="acme.entities.applications.Application">
+        <property name="ticker" value="TEC-20-000003" />
+        <property name="creationMoment" value="2020/05/16 01:59" />
+        <property name="statement" value="Nothing to be said" />
+        <property name="moneyOffer" value="5 EUR" />
+        <property name="status" value="pending" />
+        <property name="reasonRejected"  value=""/>
+        <property name="investor" ref="investor2Investor" />
+        <property name="investmentRound" ref="investmentRound02" />
     </bean>
     
 	<!-- Accounting Records -->
 	
 	<bean name="accountingrecord01" class="acme.entities.accountingRecords.AccountingRecord">
         <property name="title" value="Accounting Record 1" />
-        <property name="status" value="true" />
-        <property name="creationMoment" value="2019/02/27 00:00" />
+        <property name="status" value="false" />
+        <property name="creationMoment" value="2020/06/27 00:00" />
         <property name="body" value="Body" />
         <property name="bookkeeper" ref="bookkeeper1Bookkeeper" />
         <property name="investmentRound" ref="investmentRound02" />
@@ -287,8 +388,8 @@
     
     <bean name="accountingrecord02" class="acme.entities.accountingRecords.AccountingRecord">
         <property name="title" value="Accounting Record 2" />
-        <property name="status" value="false" />
-        <property name="creationMoment" value="2019/02/27 00:00" />
+        <property name="status" value="true" />
+        <property name="creationMoment" value="2020/07/07 00:00" />
         <property name="body" value="Body" />
         <property name="bookkeeper" ref="bookkeeper1Bookkeeper" />
         <property name="investmentRound" ref="investmentRound02" />
@@ -297,7 +398,7 @@
     <bean name="accountingrecord03" class="acme.entities.accountingRecords.AccountingRecord">
         <property name="title" value="Accounting Record 3" />
         <property name="status" value="true" />
-        <property name="creationMoment" value="2019/02/27 00:00" />
+        <property name="creationMoment" value="2020/08/17 00:00" />
         <property name="body" value="Body" />
         <property name="bookkeeper" ref="bookkeeper2Bookkeeper" />
         <property name="investmentRound" ref="investmentRound02" />
@@ -306,89 +407,22 @@
     <bean name="accountingrecord04" class="acme.entities.accountingRecords.AccountingRecord">
         <property name="title" value="Accounting Record 4" />
         <property name="status" value="true" />
-        <property name="creationMoment" value="2019/02/27 00:00" />
+        <property name="creationMoment" value="2018/05/05 00:00" />
         <property name="body" value="Body" />
         <property name="bookkeeper" ref="bookkeeper1Bookkeeper" />
-        <property name="investmentRound" ref="investmentRound03" />
+        <property name="investmentRound" ref="investmentRound04" />
     </bean>
     
     <bean name="accountingrecord05" class="acme.entities.accountingRecords.AccountingRecord">
         <property name="title" value="Accounting Record 5" />
         <property name="status" value="false" />
-        <property name="creationMoment" value="2019/02/27 00:00" />
+        <property name="creationMoment" value="2019/05/04 00:00" />
         <property name="body" value="Body" />
-        <property name="bookkeeper" ref="bookkeeper1Bookkeeper" />
-        <property name="investmentRound" ref="investmentRound01" />
+        <property name="bookkeeper" ref="bookkeeper2Bookkeeper" />
+        <property name="investmentRound" ref="investmentRound04" />
     </bean>
 	
-	<!-- Applications -->
 	
-	<bean name="application1" class="acme.entities.applications.Application">
-        <property name="ticker" value="SEC-17-000000" />
-        <property name="creationMoment" value="2017/11/11 01:59" />
-        <property name="statement" value="Nothing to be said" />
-        <property name="moneyOffer" value="€ 2000.99" />
-        <property name="status" value="pending" />
-        <property name="reasonRejected" value=""/>
-        <property name="investor" ref="investor1Investor" />
-        <property name="investmentRound" ref="investmentRound01" />
-    </bean>
-    
-    <bean name="application2" class="acme.entities.applications.Application">
-        <property name="ticker" value="SEC-16-000001" />
-        <property name="creationMoment" value="2016/11/11 01:59" />
-        <property name="statement" value="Nothing to be said" />
-        <property name="moneyOffer" value="€ 2000.99" />
-        <property name="status" value="accepted" />
-        <property name="reasonRejected"> <null/> </property>
-        <property name="investor" ref="investor1Investor" />
-        <property name="investmentRound" ref="investmentRound01" />
-    </bean>
-    
-    <bean name="application3" class="acme.entities.applications.Application">
-        <property name="ticker" value="SEC-16-000002" />
-        <property name="creationMoment" value="2016/11/11 01:59" />
-        <property name="statement" value="Nothing to be said" />
-        <property name="moneyOffer" value="€ 2000.99" />
-        <property name="status" value="rejected" />
-        <property name="reasonRejected" value="Whatever reason"/>
-        <property name="investor" ref="investor1Investor" />
-        <property name="investmentRound" ref="investmentRound01" />
-    </bean>
-    
-    <bean name="application4" class="acme.entities.applications.Application">
-        <property name="ticker" value="SEC-16-000002" />
-        <property name="creationMoment" value="2016/11/11 01:59" />
-        <property name="statement" value="Nothing to be said" />
-        <property name="moneyOffer" value="€ 2000.99" />
-        <property name="status" value="accepted" />
-        <property name="reasonRejected"> <null/> </property>
-        <property name="investor" ref="investor2Investor" />
-        <property name="investmentRound" ref="investmentRound01" />
-    </bean>
-    
-    <bean name="application5" class="acme.entities.applications.Application">
-        <property name="ticker" value="SEC-16-000003" />
-        <property name="creationMoment" value="2016/11/11 01:59" />
-        <property name="statement" value="Nothing to be said" />
-        <property name="moneyOffer" value="€ 2000.99" />
-        <property name="status" value="pending" />
-    	<property name="reasonRejected" value=""/>
-        <property name="investor" ref="investor2Investor" />
-        <property name="investmentRound" ref="investmentRound02" />
-    </bean>
-    
-    <bean name="application6" class="acme.entities.applications.Application">
-        <property name="ticker" value="SEC-20-000003" />
-        <property name="creationMoment" value="2020/01/07 01:59" />
-        <property name="statement" value="Nothing to be said" />
-        <property name="moneyOffer" value="€ 2000.99" />
-        <property name="status" value="accepted" />
-        <property name="reasonRejected"> <null/> </property>
-        <property name="investor" ref="investor2Investor" />
-        <property name="investmentRound" ref="investmentRound02" />
-    </bean>
-    
 	<!-- Forums -->
 	
 	<bean name="forum01" class="acme.entities.forums.Forum">
@@ -407,6 +441,12 @@
         <property name="title" value="Forum 3" />
         <property name="investmentRound" ref="investmentRound03" />
         <property name="authenticated" ref="entrepreneur2Authenticated"/>
+    </bean>
+    
+    <bean name="forum06" class="acme.entities.forums.Forum">
+        <property name="title" value="Forum 6" />
+        <property name="investmentRound" ref="investmentRound04" />
+        <property name="authenticated" ref="entrepreneur1Authenticated"/>
     </bean>
     
     <bean name="forum04" class="acme.entities.forums.Forum">
@@ -429,28 +469,53 @@
 	
 	<bean name="message01" class="acme.entities.messages.Message">
         <property name="title" value="Message 1" />
-        <property name="creationMoment" value="2020/05/04 17:00" />
+        <property name="creationMoment" value="2020/08/27 17:34" />
         <property name="tags" value="tagA, tagB" />
         <property name="body" value="Hello" />
         <property name="forum" ref="forum01" />
         <property name="authenticated" ref="entrepreneur1Authenticated"/>
     </bean>
     
+    <bean name="message09" class="acme.entities.messages.Message">
+        <property name="title" value="Message 9" />
+        <property name="creationMoment" value="2020/08/27 17:34" />
+        <property name="tags" value="" />
+        <property name="body" value="Hello" />
+        <property name="forum" ref="forum06" />
+        <property name="authenticated" ref="entrepreneur1Authenticated"/>
+    </bean>
+    
     <bean name="message02" class="acme.entities.messages.Message">
         <property name="title" value="Message 2" />
-        <property name="creationMoment" value="2020/05/04 17:00" />
-        <property name="tags" value="tagA, tagB, tagC" />
+        <property name="creationMoment" value="2020/08/27 17:34" />
+        <property name="tags" value="tagA, tagB" />
         <property name="body" value="Hello" />
         <property name="forum" ref="forum02" />
         <property name="authenticated" ref="entrepreneur2Authenticated"/>
     </bean>
     
+    <bean name="message07" class="acme.entities.messages.Message">
+        <property name="title" value="Message 7" />
+        <property name="creationMoment" value="2020/08/27 17:34" />
+        <property name="tags" value="tagA, tagB" />
+        <property name="body" value="Hello" />
+        <property name="forum" ref="forum02" />
+        <property name="authenticated" ref="investor2Authenticated"/>
+    </bean>
+    
+    <bean name="message08" class="acme.entities.messages.Message">
+        <property name="title" value="Message 8" />
+        <property name="creationMoment" value="2020/08/27 17:34" />
+        <property name="tags" value="tagA, tagB" />
+        <property name="body" value="Hello" />
+        <property name="forum" ref="forum02" />
+        <property name="authenticated" ref="investor1Authenticated"/>
+    </bean>
+    
     <bean name="message03" class="acme.entities.messages.Message">
         <property name="title" value="Message 3" />
-        <property name="creationMoment" value="2020/05/04 17:00" />
-        <property name="tags">
-        		<null />
-        </property>
+        <property name="creationMoment" value="2020/08/27 17:34" />
+        <property name="tags" value="tagA, tagB, tagC" />
         <property name="body" value="Hello" />
         <property name="forum" ref="forum03" />
         <property name="authenticated" ref="entrepreneur2Authenticated"/>
@@ -458,20 +523,49 @@
     
     <bean name="message04" class="acme.entities.messages.Message">
         <property name="title" value="Message 4" />
-        <property name="creationMoment" value="2020/05/04 17:00" />
-        <property name="tags"  value="tagA" />
+        <property name="creationMoment" value="2020/08/27 17:34" />
+        <property name="tags">
+        		<null />
+        </property>
         <property name="body" value="Hello" />
-        <property name="forum" ref="forum04" />
-        <property name="authenticated" ref="bookkeeper2Authenticated"/>
+        <property name="forum" ref="forum06" />
+        <property name="authenticated" ref="investor2Authenticated"/>
     </bean>
     
     <bean name="message05" class="acme.entities.messages.Message">
         <property name="title" value="Message 5" />
-        <property name="creationMoment" value="2020/05/04 17:00" />
+        <property name="creationMoment" value="2020/08/27 17:34" />
+        <property name="tags"  value="tagA" />
+        <property name="body" value="Hello" />
+        <property name="forum" ref="forum04" />
+        <property name="authenticated" ref="bookkeeper1Authenticated"/>
+    </bean>
+    
+    <bean name="message06" class="acme.entities.messages.Message">
+        <property name="title" value="Message 6" />
+        <property name="creationMoment" value="2020/08/27 17:34" />
         <property name="tags"  value="tagC" />
         <property name="body" value="Hello" />
         <property name="forum" ref="forum05" />
         <property name="authenticated" ref="investor1Authenticated"/>
+    </bean>
+    
+    <bean name="message10" class="acme.entities.messages.Message">
+        <property name="title" value="Message 10" />
+        <property name="creationMoment" value="2020/08/27 17:34" />
+        <property name="tags"  value="tagC" />
+        <property name="body" value="Hello" />
+        <property name="forum" ref="forum04" />
+        <property name="authenticated" ref="entrepreneur1Authenticated"/>
+    </bean>
+    
+    <bean name="message11" class="acme.entities.messages.Message">
+        <property name="title" value="Message 11" />
+        <property name="creationMoment" value="2020/08/27 17:34" />
+        <property name="tags"  value="tagC" />
+        <property name="body" value="Hello" />
+        <property name="forum" ref="forum05" />
+        <property name="authenticated" ref="investor2Authenticated"/>
     </bean>
     
     <!-- Messengers -->
@@ -483,33 +577,63 @@
 	</bean>
 	
 	<bean name="messenger2" class="acme.entities.messengers.Messenger">
-		<property name="ownsTheForum" value="false"></property>
-		<property name="forum" ref="forum02"></property>
-		<property name="authenticated" ref="entrepreneur2Authenticated"></property>
+		<property name="ownsTheForum" value="true"></property>
+		<property name="forum" ref="forum06"></property>
+		<property name="authenticated" ref="entrepreneur1Authenticated"></property>
 	</bean>
 	
 	<bean name="messenger3" class="acme.entities.messengers.Messenger">
-		<property name="ownsTheForum" value="false"></property>
-		<property name="forum" ref="forum03"></property>
+		<property name="ownsTheForum" value="true"></property>
+		<property name="forum" ref="forum02"></property>
 		<property name="authenticated" ref="entrepreneur2Authenticated"></property>
 	</bean>
 	
 	<bean name="messenger4" class="acme.entities.messengers.Messenger">
 		<property name="ownsTheForum" value="true"></property>
+		<property name="forum" ref="forum03"></property>
+		<property name="authenticated" ref="entrepreneur2Authenticated"></property>
+	</bean>
+	
+	<bean name="messenger5" class="acme.entities.messengers.Messenger">
+		<property name="ownsTheForum" value="true"></property>
 		<property name="forum" ref="forum04"></property>
 		<property name="authenticated" ref="bookkeeper1Authenticated"></property>
 	</bean>
 	
-	<bean name="messenger5" class="acme.entities.messengers.Messenger">
+	<bean name="messenger6" class="acme.entities.messengers.Messenger">
 		<property name="ownsTheForum" value="true"></property>
 		<property name="forum" ref="forum05"></property>
 		<property name="authenticated" ref="investor1Authenticated"></property>
 	</bean>
 	
-	<bean name="messenger6" class="acme.entities.messengers.Messenger">
+	<bean name="messenger7" class="acme.entities.messengers.Messenger">
+		<property name="ownsTheForum" value="false"></property>
+		<property name="forum" ref="forum02"></property>
+		<property name="authenticated" ref="investor2Authenticated"></property>
+	</bean>
+	
+	<bean name="messenger8" class="acme.entities.messengers.Messenger">
+		<property name="ownsTheForum" value="false"></property>
+		<property name="forum" ref="forum02"></property>
+		<property name="authenticated" ref="investor1Authenticated"></property>
+	</bean>
+	
+	<bean name="messenger9" class="acme.entities.messengers.Messenger">
+		<property name="ownsTheForum" value="false"></property>
+		<property name="forum" ref="forum06"></property>
+		<property name="authenticated" ref="investor2Authenticated"></property>
+	</bean>
+	
+	<bean name="messenger10" class="acme.entities.messengers.Messenger">
 		<property name="ownsTheForum" value="false"></property>
 		<property name="forum" ref="forum04"></property>
-		<property name="authenticated" ref="bookkeeper2Authenticated"></property>
+		<property name="authenticated" ref="entrepreneur1Authenticated"></property>
+	</bean>
+	
+	<bean name="messenger11" class="acme.entities.messengers.Messenger">
+		<property name="ownsTheForum" value="false"></property>
+		<property name="forum" ref="forum05"></property>
+		<property name="authenticated" ref="investor2Authenticated"></property>
 	</bean>
 	
 	<!-- Bulletins -->
@@ -526,20 +650,10 @@
 		<property name="moment" value="2019/08/09 15:55"/>
 	</bean>
 	
-	
-	<!-- Configuration -->
-	
-	<bean id="configuration" class="acme.entities.configurations.Configuration">
-		<property name="spamWords" value="sex,hard core,viagra,cialis,nigeria,you've won,
-		million dollar,sexo,duro,has ganado,millón de dólares"/>
-		<property name="spamThreshold" value="2.50"/>
-		<property name="activitySectors" value="Technology, Science, Arts, Business, Health"></property> 
-	</bean>
-	
 	<!-- Notices -->
 		
 	<bean id="notice01" class="acme.entities.notices.Notice">
-		<property name="header" value="https://phantom-elmundo.unidadeditorial.es/ab3588cdbeaaa4171cf10c3d9da481e3/resize/600/f/webp/assets/multimedia/imagenes/2020/06/09/15917076655032.jpg" />
+		<property name="headerImage" value="https://phantom-elmundo.unidadeditorial.es/ab3588cdbeaaa4171cf10c3d9da481e3/resize/600/f/webp/assets/multimedia/imagenes/2020/06/09/15917076655032.jpg" />
 		<property name="title" value="Notice 01" />
 		<property name="creationMoment" value="2019/02/15 17:45" />
 		<property name="deadline" value="2021/12/31 23:11" />
@@ -548,7 +662,7 @@
 	</bean>
 	
 	<bean id="notice02" class="acme.entities.notices.Notice">
-		<property name="header" value="https://phantom-elmundo.unidadeditorial.es/ab3588cdbeaaa4171cf10c3d9da481e3/resize/600/f/webp/assets/multimedia/imagenes/2020/06/09/15917076655032.jpg" />
+		<property name="headerImage" value="https://phantom-elmundo.unidadeditorial.es/ab3588cdbeaaa4171cf10c3d9da481e3/resize/600/f/webp/assets/multimedia/imagenes/2020/06/09/15917076655032.jpg" />
 		<property name="title" value="Notice 02" />
 		<property name="creationMoment" value="2019/01/15 17:45" />
 		<property name="deadline" value="2021/07/31 23:11" />
@@ -557,7 +671,7 @@
 	</bean>
 	
 	<bean id="notice03" class="acme.entities.notices.Notice">
-		<property name="header" value="https://phantom-elmundo.unidadeditorial.es/d3263622be6928b999f39695a59dde7f/crop/0x22/680x474/resize/600/f/webp/assets/multimedia/imagenes/2020/06/25/15931004862474.jpg" />
+		<property name="headerImage" value="https://phantom-elmundo.unidadeditorial.es/d3263622be6928b999f39695a59dde7f/crop/0x22/680x474/resize/600/f/webp/assets/multimedia/imagenes/2020/06/25/15931004862474.jpg" />
 		<property name="title" value="Notice 03" />
 		<property name="creationMoment" value="2019/10/15 00:01" />
 		<property name="deadline" value="2021/01/30 07:11" />
@@ -566,7 +680,7 @@
 	</bean>
 	
 	<bean id="notice04" class="acme.entities.notices.Notice">
-		<property name="header" value="https://www.inversi.cl/wp-content/uploads/2018/02/header-bg.png" />
+		<property name="headerImage" value="https://www.inversi.cl/wp-content/uploads/2018/02/header-bg.png" />
 		<property name="title" value="Notice 04" />
 		<property name="creationMoment" value="2019/10/15 00:01" />
 		<property name="deadline" value="2020/06/28 07:11" />

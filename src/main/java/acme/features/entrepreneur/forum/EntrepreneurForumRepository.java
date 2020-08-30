@@ -43,4 +43,8 @@ public interface EntrepreneurForumRepository extends AbstractRepository {
 
 	@Query("select m from Messenger m where m.forum.id = ?1")
 	Collection<Messenger> findMessengersByForumId(int id);
+	
+	@Query("select f from Forum f where f.investmentRound.id = ?1")
+	Forum findOneByInvestmentRoundId(int investmentRoundId);
+
 }

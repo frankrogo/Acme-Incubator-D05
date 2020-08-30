@@ -39,7 +39,7 @@ public class EntrepreneurInvestmentRoundShowService implements AbstractShowServi
 		investmentRound = this.repository.findOneById(investmentRoundId);
 		entrepreneur = investmentRound.getEntrepreneur();
 		principal = request.getPrincipal();
-		result = investmentRound.isFinalMode() || !investmentRound.isFinalMode() && entrepreneur.getUserAccount().getId() == principal.getAccountId();
+		result = entrepreneur.getUserAccount().getId() == principal.getAccountId();
 		return result;
 	}
 
@@ -53,6 +53,7 @@ public class EntrepreneurInvestmentRoundShowService implements AbstractShowServi
 		model.setAttribute("investmentRoundId", investmentRoundId);
 		boolean haveApplications = haveApplications(investmentRoundId);
 		model.setAttribute("haveApplications", haveApplications);
+		model.setAttribute("finalmode", this.repository.findOneById(investmentRoundId).isFinalMode());
 		
 
 	}

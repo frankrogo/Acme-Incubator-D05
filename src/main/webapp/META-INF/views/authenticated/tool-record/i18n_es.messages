@@ -8,6 +8,7 @@ authenticated.tool-record.form.label.stars = Estrellas:
 authenticated.tool-record.form.label.source = Tipo de código:
 authenticated.tool-record.form.button.return = Volver
 
-
+authenticated.tool-record.list.label.stars =  Estrellas
+authenticated.tool-record.list.label.sector = Sector
 authenticated.tool-record.list.label.title = Título
 authenticated.tool-record.list.label.inventorName = Nombre del inventor

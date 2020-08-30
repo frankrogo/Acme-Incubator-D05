@@ -8,14 +8,14 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.accounting-record.investment-ticker = Investement Round's ticker
+authenticated.accounting-record.investment-round-ticker = Investement Round's ticker
 
 authenticated.accounting-record.list.label.title = Title
 authenticated.accounting-record.list.label.status = Status
 authenticated.accounting-record.list.label.creationMoment = Creation moment
 
-authenticated.accounting-record.form.label.title = Title
-authenticated.accounting-record.form.label.status = Status
-authenticated.accounting-record.form.label.creationMoment = Creation moment
-authenticated.accounting-record.form.label.body = Body
+authenticated.accounting-record.form.label.title = Title:
+authenticated.accounting-record.form.label.status = Status:
+authenticated.accounting-record.form.label.creationMoment = Creation moment:
+authenticated.accounting-record.form.label.body = Body:
 authenticated.accounting-record.form.button.return = Return

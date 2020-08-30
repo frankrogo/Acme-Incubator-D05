@@ -18,14 +18,14 @@ import acme.framework.controllers.AbstractController;
 public class EntrepreneurAccountingRecordController extends AbstractController<Entrepreneur, AccountingRecord> {
 
 	@Autowired
-	private EntrepreneurAccountingRecordListMineService	listMineService;
+	private EntrepreneurAccountingRecordListByInvestmentRoundService	listByIrService;
 	@Autowired
-	private EntrepreneurAccountingRecordShowService		showService;
+	private EntrepreneurAccountingRecordShowService						showService;
 
 
 	@PostConstruct
 	private void initialise() {
-		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
+		super.addCustomCommand(CustomCommand.LIST_BY_IR, BasicCommand.LIST, this.listByIrService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 

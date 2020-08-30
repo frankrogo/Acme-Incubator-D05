@@ -86,14 +86,12 @@ master.menu.entrepreneur.investment-round.list-mine = List my investment rounds
 master.menu.entrepreneur.application.list-mine = List applications made to my inv.rounds
 master.menu.entrepreneur.forum.list-mine = My forums
 master.menu.entrepreneur.investment-round.create = Create investment rounds
-master.menu.entrepreneur.forum.list-mine = My inv.round's forums
 
 # master.menu.investor ########################################################
 
 master.menu.investor = Investor
 
 master.menu.investor.application.list-mine = List my applications
-master.menu.investor.forum.list-mine = Forums from my accepted applications
 
 # master.menu.bookkeeper ########################################################
 

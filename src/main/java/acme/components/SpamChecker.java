@@ -3,6 +3,8 @@ package acme.components;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import acme.entities.configurations.Configuration;
 
@@ -11,53 +13,47 @@ public class SpamChecker {
 	public static boolean spamChecker(final Configuration config, final String text) {
 
 		Collection<String> spamReady;
-		Collection<String> textReady;
+		//Collection<String> textReady;
+		String textReady;
 		String spamWords;
 		double spamThreshold;
 		double spamResult;
 		double spamCounter = 0;
-		double numWords;
 		boolean result;
 
 		spamWords = config.getSpamWords();
 		spamThreshold = config.getSpamThreshold();
 		spamReady = SpamChecker.beforeChecking2(spamWords);
-		textReady = SpamChecker.beforeChecking2(text);
-
-		numWords = textReady.size();
-
+		//textReady = SpamChecker.beforeChecking2(text);
+		textReady = text;
 		for (String s : spamReady) {
-			for (String t : textReady) {
-				if (s.equals(t) || t.toLowerCase().contains(s.toLowerCase())) {
-					spamCounter++;
-				}
+			Pattern p = Pattern.compile(s);
+			Matcher m = p.matcher(textReady);
+			while (m.find()) {
+				spamCounter++;
 			}
 		}
 
-		spamResult = Double.valueOf(spamCounter / numWords) * 100;
-
+		spamResult = Double.valueOf(spamCounter / SpamChecker.textWord(textReady)) * 100;
 		if (spamResult >= spamThreshold) {
 			result = true;
 		} else {
 			result = false;
 		}
-
 		return result;
 	}
 
-	//	public static Collection<String> beforeChecking1(final String text) {
-	//
-	//		Collection<String> result = new ArrayList<String>();
-	//		result.add(text);
-	//
-	//		String[] s = text.split(",");
-	//
-	//		for (String word : s) {
-	//			//word.trim().replaceAll(" +", " ");
-	//			result.add(word);
-	//		}
-	//		return result;
-	//	}
+	public static Integer textWord(final String text) {
+		Integer result = 1;
+		String[] s;
+		if (text.contains(" ")) {
+			s = text.split(" ");
+			for (String word : s) {
+				result = result + 1;
+			}
+		}
+		return result;
+	}
 
 	public static Collection<String> beforeChecking2(final String text) {
 

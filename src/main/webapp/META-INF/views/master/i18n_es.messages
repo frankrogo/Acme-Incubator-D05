@@ -84,7 +84,6 @@ master.menu.entrepreneur = Emprendedor
 
 master.menu.entrepreneur.investment-round.list-mine = Lista de mis rondas de inversión
 master.menu.entrepreneur.application.list-mine = Lista de applicaciones hechas a mis rondas de inversión
-master.menu.entrepreneur.forum.list-mine = Mis foros
 master.menu.entrepreneur.investment-round.create = Crear ronda de iversión
 
 # master.menu.investor ########################################################
@@ -92,7 +91,6 @@ master.menu.entrepreneur.investment-round.create = Crear ronda de iversión
 master.menu.investor = Inversor
 
 master.menu.investor.application.list-mine = Lista de mis aplicaciones
-master.menu.investor.forum.list-mine = Mis foros
 
 # master.menu.bookeeper ########################################################
 

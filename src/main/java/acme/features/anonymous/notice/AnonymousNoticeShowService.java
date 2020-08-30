@@ -28,7 +28,7 @@ public class AnonymousNoticeShowService implements AbstractShowService<Anonymous
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "header", "title", "creationMoment", "deadline", "body");
+		request.unbind(entity, model, "headerImage", "title", "creationMoment", "deadline", "body");
 		String[] links = entity.getLinks().split(",");
 		model.setAttribute("links", links);
 	}

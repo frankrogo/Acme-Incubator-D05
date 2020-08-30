@@ -1,6 +1,8 @@
 
 package acme.features.authenticated.messenger;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +23,22 @@ public class AuthenticatedMessengerShowService implements AbstractShowService<Au
 	@Override
 	public boolean authorise(final Request<Messenger> request) {
 		assert request != null;
-		return true;
+		boolean result = false;
+		Messenger messenger;
+		Integer forumid;
+		Collection<Messenger> messengers;
+		Principal principal = request.getPrincipal();
+		
+		messenger = this.repository.findOneById(request.getModel().getInteger("id"));
+		forumid = messenger.getForum().getId();
+		messengers = this.repository.findMessengersByForumId(forumid);
+		for(Messenger m : messengers) {
+			if(m.getAuthenticated().getUserAccount().getId() == principal.getAccountId()) {
+				result= true;
+				break;
+			}
+		}
+		return result;
 	}
 
 	@Override
@@ -32,6 +49,9 @@ public class AuthenticatedMessengerShowService implements AbstractShowService<Au
 
 		request.unbind(entity, model, "ownsTheForum");
 		Integer forumId = entity.getForum().getId();
+		if (entity.getForum().getInvestmentRound() != null) {
+			model.setAttribute("investmentRoundTicker", entity.getForum().getInvestmentRound().getTicker());
+		}
 		model.setAttribute("forumName", entity.getForum().getTitle());
 
 		boolean ownerForum = false;

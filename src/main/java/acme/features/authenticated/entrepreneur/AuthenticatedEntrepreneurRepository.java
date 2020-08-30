@@ -23,7 +23,7 @@ import acme.framework.repositories.AbstractRepository;
 public interface AuthenticatedEntrepreneurRepository extends AbstractRepository {
 
 	@Query("select e from Entrepreneur e where e.userAccount.id = ?1")
-	Entrepreneur findOneProviderByUserAccountId(int id);
+	Entrepreneur findOneEntrepreneurByUserAccountId(int id);
 
 	@Query("select ua from UserAccount ua where ua.id = ?1")
 	UserAccount findOneUserAccountById(int id);

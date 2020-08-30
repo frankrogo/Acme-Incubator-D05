@@ -12,6 +12,7 @@ administrator.notice.error.must-check = You must confirm to store the notice
 administrator.notice.error.future-deadline = The deadline must be at least one weak ahead
 administrator.notice.error.links = Not a valid URL format
 administrator.notice.error.comma = A "," must appear after or between urls
+administrator.notice.error.formatNotices = Please introduce ", " between the URLs
 
 
 administrator.notice.list.label.title = Title

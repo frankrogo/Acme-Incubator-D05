@@ -15,7 +15,9 @@ package acme.features.authenticated.investor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.configurations.Configuration;
 import acme.entities.roles.Investor;
+import acme.features.administrator.configuration.AdministratorConfigurationRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -33,13 +35,15 @@ public class AuthenticatedInvestorUpdateService implements AbstractUpdateService
 
 	@Autowired
 	private AuthenticatedInvestorRepository repository;
-
+	@Autowired
+	private AdministratorConfigurationRepository configurationRepository;
 
 	@Override
 	public boolean authorise(final Request<Investor> request) {
 		assert request != null;
-
-		return true;
+		Investor investor;
+		investor = this.repository.findOneInvestorByUserAccountId(request.getPrincipal().getAccountId());
+		return investor!=null ;
 	}
 
 	@Override
@@ -58,6 +62,11 @@ public class AuthenticatedInvestorUpdateService implements AbstractUpdateService
 		assert model != null;
 
 		request.unbind(entity, model, "firm", "sector", "profile");
+		Configuration config = this.configurationRepository.findOneConfiguration();
+		String paramConfig = config.getActivitySectors();
+		String[] params= paramConfig.split(",");
+		model.setAttribute("params", params);
+		
 	}
 
 	@Override
@@ -81,6 +90,10 @@ public class AuthenticatedInvestorUpdateService implements AbstractUpdateService
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		Configuration config = this.configurationRepository.findOneConfiguration();
+		String paramConfig = config.getActivitySectors();
+		String[] params= paramConfig.split(",");
+		request.getModel().setAttribute("params", params);
 	}
 
 	@Override

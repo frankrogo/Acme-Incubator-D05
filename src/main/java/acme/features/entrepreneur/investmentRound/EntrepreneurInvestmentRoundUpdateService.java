@@ -78,7 +78,7 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		int investmentRoundId = request.getModel().getInteger("id");
 		Collection<Activity> activities = this.activityRepository.findManyByInvestmentRoundId(investmentRoundId);
 		errors.state(request, AmountFinalMode(entity.isFinalMode(),entity.getMoneyAmount(), getSumBudgets(activities)) == true, "finalMode",
-				"Entrepreneur.InvestmentRound.error.finalMode.notvalid");
+				"Entrepreneur.InvestmentRound.error.finalMode.notvalid" );
 		boolean spamCheckOk;
 		Configuration configuration = this.repository.findConfiguration();
 		String spam = request.getModel().getString("title")+ " " + request.getModel().getString("description") ;
@@ -90,14 +90,14 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 	private Double getSumBudgets(Collection<Activity> activities) {
 		Double suma = 0.0;
 		for (Activity a: activities) {
-			suma=+a.getBudget().getAmount();
+			suma = suma + a.getBudget().getAmount();
 		}
 		return suma;
 	}
 	private boolean AmountFinalMode(boolean finalMode, Money moneyAmount, Double sumBudgets) {
 		boolean res= false;
-		if(moneyAmount.getAmount()!=null &&moneyAmount.getCurrency()!=null) {
-			if(finalMode && moneyAmount.getAmount()<=sumBudgets) {
+		if(moneyAmount.getAmount()!=null && moneyAmount.getCurrency()!=null) {
+			if(finalMode && moneyAmount.getAmount().equals(sumBudgets)){
 				res= true;
 			}
 			if(!finalMode)res=true;	

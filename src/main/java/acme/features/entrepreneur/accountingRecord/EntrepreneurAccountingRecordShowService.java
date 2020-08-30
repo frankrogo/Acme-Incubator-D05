@@ -44,6 +44,8 @@ public class EntrepreneurAccountingRecordShowService implements AbstractShowServ
 		assert model != null;
 		request.unbind(entity, model, "title", "status", "creationMoment", "body");
 		model.setAttribute("investmentRoundTicker", entity.getInvestmentRound().getTicker());
+		String statusl = entity.isStatus() ? "draft" : "published";
+		model.setAttribute("statusl", statusl);
 	}
 
 	@Override

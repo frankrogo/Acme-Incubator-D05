@@ -1,9 +1,13 @@
-authenticated.forum.form.label.title = Título
+authenticated.forum.list.label.title = Título
+authenticated.forum.list.label.investmentRoundTicker = Ticker de la ronda de inversión
 
+authenticated.forum.form.label.investmentRoundTicker = Ticker de la ronda de inversión:
 authenticated.forum.form.label.title = Título
 authenticated.forum.form.button.messages = Mensajes del foro
 authenticated.forum.form.button.messengers = Ver foreros
 authenticated.forum.form.button.createMessenger = Añadir forero
 authenticated.forum.form.button.createMessage = Postear nuevo mensaje
+authenticated.forum.form.button.delete = Borrar foro
 authenticated.forum.form.button.return = Volver
 authenticated.forum.form.button.create = Crear foro
+authenticated.forum.error.spam = El título contiene una o más palabras spam

@@ -51,7 +51,11 @@ public class AuthenticatedForumDeleteService implements AbstractDeleteService<Au
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		request.bind(entity, errors, "title", "investmentRound", "authenticated");
+		if (entity.getInvestmentRound() != null) {
+			request.bind(entity, errors, "title", "investmentRound", "authenticated");
+		} else {
+			request.bind(entity, errors, "title", "authenticated");
+		}
 	}
 
 	@Override

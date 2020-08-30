@@ -8,6 +8,8 @@ anonymous.technology-record.form.label.stars = Stars:
 anonymous.technology-record.form.label.source = Type of source:
 anonymous.technology-record.form.button.return = Return
 
+anonymous.technology-record.list.label.sector= Sector
+anonymous.technology-record.list.label.stars = Stars
 anonymous.technology-record.list.label.title = Title
 anonymous.technology-record.list.label.inventorName = Inventor name
 

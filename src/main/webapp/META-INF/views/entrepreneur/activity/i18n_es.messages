@@ -18,3 +18,5 @@ entrepreneur.activity.form.label.deadline = Fecha límite
 entrepreneur.activity.form.label.budget = Presupuesto
 entrepreneur.activity.form.button.return = Volver
 entrepreneur.activity.form.button.create = Crear 
+entrepreneur.activity.error.budget.overAmount = El presupuesto de las actividades han superado la cantidad monetaria de la ronda de inversión por:
+entrepreneur.activity.error.budget.null = El presupuesto no puede ser nulo

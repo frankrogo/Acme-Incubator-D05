@@ -14,10 +14,20 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <acme:form>
 	<acme:form-textbox code="authenticated.entrepreneur.form.label.startup" path="startup"/>
-	<acme:form-textbox code="authenticated.entrepreneur.form.label.sector" path="sector"/>
+	<h5><acme:message code="authenticated.entrepreneur.form.label.sector"  /></h5>
+       <select name="sector">
+          <c:forEach var="item" items="${params}">
+            <option value="${item}"${item == sector ? 'selected':''}>${item}</option>
+          </c:forEach>
+        </select>
+        <br>
+        <br>
+        
+	<%-- <acme:form-textbox code="authenticated.entrepreneur.form.label.sector" path="sector"/> --%>
 	<acme:form-textbox code="authenticated.entrepreneur.form.label.qualifications" path="qualifications"/>
 	<acme:form-textbox code="authenticated.entrepreneur.form.label.skills" path="skills"/>
 	

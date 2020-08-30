@@ -5,7 +5,12 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<img src ="${header}" alt="anonymous.notice.form.label.header"/>
+	<style type="text/css"> 
+	.imagen{
+	max-width: 250px;
+	}
+</style> 
+	<img src ="${headerImage}" class="imagen"/>
 	<acme:form-textbox code="anonymous.notice.form.label.title" path="title"/>
 	<acme:form-moment code="anonymous.notice.form.label.creationMoment" path="creationMoment"/>
 	<acme:form-moment code="anonymous.notice.form.label.deadline" path="deadline"/>
