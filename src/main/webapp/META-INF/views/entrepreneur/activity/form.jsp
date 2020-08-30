@@ -19,11 +19,13 @@
 
 	<acme:form-textbox code="entrepreneur.activity.form.label.title" path="title"/>
 	<jstl:if test="${command != 'create'}">
-		<acme:form-moment code="entrepreneur.activity.form.label.creationMoment" path="creationMoment"/>
+		<acme:form-moment code="entrepreneur.activity.form.label.creationMoment" path="creationMoment" readonly="true"/>
 	</jstl:if>
 	<acme:form-hidden path="investmentRoundId"/>
 	<acme:form-moment code="entrepreneur.activity.form.label.deadline" path="deadline"/>
 	<acme:form-money code="entrepreneur.activity.form.label.budget" path="budget"/>
 	<acme:form-submit test="${command == 'create' }" code="entrepreneur.activity.form.button.create" action="/entrepreneur/activity/create"/>
+	<acme:form-submit test="${(command == 'show'|| command == 'update') && !finalMode}" code="entrepreneur.activity.form.button.update" action="/entrepreneur/activity/update"/>
+	<acme:form-submit test="${command == 'show' && !finalMode && numberOfActivities!=1 }" code="entrepreneur.activity.form.button.delete" action="/entrepreneur/activity/delete"/>
   	<acme:form-return code="entrepreneur.activity.form.button.return"/>
 </acme:form>

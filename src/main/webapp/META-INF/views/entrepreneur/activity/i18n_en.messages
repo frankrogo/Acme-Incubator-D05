@@ -11,6 +11,8 @@
 entrepreneur.activity.list.label.title = Title
 entrepreneur.activity.list.label.creationMoment = Creation moment
 entrepreneur.activity.list.button.return = Return
+entrepreneur.activity.form.button.update = Update
+entrepreneur.activity.form.button.delete = Delete
 
 entrepreneur.activity.form.label.title = Title
 entrepreneur.activity.form.label.creationMoment = Creation moment
@@ -20,3 +22,6 @@ entrepreneur.activity.form.button.return = Return
 entrepreneur.activity.form.button.create = Create
 entrepreneur.activity.error.budget.overAmount = The budget of the activities have surpased the investment round amount by:
 entrepreneur.activity.error.budget.null = The budget cannot be null
+entrepreneur.activity.error.future-deadline = Deadline must be after the actual date and time
+Entrepreneur.activity.error.spam =  Title contains one or more spam words
+

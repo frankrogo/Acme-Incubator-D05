@@ -1,4 +1,3 @@
-
 package acme.features.entrepreneur.activity;
 
 import java.util.Calendar;
@@ -17,19 +16,16 @@ import acme.entities.roles.Entrepreneur;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.datatypes.Money;
 import acme.framework.entities.Principal;
-import acme.framework.services.AbstractCreateService;
+import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class EntrepreneurActivityCreateService implements AbstractCreateService<Entrepreneur, Activity> {
-
+public class EntrepreneurActivityUpdateService implements AbstractUpdateService<Entrepreneur, Activity>{
+	
 	@Autowired
 	EntrepreneurActivityRepository repository;
-
-
 	@Override
-	public boolean authorise(final Request<Activity> request) {
+	public boolean authorise(Request<Activity> request) {
 		boolean result;
 		InvestmentRound investmentRound;
 		Entrepreneur entrepreneur;
@@ -43,35 +39,39 @@ public class EntrepreneurActivityCreateService implements AbstractCreateService<
 	}
 
 	@Override
-	public void bind(final Request<Activity> request, final Activity entity, final Errors errors) {
+	public void bind(Request<Activity> request, Activity entity, Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		request.bind(entity, errors, "investmentRoundId");
+
+		request.bind(entity, errors);
 	}
 
 	@Override
-	public void unbind(final Request<Activity> request, final Activity entity, final Model model) {
+	public void unbind(Request<Activity> request, Activity entity, Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "title", "deadline", "budget");
-		model.setAttribute("investmentRoundId", request.getModel().getInteger("investmentRoundId"));
 
+		request.unbind(entity, model, "title", "deadline", "budget", "creationMoment");
+		model.setAttribute("finalmode", entity.getInvestmentRound().isFinalMode());
+
+		
 	}
 
 	@Override
-	public Activity instantiate(final Request<Activity> request) {
+	public Activity findOne(Request<Activity> request) {
 		assert request != null;
-		Activity result = new Activity();
-		result.setCreationMoment(new Date(System.currentTimeMillis() - 1));
-		InvestmentRound investmentRound = this.repository.findInvestmentRoundById(request.getModel().getInteger("investmentRoundId"));
-		result.setInvestmentRound(investmentRound);
+
+		Activity result;
+		int id = request.getModel().getInteger("id");
+		result = this.repository.findOneById(id);
+
 		return result;
 	}
 
 	@Override
-	public void validate(final Request<Activity> request, final Activity entity, final Errors errors) {
+	public void validate(Request<Activity> request, Activity entity, Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -142,11 +142,12 @@ public class EntrepreneurActivityCreateService implements AbstractCreateService<
 	}
 
 	@Override
-	public void create(final Request<Activity> request, final Activity entity) {
+	public void update(Request<Activity> request, Activity entity) {
 		assert request != null;
 		assert entity != null;
-		this.repository.save(entity);
 
+		this.repository.save(entity);
+		
 	}
 
 }
