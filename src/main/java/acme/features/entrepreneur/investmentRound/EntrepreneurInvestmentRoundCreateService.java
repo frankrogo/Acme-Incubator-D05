@@ -177,11 +177,23 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 
 		errors.state(request, !request.getModel().getString("titleForum").isEmpty(), "titleForum", "Entrepreneur.InvestmentRound.error.titleForum.notblank");
 
-		boolean spamCheckOk;
+		 
 		Configuration configuration = this.repository.findConfiguration();
-		String spam = request.getModel().getString("title") + " " + request.getModel().getString("description") + " " + request.getModel().getString("titleActivity");
-		spamCheckOk = SpamChecker.spamChecker(configuration, spam);
-		errors.state(request, !spamCheckOk, "*", "Entrepreneur.InvestmentRound.error.spam");
+		String spamTitle = request.getModel().getString("title") ;
+		boolean spamCheckTitle = SpamChecker.spamChecker(configuration, spamTitle);
+		errors.state(request, !spamCheckTitle, "title", "Entrepreneur.InvestmentRound.error.spam");
+		
+		String spamDescription = request.getModel().getString("description") ;
+		boolean spamCheckDescription = SpamChecker.spamChecker(configuration, spamDescription);
+		errors.state(request, !spamCheckDescription, "description", "Entrepreneur.InvestmentRound.error.spam");
+		
+		String spamTitleActivity = request.getModel().getString("titleActivity") ;
+		boolean spamCheckTitleActivity = SpamChecker.spamChecker(configuration, spamTitleActivity);
+		errors.state(request, !spamCheckTitleActivity, "titleActivity", "Entrepreneur.InvestmentRound.error.spam");
+		
+		String spamTitleForum = request.getModel().getString("titleForum") ;
+		boolean spamCheckTitleForum = SpamChecker.spamChecker(configuration, spamTitleForum);
+		errors.state(request, !spamCheckTitleForum, "titleForum", "Entrepreneur.InvestmentRound.error.spam");
 	}
 
 	private boolean moneyBudgetEs(final String budget) {

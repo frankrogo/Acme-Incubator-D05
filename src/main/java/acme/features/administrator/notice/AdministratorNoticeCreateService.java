@@ -80,22 +80,22 @@ public class AdministratorNoticeCreateService implements AbstractCreateService<A
 		}
 		//Checked related notices
 		String linksEntity =entity.getLinks() + ",";
-		String links = linksEntity.replace(" , ", ",").replace(",,", ",").replace(",,,", ",");
+		String links = linksEntity.replace(", ", ",");
 	
 		boolean comma = this.checkComma(links);
 		boolean linksChecked = this.checkLinks(links);
-		
+		errors.state(request, spaces(links), "links", "administrator.notice.error.formatNotices");
 		
 		if (!entity.getLinks().isEmpty() && comma == false && linksChecked == true) {
 			errors.state(request, comma, "links", "administrator.notice.error.comma");
 			
-		} else if (!entity.getLinks().isEmpty() && linksChecked == false && comma == true) {
+		} else if (!entity.getLinks().isEmpty() && linksChecked == false && comma == true && spaces(links)) {
 			errors.state(request, linksChecked, "links", "administrator.notice.error.links");
-		} else if (!entity.getLinks().isEmpty() && comma == false && linksChecked == false) {
+		} else if (!entity.getLinks().isEmpty() && comma == false && linksChecked == false && spaces(links)) {
 			errors.state(request, comma, "links", "administrator.notice.error.comma");
 			errors.state(request, linksChecked, "links", "administrator.notice.error.links");
 		}
-		errors.state(request, spaces(links), "links", "administrator.notice.error.links");
+		
 			
 
 		//Checkbox validation

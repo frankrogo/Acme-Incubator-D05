@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.configurations.Configuration;
+import acme.entities.roles.Entrepreneur;
 import acme.entities.roles.Investor;
 import acme.features.administrator.configuration.AdministratorConfigurationRepository;
 import acme.framework.components.Errors;
@@ -43,8 +44,9 @@ public class AuthenticatedInvestorCreateService implements AbstractCreateService
 	@Override
 	public boolean authorise(final Request<Investor> request) {
 		assert request != null;
-
-		return true;
+		Investor investor;
+		investor = this.repository.findOneInvestorByUserAccountId(request.getPrincipal().getAccountId());
+		return investor==null ;
 	}
 
 	@Override
@@ -93,6 +95,10 @@ public class AuthenticatedInvestorCreateService implements AbstractCreateService
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		Configuration config = this.configurationRepository.findOneConfiguration();
+		String paramConfig = config.getActivitySectors();
+		String[] params= paramConfig.split(",");
+		request.getModel().setAttribute("params", params);
 	}
 
 	@Override

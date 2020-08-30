@@ -44,8 +44,9 @@ public class AuthenticatedEntrepreneurCreateService implements AbstractCreateSer
 	@Override
 	public boolean authorise(final Request<Entrepreneur> request) {
 		assert request != null;
-
-		return true;
+		Entrepreneur entrepreneur;
+		entrepreneur = this.repository.findOneEntrepreneurByUserAccountId(request.getPrincipal().getAccountId());
+		return entrepreneur==null ;
 	}
 
 	@Override
@@ -94,6 +95,10 @@ public class AuthenticatedEntrepreneurCreateService implements AbstractCreateSer
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		Configuration config = this.configurationRepository.findOneConfiguration();
+		String paramConfig = config.getActivitySectors();
+		String[] params= paramConfig.split(",");
+		request.getModel().setAttribute("params", params);
 	}
 
 	@Override

@@ -14,6 +14,7 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.datatypes.Money;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -25,8 +26,16 @@ public class EntrepreneurActivityCreateService implements AbstractCreateService<
 
 	@Override
 	public boolean authorise(final Request<Activity> request) {
-		assert request != null;
-		return true;
+		boolean result;
+		InvestmentRound investmentRound;
+		Entrepreneur entrepreneur;
+		Principal principal;
+
+		investmentRound = this.repository.findInvestmentRoundById(request.getModel().getInteger("investmentRoundId"));
+		entrepreneur = investmentRound.getEntrepreneur();
+		principal = request.getPrincipal();
+		result = entrepreneur.getUserAccount().getId() == principal.getAccountId();
+		return result;
 	}
 
 	@Override

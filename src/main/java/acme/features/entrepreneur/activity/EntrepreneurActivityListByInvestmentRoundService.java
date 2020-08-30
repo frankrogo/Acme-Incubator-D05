@@ -11,6 +11,7 @@ import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -23,7 +24,17 @@ public class EntrepreneurActivityListByInvestmentRoundService implements Abstrac
 	@Override
 	public boolean authorise(final Request<Activity> request) {
 		assert request != null;
-		return true;
+
+		boolean result;
+		InvestmentRound investmentRound;
+		Entrepreneur entrepreneur;
+		Principal principal;
+
+		investmentRound = this.repository.findInvestmentRoundById(request.getModel().getInteger("investmentRoundId"));
+		entrepreneur = investmentRound.getEntrepreneur();
+		principal = request.getPrincipal();
+		result = entrepreneur.getUserAccount().getId() == principal.getAccountId();
+		return result;
 	}
 
 	@Override

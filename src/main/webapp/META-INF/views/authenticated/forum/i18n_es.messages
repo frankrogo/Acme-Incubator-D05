@@ -10,3 +10,4 @@ authenticated.forum.form.button.createMessage = Postear nuevo mensaje
 authenticated.forum.form.button.delete = Borrar foro
 authenticated.forum.form.button.return = Volver
 authenticated.forum.form.button.create = Crear foro
+authenticated.forum.error.spam = El título contiene una o más palabras spam

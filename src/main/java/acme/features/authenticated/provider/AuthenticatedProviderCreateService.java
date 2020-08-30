@@ -15,6 +15,7 @@ package acme.features.authenticated.provider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.roles.Entrepreneur;
 import acme.entities.roles.Provider;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
@@ -41,8 +42,9 @@ public class AuthenticatedProviderCreateService implements AbstractCreateService
 	@Override
 	public boolean authorise(final Request<Provider> request) {
 		assert request != null;
-
-		return true;
+		Provider provider;
+		provider = this.repository.findOneProviderByUserAccountId(request.getPrincipal().getAccountId());
+		return provider==null ;
 	}
 
 	@Override

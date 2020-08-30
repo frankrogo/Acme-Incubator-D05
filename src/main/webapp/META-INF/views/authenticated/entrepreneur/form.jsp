@@ -17,7 +17,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <acme:form>
-	
 	<acme:form-textbox code="authenticated.entrepreneur.form.label.startup" path="startup"/>
 	<h5><acme:message code="authenticated.entrepreneur.form.label.sector"  /></h5>
        <select name="sector">

@@ -40,7 +40,6 @@ public class TechnologyRecord extends DomainEntity {
 	@Email
 	private String				email;
 	
-	@NotNull
 	@Range(min = -5, max = 5)
 	private Integer				stars;
 

@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Consumer;
+import acme.entities.roles.Provider;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -41,8 +42,9 @@ public class AuthenticatedConsumerCreateService implements AbstractCreateService
 	@Override
 	public boolean authorise(final Request<Consumer> request) {
 		assert request != null;
-
-		return true;
+		Consumer consumer;
+		consumer = this.repository.findOneConsumerByUserAccountId(request.getPrincipal().getAccountId());
+		return consumer==null ;
 	}
 
 	@Override

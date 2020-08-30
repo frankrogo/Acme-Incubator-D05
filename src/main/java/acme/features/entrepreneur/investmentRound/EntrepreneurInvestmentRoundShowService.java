@@ -39,7 +39,7 @@ public class EntrepreneurInvestmentRoundShowService implements AbstractShowServi
 		investmentRound = this.repository.findOneById(investmentRoundId);
 		entrepreneur = investmentRound.getEntrepreneur();
 		principal = request.getPrincipal();
-		result = investmentRound.isFinalMode() || !investmentRound.isFinalMode() && entrepreneur.getUserAccount().getId() == principal.getAccountId();
+		result = entrepreneur.getUserAccount().getId() == principal.getAccountId();
 		return result;
 	}
 

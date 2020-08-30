@@ -4,6 +4,8 @@ package acme.features.authenticated.forum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamChecker;
+import acme.entities.configurations.Configuration;
 import acme.entities.forums.Forum;
 import acme.entities.messengers.Messenger;
 import acme.framework.components.Errors;
@@ -68,7 +70,11 @@ public class AuthenticatedForumCreateService implements AbstractCreateService<Au
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
+		
+		Configuration configuration = this.repository.findConfiguration();
+		String spamTitle = request.getModel().getString("title") ;
+		boolean spamCheckTitle = SpamChecker.spamChecker(configuration, spamTitle);
+		errors.state(request, !spamCheckTitle, "title", "authenticated.forum.error.spam");
 	}
 
 	@Override
