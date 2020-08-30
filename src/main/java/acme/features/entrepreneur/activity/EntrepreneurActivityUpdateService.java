@@ -55,6 +55,7 @@ public class EntrepreneurActivityUpdateService implements AbstractUpdateService<
 
 		request.unbind(entity, model, "title", "deadline", "budget", "creationMoment");
 		model.setAttribute("finalmode", entity.getInvestmentRound().isFinalMode());
+		model.setAttribute("previousBudget", entity.getBudget().getAmount());
 
 		
 	}
@@ -77,13 +78,14 @@ public class EntrepreneurActivityUpdateService implements AbstractUpdateService<
 		assert errors != null;
 		Collection<Activity> activities = this.repository.findManyByInvestmentRoundId(entity.getInvestmentRound().getId());
 		InvestmentRound ivr = entity.getInvestmentRound();
+		Double previousBudget= request.getModel().getDouble("previousBudget");
 		if (!errors.hasErrors("budget")) {
 			Double actualBudget = entity.getBudget().getAmount();
 			errors.state(request, actualBudget != null, "budget", "entrepreneur.activity.error.budget.null");
 			Double resta = 0.0;
-			boolean res = this.overAmount(activities, ivr, actualBudget); //si false, la activity actual excede el amount
+			boolean res = this.overAmount(activities, ivr, actualBudget, previousBudget); //si false, la activity actual excede el amount
 			if (res == false && !errors.hasErrors("budget")) {//en ese caso
-				resta = this.quantityLeft(activities, ivr, actualBudget);//print cuanto me he pasado
+				resta = this.quantityLeft(activities, ivr, actualBudget,previousBudget);//print cuanto me he pasado
 				if (request.getLocale().getLanguage().equals("es")) {
 					errors.state(request, res, "budget", "El presupuesto de las actividades ha superado la cantidad monetaria de la ronda de inversión por: " + resta + "EUR" );
 				}
@@ -110,7 +112,7 @@ public class EntrepreneurActivityUpdateService implements AbstractUpdateService<
 
 	}
 
-	private boolean overAmount(final Collection<Activity> activities, final InvestmentRound ivr, final Double actualBudget) {
+	private boolean overAmount(final Collection<Activity> activities, final InvestmentRound ivr, final Double actualBudget, Double previousBudget) {
 		boolean res = true;
 		Double ivrAmount = ivr.getMoneyAmount().getAmount();
 		Double rest = 0.0;
@@ -118,7 +120,7 @@ public class EntrepreneurActivityUpdateService implements AbstractUpdateService<
 			Double acMoney = a.getBudget().getAmount();
 			rest = acMoney + rest ;
 		}
-		if (rest + actualBudget > ivrAmount) {
+		if (rest - previousBudget + actualBudget > ivrAmount) {
 			res = false;
 		} else {
 			return res;
@@ -126,7 +128,7 @@ public class EntrepreneurActivityUpdateService implements AbstractUpdateService<
 		return res;
 	}
 
-	private Double quantityLeft(final Collection<Activity> activities, final InvestmentRound ivr, final Double actualBudget) {
+	private Double quantityLeft(final Collection<Activity> activities, final InvestmentRound ivr, final Double actualBudget, Double previousBudget) {
 		Double rest = 0.0;
 		Double resta = 0.0;
 		Double acMoney =0.0;
@@ -135,7 +137,7 @@ public class EntrepreneurActivityUpdateService implements AbstractUpdateService<
 			acMoney = acMoney + a.getBudget().getAmount();
 			
 		}
-		rest = actualBudget + acMoney;
+		rest = actualBudget- previousBudget + acMoney;
 		
 		resta = rest - ivrAmount;
 		return resta;
