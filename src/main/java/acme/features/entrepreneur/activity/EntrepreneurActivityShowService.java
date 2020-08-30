@@ -1,7 +1,10 @@
 
 package acme.features.entrepreneur.activity;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import acme.entities.activities.Activity;
@@ -46,6 +49,11 @@ public class EntrepreneurActivityShowService implements AbstractShowService<Entr
 		request.unbind(entity, model, "title", "creationMoment", "deadline", "budget");
 		model.setAttribute("investmentRoundId", entity.getInvestmentRound().getId());
 		model.setAttribute("finalMode", entity.getInvestmentRound().isFinalMode());
+		
+		Integer numberOfActivities = this.repository.findManyByInvestmentRoundId(entity.getInvestmentRound().getId()).size();
+		model.setAttribute("numberOfActivities", numberOfActivities);
+		
+		
 	}
 
 	@Override
