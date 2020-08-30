@@ -332,7 +332,7 @@
     </bean>
     
     <bean name="application3" class="acme.entities.applications.Application">
-        <property name="ticker" value="	TEC-16-110402" />
+        <property name="ticker" value="TEC-16-110402" />
         <property name="creationMoment" value="2016/11/11 01:59" />
         <property name="statement" value="Nothing to be said" />
         <property name="moneyOffer" value="€ 2000.00" />

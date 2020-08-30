@@ -10,6 +10,7 @@ import acme.entities.messengers.Messenger;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -22,7 +23,18 @@ public class AuthenticatedMessengerListByForumService implements AbstractListSer
 	@Override
 	public boolean authorise(final Request<Messenger> request) {
 		assert request != null;
-		return true;
+		boolean result = false;
+		Collection<Messenger> messengers;
+		Principal principal = request.getPrincipal();
+		
+		messengers = this.repository.findMessengersByForumId(request.getModel().getInteger("forumId"));
+		for(Messenger m : messengers) {
+			if(m.getAuthenticated().getUserAccount().getId() == principal.getAccountId()) {
+				result= true;
+				break;
+			}
+		}
+		return result;
 	}
 
 	@Override

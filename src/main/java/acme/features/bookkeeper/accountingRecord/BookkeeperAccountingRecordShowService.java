@@ -32,7 +32,7 @@ public class BookkeeperAccountingRecordShowService implements AbstractShowServic
 		accountingRecord = this.repository.findOneById(accountingRecordId);
 		bookkeeper = accountingRecord.getBookkeeper();
 		principal = request.getPrincipal();
-		result = accountingRecord.isStatus() || !accountingRecord.isStatus() && bookkeeper.getUserAccount().getId() == principal.getAccountId();
+		result = bookkeeper.getUserAccount().getId() == principal.getAccountId();
 		return result;
 	}
 

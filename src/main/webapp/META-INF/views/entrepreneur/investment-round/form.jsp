@@ -82,7 +82,6 @@
 				action="/entrepreneur/accounting-record/list-by-ir?investmentRoundId=${investmentRoundId}" method="get" />
 		</jstl:if>
 	</jstl:if>
-
 	<jstl:if test="${command == 'show' && haveApplications==true}">
 		<acme:form-submit code="entrepreneur.investment-round.form.button.delete" action="/entrepreneur/investment-round/delete" />
 	</jstl:if>
