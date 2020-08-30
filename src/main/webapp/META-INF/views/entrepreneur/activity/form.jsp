@@ -22,6 +22,7 @@
 		<acme:form-moment code="entrepreneur.activity.form.label.creationMoment" path="creationMoment" readonly="true"/>
 	</jstl:if>
 	<acme:form-hidden path="investmentRoundId"/>
+	<acme:form-hidden path="previousBudget"/>
 	<acme:form-moment code="entrepreneur.activity.form.label.deadline" path="deadline"/>
 	<acme:form-money code="entrepreneur.activity.form.label.budget" path="budget"/>
 	<acme:form-submit test="${command == 'create' }" code="entrepreneur.activity.form.button.create" action="/entrepreneur/activity/create"/>

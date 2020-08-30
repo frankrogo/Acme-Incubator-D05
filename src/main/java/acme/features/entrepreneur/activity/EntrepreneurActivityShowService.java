@@ -52,6 +52,7 @@ public class EntrepreneurActivityShowService implements AbstractShowService<Entr
 		
 		Integer numberOfActivities = this.repository.findManyByInvestmentRoundId(entity.getInvestmentRound().getId()).size();
 		model.setAttribute("numberOfActivities", numberOfActivities);
+		model.setAttribute("previousBudget", entity.getBudget().getAmount());
 		
 		
 	}
