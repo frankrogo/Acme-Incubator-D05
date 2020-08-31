@@ -30,6 +30,7 @@ public class EntrepreneurActivityCreateService implements AbstractCreateService<
 
 	@Override
 	public boolean authorise(final Request<Activity> request) {
+		assert request != null;
 		boolean result;
 		InvestmentRound investmentRound;
 		Entrepreneur entrepreneur;

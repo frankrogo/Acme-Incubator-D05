@@ -26,6 +26,7 @@ public class EntrepreneurActivityUpdateService implements AbstractUpdateService<
 	EntrepreneurActivityRepository repository;
 	@Override
 	public boolean authorise(Request<Activity> request) {
+		assert request != null;
 		boolean result;
 		InvestmentRound investmentRound;
 		Entrepreneur entrepreneur;

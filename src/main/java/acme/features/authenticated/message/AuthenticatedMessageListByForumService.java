@@ -26,6 +26,7 @@ public class AuthenticatedMessageListByForumService implements AbstractListServi
 
 	@Override
 	public boolean authorise(final Request<Message> request) {
+		assert request != null;
 
 		boolean result = false;
 		Collection<Messenger> messengers;
