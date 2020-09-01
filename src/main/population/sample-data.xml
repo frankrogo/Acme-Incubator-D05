@@ -20,8 +20,7 @@
 	<!-- Configuration -->
 	
 	<bean id="configuration" class="acme.entities.configurations.Configuration">
-		<property name="spamWords" value="sex,hard core,viagra,cialis,nigeria,you've won,
-		million dollar,sexo,duro,has ganado,millón de dólares"/>
+		<property name="spamWords" value="sex,hard core,viagra,cialis,nigeria,you've won,million dollar,sexo,duro,has ganado,millón de dólares"/>
 		<property name="spamThreshold" value="2.50"/>
 		<property name="activitySectors" value="Technology,Science,Arts,Business,Health"></property> 
 	</bean>

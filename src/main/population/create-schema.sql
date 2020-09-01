@@ -2,7 +2,7 @@
     create table `accounting_record` (
        `id` integer not null,
         `version` integer not null,
-        `body` varchar(255),
+        `body` varchar(1024),
         `creation_moment` datetime(6),
         `status` bit not null,
         `title` varchar(255),
@@ -44,7 +44,7 @@
         `money_offer_amount` double precision,
         `money_offer_currency` varchar(255),
         `reason_rejected` varchar(255),
-        `statement` varchar(255),
+        `statement` varchar(1024),
         `status` varchar(255),
         `ticker` varchar(255),
         `investment_round_id` integer not null,
@@ -64,7 +64,7 @@
         `version` integer not null,
         `user_account_id` integer,
         `firm` varchar(255),
-        `responsability_statement` varchar(255),
+        `responsability_statement` varchar(1024),
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -85,7 +85,7 @@
         `average_reward_amount` double precision,
         `average_reward_currency` varchar(255),
         `deadline` datetime(6),
-        `description` varchar(255),
+        `description` varchar(1024),
         `expert_goal` varchar(255),
         `expert_reward_amount` double precision,
         `expert_reward_currency` varchar(255),
@@ -118,9 +118,9 @@
        `id` integer not null,
         `version` integer not null,
         `user_account_id` integer,
-        `qualifications` varchar(255),
+        `qualifications` varchar(1024),
         `sector` varchar(255),
-        `skills` varchar(255),
+        `skills` varchar(1024),
         `startup` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
@@ -139,7 +139,7 @@
         `version` integer not null,
         `creation_moment` datetime(6),
         `deadline` datetime(6),
-        `description` varchar(255),
+        `description` varchar(1024),
         `email` varchar(255),
         `max_money_amount` double precision,
         `max_money_currency` varchar(255),
@@ -153,7 +153,7 @@
        `id` integer not null,
         `version` integer not null,
         `creation_moment` datetime(6),
-        `description` varchar(255),
+        `description` varchar(1024),
         `final_mode` bit not null,
         `money_amount_amount` double precision,
         `money_amount_currency` varchar(255),
@@ -178,7 +178,7 @@
     create table `message` (
        `id` integer not null,
         `version` integer not null,
-        `body` varchar(255),
+        `body` varchar(1024),
         `creation_moment` datetime(6),
         `tags` varchar(255),
         `title` varchar(255),
@@ -199,7 +199,7 @@
     create table `notice` (
        `id` integer not null,
         `version` integer not null,
-        `body` varchar(255),
+        `body` varchar(1024),
         `creation_moment` datetime(6),
         `deadline` datetime(6),
         `header_image` varchar(255),
@@ -213,7 +213,7 @@
         `version` integer not null,
         `creation_moment` datetime(6),
         `deadline` datetime(6),
-        `description` varchar(255),
+        `description` varchar(1024),
         `email` varchar(255),
         `max_money_amount` double precision,
         `max_money_currency` varchar(255),
@@ -235,7 +235,7 @@
     create table `technology_record` (
        `id` integer not null,
         `version` integer not null,
-        `description` varchar(255),
+        `description` varchar(1024),
         `email` varchar(255),
         `inventor_name` varchar(255),
         `is_open_source` bit,
@@ -249,7 +249,7 @@
     create table `tool_record` (
        `id` integer not null,
         `version` integer not null,
-        `description` varchar(255),
+        `description` varchar(1024),
         `email` varchar(255),
         `inventor_name` varchar(255),
         `is_open_source` bit,
@@ -281,7 +281,7 @@
     create table `perea_bulletin` (
        `id` integer not null,
         `version` integer not null,
-        `body` varchar(255),
+        `body` varchar(1024),
         `moment` datetime(6),
         `title` varchar(255),
         primary key (`id`)
@@ -291,7 +291,7 @@
        `id` integer not null,
         `version` integer not null,
         `author` varchar(255),
-        `description` varchar(255),
+        `description` varchar(1024),
         `moment` datetime(6),
         primary key (`id`)
     ) engine=InnoDB;

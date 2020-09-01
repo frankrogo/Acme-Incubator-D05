@@ -1,5 +1,7 @@
 entrepreneur.application.list.label.ticker = Ticker
 entrepreneur.application.list.label.creationMoment = Creation Moment
+entrepreneur.application.list.label.IRoundticker = Investment Round's ticker
+entrepreneur.application.list.label.IRoundtitle = Investment Round's title
 
 entrepreneur.application.form.label.investmentRoundTicker = Investment Round's ticker:
 entrepreneur.application.form.label.investmentRoundTitle = Investment Round's title:

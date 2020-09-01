@@ -77,9 +77,10 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		assert errors != null;
 		int investmentRoundId = request.getModel().getInteger("id");
 		Collection<Activity> activities = this.activityRepository.findManyByInvestmentRoundId(investmentRoundId);
-		errors.state(request, AmountFinalMode(entity.isFinalMode(),entity.getMoneyAmount(), getSumBudgets(activities)) == true, "finalMode",
-				"Entrepreneur.InvestmentRound.error.finalMode.notvalid" );
-		boolean spamCheckOk;
+		if (!errors.hasErrors("moneyAmount")) {
+			errors.state(request, AmountFinalMode(entity.isFinalMode(),entity.getMoneyAmount(), getSumBudgets(activities)) == true, "finalMode","Entrepreneur.InvestmentRound.error.finalMode.notvalid" );
+			errors.state(request, AmountValidate(entity.getMoneyAmount(), getSumBudgets(activities)) == true, "moneyAmount","Entrepreneur.InvestmentRound.error.moneyAmount.notvalid" );
+		}boolean spamCheckOk;
 		Configuration configuration = this.repository.findConfiguration();
 		String spam = request.getModel().getString("title")+ " " + request.getModel().getString("description") ;
 		spamCheckOk = SpamChecker.spamChecker(configuration, spam);
@@ -101,6 +102,16 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 				res= true;
 			}
 			if(!finalMode)res=true;	
+		}
+		return res;
+	}
+	private boolean AmountValidate(Money moneyAmount, Double sumBudgets) {
+		boolean res= false;
+		if(moneyAmount.getAmount()!=null && moneyAmount.getCurrency()!=null) {
+			if(moneyAmount.getAmount().equals(sumBudgets)){
+				res= true;
+			}
+			
 		}
 		return res;
 	}

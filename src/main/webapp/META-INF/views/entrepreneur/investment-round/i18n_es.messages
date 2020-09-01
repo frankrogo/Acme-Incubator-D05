@@ -36,3 +36,4 @@ Entrepreneur.InvestmentRound.error.spam = Título, descripción o título de act
 Entrepreneur.InvestmentRound.error.update.spam = Título o descripción contiene(n) alguna(s) palabra(s) spam
 Entrepreneur.InvestmentRound.error.titleForum.notblank = No puede estar vacío
 Entrepreneur.InvestmentRound.error.budgetActivity.novalidAmount = El presupuesto de la actividad no puede ser mayor que la cantidad monetaria
+Entrepreneur.InvestmentRound.error.moneyAmount.notvalid = La cantidad monetaria no puede ser menor que el presupuesto de la actividad
