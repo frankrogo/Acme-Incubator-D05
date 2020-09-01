@@ -46,6 +46,8 @@ public class EntrepreneurAccountingRecordShowService implements AbstractShowServ
 		model.setAttribute("investmentRoundTicker", entity.getInvestmentRound().getTicker());
 		String statusl = entity.isStatus() ? "draft" : "published";
 		model.setAttribute("statusl", statusl);
+		model.setAttribute("bookkeeper", entity.getBookkeeper().getUserAccount().getUsername());
+
 	}
 
 	@Override

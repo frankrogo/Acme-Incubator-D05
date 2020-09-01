@@ -6,7 +6,15 @@
 
 <acme:form>
 	<acme:form-textbox code="administrator.technology-record.form.label.title" path="title"/>
-	<acme:form-textbox code="administrator.technology-record.form.label.sector" path="sector"/>
+	
+	<h5><acme:message code="administrator.technology-record.form.label.sector"  /></h5>
+       <select name="sector">
+          <c:forEach var="item" items="${params}">
+            <option value="${item}"${item == sector ? 'selected':''}>${item}</option>
+          </c:forEach>
+        </select>
+        <br>
+	
 	<acme:form-textbox code="administrator.technology-record.form.label.inventorName" path="inventorName"/>
 	<acme:form-textarea code="administrator.technology-record.form.label.description" path="description"/>
 	<acme:form-url code="administrator.technology-record.form.label.website" path="website"/>

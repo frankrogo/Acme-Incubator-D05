@@ -9,7 +9,7 @@ administrator.notice.form.button.create = Crear
 administrator.notice.form.button.return = Volver
 
 administrator.notice.error.must-check = Debes confirmar para guardar el aviso
-administrator.notice.error.future-deadline = La fecha límite debe ser como mínimo una semana después de este momento
+administrator.notice.error.future-deadline = La fecha límite debe ser después de la fecha y hora actuales
 administrator.notice.error.links = Formato URL inválido
 administrator.notice.error.comma = Una "," debe aparecer despúes de un link o entre ellos
 administrator.notice.error.formatNotices = Por favor introduzca ", " entre las URL

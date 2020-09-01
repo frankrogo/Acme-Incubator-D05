@@ -10,7 +10,7 @@ administrator.overture.form.button.update = Actualizar
 administrator.overture.form.button.delete = Borrar
 administrator.overture.form.button.return = Volver
 
-administrator.overture.error.future-deadline = La fecha límite debe ser como mínimo una semana después de este momento
+administrator.overture.error.future-deadline = La fecha límite debe ser después de la fecha y hora actuales
 administrator.overture.error.minMoney = La divisa debe ser EUR or €
 administrator.overture.error.maxMoney = La divisa debe ser EUR or €
 administrator.overture.error.maxMoreThanMin = maxDinero debe ser mayor que minDinero

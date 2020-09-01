@@ -10,7 +10,7 @@ administrator.inquiry.form.button.update = Update
 administrator.inquiry.form.button.delete = Delete
 administrator.inquiry.form.button.return = Return
 
-administrator.inquiry.error.future-deadline = The deadline must be at least one weak ahead
+administrator.inquiry.error.future-deadline = The deadline must be after the actual date and time
 administrator.inquiry.error.minMoney = Currency must be EUR or €
 administrator.inquiry.error.maxMoney = Currency must be EUR or €
 administrator.inquiry.error.maxMoreThanMin = maxMoney must be greater than minMoney

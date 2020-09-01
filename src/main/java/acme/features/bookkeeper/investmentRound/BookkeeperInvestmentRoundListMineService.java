@@ -2,6 +2,7 @@
 package acme.features.bookkeeper.investmentRound;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,8 +44,10 @@ public class BookkeeperInvestmentRoundListMineService implements AbstractListSer
 
 		principal = request.getPrincipal();
 		res = this.repository.findManyByBookkeeperId(principal.getActiveRoleId());
+		res.stream().distinct().collect(Collectors.toList());
+		Collection<InvestmentRound> list = res.stream().distinct().collect(Collectors.toList());
+		return list;
 
-		return res;
 	}
 
 }

@@ -4,7 +4,9 @@ package acme.features.administrator.technologyRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.configurations.Configuration;
 import acme.entities.technologyRecords.TechnologyRecord;
+import acme.features.administrator.configuration.AdministratorConfigurationRepository;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
@@ -14,7 +16,10 @@ import acme.framework.services.AbstractShowService;
 public class AdministratorTechnologyRecordShowService implements AbstractShowService<Administrator, TechnologyRecord> {
 
 	@Autowired
-	AdministratorTechnologyRecordRepository repository;
+	AdministratorTechnologyRecordRepository			repository;
+
+	@Autowired
+	private AdministratorConfigurationRepository	configurationRepository;
 
 
 	@Override
@@ -29,9 +34,12 @@ public class AdministratorTechnologyRecordShowService implements AbstractShowSer
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "stars", "title", "sector", "inventorName", "description", "website", "email");
+		Configuration config = this.configurationRepository.findOneConfiguration();
+		String paramConfig = config.getActivitySectors();
+		String[] params = paramConfig.split(",");
+		model.setAttribute("params", params);
 		String source = entity.getIsOpenSource() ? "open-source" : "closed-source";
 		model.setAttribute("source", source);
-		model.setAttribute("isopen", entity.getIsOpenSource());
 	}
 
 	@Override

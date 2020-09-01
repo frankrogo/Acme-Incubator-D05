@@ -2,6 +2,7 @@ bookkeeper.accounting-record.list.label.title = Título
 bookkeeper.accounting-record.list.label.creationMoment = Fecha de creación
 bookkeeper.accounting-record.list.label.IRoundticker = Ticker de la ronda de inversión
 bookkeeper.accounting-record.list.label.IRoundtitle = Título de la ronda de inversión
+bookkeeper.accounting-record.list.label.status = Estado
 
 bookkeeper.accounting-record.form.label.investmentRoundTicker = Ticker de la ronda de inversión:
 bookkeeper.accounting-record.form.label.title = Título:

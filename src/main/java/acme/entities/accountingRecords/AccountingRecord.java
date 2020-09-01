@@ -3,6 +3,7 @@ package acme.entities.accountingRecords;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -39,6 +40,7 @@ public class AccountingRecord extends DomainEntity {
 	private Date				creationMoment;
 
 	@NotBlank
+	@Column(length = 1024)
 	private String				body;
 
 	//Relationships

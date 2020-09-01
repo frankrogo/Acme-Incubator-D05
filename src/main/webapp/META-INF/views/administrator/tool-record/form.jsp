@@ -2,10 +2,19 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <acme:form>
 	<acme:form-textbox code="administrator.tool-record.form.label.title" path="title"/>
-	<acme:form-textbox code="administrator.tool-record.form.label.sector" path="sector"/>
+	
+	<h5><acme:message code="administrator.tool-record.form.label.sector"  /></h5>
+       <select name="sector">
+          <c:forEach var="item" items="${params}">
+            <option value="${item}"${item == sector ? 'selected':''}>${item}</option>
+          </c:forEach>
+        </select>
+        <br>
+	
 	<acme:form-textbox code="administrator.tool-record.form.label.inventorName" path="inventorName"/>
 	<acme:form-textarea code="administrator.tool-record.form.label.description" path="description"/>
 	<acme:form-url code="administrator.tool-record.form.label.website" path="website"/>

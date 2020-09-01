@@ -10,7 +10,7 @@ administrator.inquiry.form.button.update = Actualizar
 administrator.inquiry.form.button.delete = Borrar
 administrator.inquiry.form.button.return = Volver
 
-administrator.inquiry.error.future-deadline = La fecha límite debe ser como mínimo una semana después de este momento
+administrator.inquiry.error.future-deadline = La fecha límite debe ser después de la fecha y hora actuales
 administrator.inquiry.error.minMoney = La divisa debe ser EUR or €
 administrator.inquiry.error.maxMoney = La divisa debe ser EUR or €
 administrator.inquiry.error.maxMoreThanMin = maxDinero debe ser mayor que minDinero

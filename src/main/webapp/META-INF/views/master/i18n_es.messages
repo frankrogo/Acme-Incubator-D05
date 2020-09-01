@@ -46,13 +46,13 @@ master.menu.anonymous.list-tool-record = Lista de registros de herramienta
 
 master.menu.authenticated = Autentificado
 
-master.menu.authenticated.list-notice = Lista de avisos
+master.menu.authenticated.list-notice = Lista de avisos activos
 master.menu.authenticated.list-technology-record = Lista de registros de tecnología
 master.menu.authenticated.list-tool-record = Lista de registros de herramienta
 master.menu.authenticated.list-inquiry = Lista de consultas
 master.menu.authenticated.list-overture = Lista de propuestas
 master.menu.authenticated.list-challenge = Lista de retos
-master.menu.authenticated.list-investment-round = Lista de rondas de inversión
+master.menu.authenticated.list-investment-round = Lista de rondas de inversión activas
 master.menu.authenticated.forum.create = Crear foro
 master.menu.authenticated.list-forum = Mis foros de autentificado
 
@@ -63,7 +63,7 @@ master.menu.administrator = Administrador
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.shutdown = Parar el sistema
 
-master.menu.administrator.list-notice = Lista de avisos
+master.menu.administrator.list-notice = Lista de todos los avisos
 master.menu.administrator.list-technology-record = Lista de registros de tecnología
 master.menu.administrator.list-tool-record = Lista de registros de herramienta
 master.menu.administrator.list-inquiry = Lista de consultas

@@ -14,7 +14,9 @@ entrepreneur.accounting-record.list.label.title = Title
 entrepreneur.accounting-record.list.label.status = Status
 entrepreneur.accounting-record.list.label.creationMoment = Creation moment
 entrepreneur.accounting-record.list.button.return = Return
+entrepreneur.accounting-record.list.label.bookkeeper = Bookkeeper
 
+entrepreneur.accounting-record.form.label.bookkeeper = Bookkeeper:
 entrepreneur.accounting-record.form.label.title = Title:
 entrepreneur.accounting-record.form.label.status = Status:
 entrepreneur.accounting-record.form.label.creationMoment = Creation moment:

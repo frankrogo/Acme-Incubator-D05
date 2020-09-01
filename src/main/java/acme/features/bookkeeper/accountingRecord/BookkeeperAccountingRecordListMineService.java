@@ -32,6 +32,8 @@ public class BookkeeperAccountingRecordListMineService implements AbstractListSe
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "title", "creationMoment", "investmentRound.ticker", "investmentRound.title");
+		String statusl = entity.isStatus() ? "published" : "draft";
+		model.setAttribute("statusl", statusl);
 	}
 
 	@Override

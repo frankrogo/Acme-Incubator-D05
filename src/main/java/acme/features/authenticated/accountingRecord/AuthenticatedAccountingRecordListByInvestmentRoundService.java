@@ -32,6 +32,9 @@ public class AuthenticatedAccountingRecordListByInvestmentRoundService implement
 		assert model != null;
 		request.unbind(entity, model, "title", "creationMoment");
 		request.getModel().setAttribute("listInvestmentRoundId", entity.getInvestmentRound().getId());
+		String statusl = entity.isStatus() ? "published" : "draft";
+		model.setAttribute("statusl", statusl);
+		model.setAttribute("bookkeeper", entity.getBookkeeper().getUserAccount().getUsername());
 	}
 
 	@Override

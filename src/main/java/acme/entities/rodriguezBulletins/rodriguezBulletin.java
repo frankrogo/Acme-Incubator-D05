@@ -3,6 +3,7 @@ package acme.entities.rodriguezBulletins;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,6 +26,7 @@ public class rodriguezBulletin extends DomainEntity {
 	private String				author;
 
 	@NotBlank
+	@Column(length = 1024)
 	private String				description;
 
 	@Temporal(TemporalType.TIMESTAMP)

@@ -736,7 +736,7 @@
 	
 	<bean id="technologyrecord01" class="acme.entities.technologyRecords.TechnologyRecord">
 		<property name="title" value="Technology record 01"/>
-		<property name="sector" value="This is the sector"/>
+		<property name="sector" value="Technology"/>
 		<property name="inventorName" value="Michael McFlinn"/>
 		<property name="description" value="This is the description of TechnologyRecord01"/>
 		<property name="website" value="http://www.example.com"/>
@@ -747,7 +747,7 @@
 	
 	<bean id="technologyrecord02" class="acme.entities.technologyRecords.TechnologyRecord">
 		<property name="title" value="Technology record 02"/>
-		<property name="sector" value="This is the sector"/>
+		<property name="sector" value="Technology"/>
 		<property name="inventorName" value="Bob George"/>
 		<property name="description" value="This is the description of TechnologyRecord02"/>
 		<property name="website" value="http://www.example.com"/>
@@ -755,51 +755,29 @@
 		<property name="stars" value="5"/>
 		<property name="isOpenSource" value="false" />
 	</bean>
-	
-	<bean id="technologyrecord03" class="acme.entities.technologyRecords.TechnologyRecord">
-		<property name="title" value="Technology record 03"/>
-		<property name="sector" value="This is the sector"/>
-		<property name="inventorName" value="Harry Hemingway"/>
-		<property name="description" value="This is the description of TechnologyRecord03"/>
-		<property name="website" value="http://www.example.com"/>
-		<property name="email" value="technologyrecord03@gmail.com"/>
-		<property name="stars" value="0"/>
-		<property name="isOpenSource" value="false" />
-	</bean>
-	
+
 	<!-- Tool records -->
 	
 	<bean id="toolrecord01" class="acme.entities.toolRecords.ToolRecord">
 		<property name="title" value="Tool record 01"/>
-		<property name="sector" value="This is the sector"/>
+		<property name="sector" value="Technology"/>
 		<property name="inventorName" value="Lucas Durant"/>
 		<property name="description" value="This is the description of ToolRecord01"/>
 		<property name="website" value="http://www.example.com"/>
 		<property name="email" value="toolrecord01@gmail.com"/>
-		<property name="stars" value="5"/>
+		<property name="stars" value=""/>
 		<property name="isOpenSource" value="false" />
 	</bean>
 	
 	<bean id="toolrecord02" class="acme.entities.toolRecords.ToolRecord">
 		<property name="title" value="Tool record 02"/>
-		<property name="sector" value="This is the sector"/>
+		<property name="sector" value="Technology"/>
 		<property name="inventorName" value="Frank Roosvelt"/>
 		<property name="description" value="This is the description of ToolRecord02"/>
 		<property name="website" value="http://www.example.com"/>
 		<property name="email" value="toolrecord02@gmail.com"/>
 		<property name="stars" value="-1"/>
 		<property name="isOpenSource" value="true" />
-	</bean>
-	
-	<bean id="toolrecord03" class="acme.entities.toolRecords.ToolRecord">
-		<property name="title" value="Tool record 03"/>
-		<property name="sector" value="This is the sector"/>
-		<property name="inventorName" value="George Michael"/>
-		<property name="description" value="This is the description of ToolRecord03"/>
-		<property name="website" value="http://www.example.com"/>
-		<property name="email" value="toolrecord03@gmail.com"/>
-		<property name="stars" value="0"/>
-		<property name="isOpenSource" value="false" />
 	</bean>
 	
 	<!-- Challenges -->

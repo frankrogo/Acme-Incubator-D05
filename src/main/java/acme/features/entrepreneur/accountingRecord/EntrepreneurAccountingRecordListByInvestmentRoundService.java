@@ -43,6 +43,9 @@ public class EntrepreneurAccountingRecordListByInvestmentRoundService implements
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "title", "creationMoment");
+		String statusl = entity.isStatus() ? "published" : "draft";
+		model.setAttribute("statusl", statusl);
+		model.setAttribute("bookkeeper", entity.getBookkeeper().getUserAccount().getUsername());
 	}
 
 	@Override

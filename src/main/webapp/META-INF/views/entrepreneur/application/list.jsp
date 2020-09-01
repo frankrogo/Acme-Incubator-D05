@@ -17,12 +17,14 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="entrepreneur.application.list.label.ticker" path="ticker" width="30%"/>
-	<acme:list-column code="entrepreneur.application.list.label.creationMoment" path="creationMoment" width="60%"/>
+	<acme:list-column code="entrepreneur.application.list.label.ticker" path="ticker" width="20%" />
+	<acme:list-column code="entrepreneur.application.list.label.creationMoment" path="creationMoment" width="20%" />
+	<acme:list-column code="entrepreneur.application.list.label.IRoundticker" path="investmentRoundTicker" width="20%" />/>
+	<acme:list-column code="entrepreneur.application.list.label.IRoundtitle" path="investmentRoundTitle" width="20%" />/>
 </acme:list>
 
 <acme:form>
-	<acme:form-return code="entrepreneur.application.form.button.return"/>
+	<acme:form-return code="entrepreneur.application.form.button.return" />
 </acme:form>
 
 

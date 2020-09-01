@@ -34,6 +34,8 @@ public class EntrepreneurApplicationListMineService implements AbstractListServi
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "ticker", "creationMoment");
+		model.setAttribute("investmentRoundTicker", entity.getInvestmentRound().getTicker());
+		model.setAttribute("investmentRoundTitle", entity.getInvestmentRound().getTitle());
 	}
 
 	@Override

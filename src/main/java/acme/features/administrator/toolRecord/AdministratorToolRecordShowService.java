@@ -4,7 +4,9 @@ package acme.features.administrator.toolRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.configurations.Configuration;
 import acme.entities.toolRecords.ToolRecord;
+import acme.features.administrator.configuration.AdministratorConfigurationRepository;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
@@ -14,7 +16,10 @@ import acme.framework.services.AbstractShowService;
 public class AdministratorToolRecordShowService implements AbstractShowService<Administrator, ToolRecord> {
 
 	@Autowired
-	AdministratorToolRecordRepository repository;
+	AdministratorToolRecordRepository				repository;
+
+	@Autowired
+	private AdministratorConfigurationRepository	configurationRepository;
 
 
 	@Override
@@ -29,6 +34,10 @@ public class AdministratorToolRecordShowService implements AbstractShowService<A
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "sector", "title", "inventorName", "description", "website", "email", "stars");
+		Configuration config = this.configurationRepository.findOneConfiguration();
+		String paramConfig = config.getActivitySectors();
+		String[] params = paramConfig.split(",");
+		model.setAttribute("params", params);
 		String source = entity.getIsOpenSource() ? "open-source" : "closed-source";
 		model.setAttribute("source", source);
 	}

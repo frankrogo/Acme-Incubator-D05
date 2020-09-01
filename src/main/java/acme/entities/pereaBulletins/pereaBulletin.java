@@ -3,6 +3,7 @@ package acme.entities.pereaBulletins;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,6 +26,7 @@ public class pereaBulletin extends DomainEntity {
 	private String				title;
 
 	@NotBlank
+	@Column(length = 1024)
 	private String				body;
 
 	@Temporal(TemporalType.TIMESTAMP)
