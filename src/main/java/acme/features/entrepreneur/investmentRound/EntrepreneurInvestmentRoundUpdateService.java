@@ -108,7 +108,7 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 	private boolean AmountValidate(Money moneyAmount, Double sumBudgets) {
 		boolean res= false;
 		if(moneyAmount.getAmount()!=null && moneyAmount.getCurrency()!=null) {
-			if(moneyAmount.getAmount().equals(sumBudgets)){
+			if(moneyAmount.getAmount()>=(sumBudgets)){
 				res= true;
 			}
 			
