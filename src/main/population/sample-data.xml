@@ -306,6 +306,14 @@
         <property name="investmentRound" ref="investmentRound02" />
     </bean>
     
+    <bean name="activity06" class="acme.entities.activities.Activity">
+        <property name="title" value="Activity 6" />
+        <property name="creationMoment" value="2020/05/12 00:00" />
+        <property name="deadline" value="2021/11/01 00:00" />
+        <property name="budget" value="500.00 EUR" />
+        <property name="investmentRound" ref="investmentRound03" />
+    </bean>
+    
     <!-- Applications -->
 	
 	<bean name="application1" class="acme.entities.applications.Application">
